@@ -6,7 +6,7 @@
 
 * Clone this repository on your `plugin folder`
 
-* Run command `npm i` to install node 
+* Run command `npm install` to install node 
 * Now run `npm run watch`
 Then activate the plugin from your WP admin dashboard.
 
@@ -26,7 +26,7 @@ Then activate the plugin from your WP admin dashboard.
  * src
  * package-lock.json
  
- ### Build on top of this boilerplat
+ ### Build on top of this boilerplate
  https://github.com/hasanuzzamanbe/wp-boilerplate-plugin-with-vuejs
  
  ### For Help:
