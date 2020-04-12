@@ -2,7 +2,7 @@
 
 #### A simple preloader WordPress using vue js.
 
-## How to use:
+## How to :
 
 * Clone this repository on your `plugin folder`
 
