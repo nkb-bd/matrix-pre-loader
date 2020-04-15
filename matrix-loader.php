@@ -2,11 +2,10 @@
 
 /*
 Plugin Name: Matrix Pre Loader
-Plugin URI: #
-Description: A simple pre loader plugin for website.
-Version: 0.1
-Author: #
-Author URI: #
+Description: A simple  pre loader plugin for WordPres website.
+Version: 1.0
+Author: Lukman Nakib
+Author URI: https://github.com/nkb-bd
 License: GPLv2 or later
 Text Domain: matrix-pre-loader
 */
@@ -34,12 +33,10 @@ defined('ABSPATH') or die('!');
 
 if(!defined('MATRIXLOADER_VERSION')){
 
-    define('MATRIXLOADER_VERSION_LITE', true);
-    define('MATRIXLOADER_VERSION', '1.1.0');
+    define('MATRIXLOADER_VERSION', '1.0');
     define('MATRIXLOADER_MAIN_FILE', __FILE__);
     define('MATRIXLOADER_URL', plugin_dir_url(__FILE__));
     define('MATRIXLOADER_DIR', plugin_dir_path(__FILE__));
-    define('PLUGIN_RUN_ONE_VERSION','0.1');
 
     require_once(MATRIXLOADER_DIR . 'includes/autoload.php');
 

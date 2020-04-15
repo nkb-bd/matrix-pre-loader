@@ -32,19 +32,24 @@ class AdminAjaxHandler {
 
     protected function settingsDataSubmit()
     {
-        $postedData = $_POST['data'];
+        $data = array();
+
+        $image =esc_url_raw($_POST['data']['image']);
+
+        $postedData = wp_unslash($_POST['data']);
         $data =array(
             'text' =>  (!isset($postedData['text']) ? 100 :sanitize_text_field ($postedData['text'])),
             'location' => sanitize_text_field ($postedData['location']),
             'bgcolor' => sanitize_text_field ($postedData['bgcolor']),
-            'width' => (!isset($postedData['width']) ? 100 :sanitize_text_field ($postedData['width']) ) ,
-            'height' =>  (!isset($postedData['height']) ? 100 :sanitize_text_field ($postedData['height']) ),
+            'width' => (!isset($postedData['width'])  && is_int($_POST['width'])? 100 :sanitize_text_field ($postedData['width']) ) ,
+            'height' =>  (!isset($postedData['height']) && is_int($_POST['height'])? 100 :sanitize_text_field ($postedData['height']) ),
             'matrix_style' => sanitize_text_field ($postedData['matrix_style']),
             'font_size' => sanitize_text_field ($postedData['font_size']),
-            'image' => sanitize_text_field ($postedData['image']),
+            'image' => $image,
             'custom_img' => sanitize_text_field ($postedData['custom_img']),
-            'loader_delay' =>(!isset($postedData['loader_delay']) ? 0 :sanitize_text_field ($postedData['loader_delay']) )  ,
+            'loader_delay' =>(!isset($postedData['loader_delay'])&& is_int($_POST['loader_delay']) ? 0 :sanitize_text_field ($postedData['loader_delay']) )  ,
         );
+//        print_r($data);
 
         update_option( 'matrix_pre_loader_option', $data );
         wp_send_json_success(true);

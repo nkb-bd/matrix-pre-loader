@@ -24,13 +24,14 @@ class LoaderController
     function __construct()
     {
         $data = get_option( 'matrix_pre_loader_option' );
-        $this->location         = $data['location'];
-        $this->preloader_image  = $data['image'];
-        $this->bg_color         = $data['bgcolor'];
-        $this->image_height     = $data['height'];
-        $this->image_width      = $data['width'];
-        $this->font_size        = $data['font_size'];
-        $this->delay            = $data['loader_delay'];
+
+        $this->location         = isset($data['location']) ? $data['location'] : '';
+        $this->preloader_image  = isset($data['image']) ? $data['image'] : '';
+        $this->bg_color         = isset($data['bgcolor']) ? $data['bgcolor'] : '';
+        $this->image_height     = isset($data['height']) ? $data['height']: '';
+        $this->image_width      = isset($data['width']) ?$data['width'] : '';
+        $this->font_size        = isset($data['font_size']) ? $data['font_size'] : '';
+        $this->delay            = isset($data['loader_delay']) ? $data['loader_delay'] : 0;
         $this->loader_text      = isset($data['text']) ? $data['text'] : '';
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
 
@@ -58,7 +59,7 @@ class LoaderController
             or $this->location == 'attachment' && is_attachment()
             or $this->location == 'error' && is_404()){
 
-            // location matched
+               // location matched
                 $this->loader_location_check = true;
                 $matrix_style = $this->matrix_style== 'true'? true : false;
                 if( $matrix_style){
@@ -68,8 +69,8 @@ class LoaderController
 
                 wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
                 $matrixloaderPublicVars =array(
-                    'loader_delay' =>  $this->delay,
-                    'font_size' =>  $this->font_size,
+                    'loader_delay' =>  (int) sanitize_text_field($this->delay),
+                    'font_size' =>  sanitize_text_field($this->font_size),
                 );
                 wp_localize_script('matrixloader-plugin-preloader-script', 'matrixloaderPublic', $matrixloaderPublicVars);
 
@@ -93,20 +94,22 @@ class LoaderController
                         left: 0;
                         right: 0;
                         bottom: 0;
-                        background:url('<?php echo $this->preloader_image?>')  no-repeat 50%;
-                        background-color: <?php echo $this->bg_color?>;
-                        -moz-background-size:<?php echo $this->image_width; ?>px <?php echo $this->image_height; ?>px;
-                        -o-background-size:<?php echo $this->image_width; ?>px <?php echo $this->image_height; ?>px;
-                        -webkit-background-size:<?php echo $this->image_width; ?>px <?php echo $this->image_height; ?>px;
-                        background-size:<?php echo $this->image_width; ?>px <?php echo $this->image_height; ?>px;
+                        background:url('<?php echo esc_url_raw($this->preloader_image)?>')  no-repeat 50%;
+                        background-color: <?php echo sanitize_text_field($this->bg_color)?>;
+                        color: inherit;
+                        -moz-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
+                        -o-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
+                        -webkit-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
+                        background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
                         z-index: 99999;
                         width:100%;
                         height:100%;
                     }
                     #matrix-pre-loader-container p{
                         position: fixed;
-                        font-size: <?php echo $this->font_size ?>px ;
-                        z-index: 99999;
+                        font-size: <?php echo sanitize_text_field( $this->font_size) ?>px ;
+                        z-index: 999999;
+                        color: inherit;
                         right: 49%;
                         width: 100%;
                         left: 48%;
@@ -140,7 +143,7 @@ class LoaderController
             echo '<canvas id="matrix-canvas"></canvas>';
         }else{
             echo '<div id="matrix-pre-loader-container" >
-                    <p>'.$this->loader_text.'</p>
+                    <p>'.esc_html($this->loader_text).'</p>
                     <div id="matrix-pre-loader-div"></div>
                 </div>';
         }
