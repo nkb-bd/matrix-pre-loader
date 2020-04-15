@@ -39,6 +39,6 @@ I will kee updating plugin if some one finds it useful for their website.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0 =
 
 * First version.

@@ -15,7 +15,6 @@ class Bootstrap
             $this->adminHooks();
         }
         $this->mainHook();
-
     }
 
     public function adminHooks()
@@ -42,18 +41,11 @@ class Bootstrap
 
     }
 
-    public function textDomain()
-    {
-        load_plugin_textdomain('matrix-pre-loader', false, basename(dirname(__FILE__)) . '/languages');
-    }
-
     public function mainHook()
     {
         $loaderRegister =  new \matrixloader\Classes\LoaderController();
         $loaderRegister->register();
     }
-
-
 
 }
 

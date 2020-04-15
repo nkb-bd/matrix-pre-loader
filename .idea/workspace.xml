@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/LoaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/LoaderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix-loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/matrix-loader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/Bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/HelperClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/global_functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix-pre-loader.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setup.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586696322224</updated>
       <workItem from="1586696328006" duration="1642000" />
-      <workItem from="1586960069784" duration="3585000" />
+      <workItem from="1586960069784" duration="4916000" />
     </task>
     <servers />
   </component>
@@ -106,6 +108,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586707755787" />
+    <state x="368" y="191" width="703" height="518" key="find.popup" timestamp="1586964919075">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="368" y="191" width="703" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586964919075" />
     <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1586697950057">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

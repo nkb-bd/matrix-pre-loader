@@ -13,8 +13,8 @@ class AdminAjaxHandler {
         add_action('wp_ajax_matrixloader_admin_ajax', array($this, 'handleEndPoint'));
     }
     public function handleEndPoint() {
-        $route = sanitize_text_field($_REQUEST['route']);
 
+        $route = sanitize_text_field($_REQUEST['route']);
         $validRoutes = array(
             'settings_data_submit' => 'settingsDataSubmit',
             'get_settings_data'    => 'getSettingsData',
@@ -33,10 +33,12 @@ class AdminAjaxHandler {
     protected function settingsDataSubmit()
     {
         $data = array();
-
-        $image =esc_url_raw($_POST['data']['image']);
-
+        $image = isset($_POST['data']['image'])? esc_url_raw($_POST['data']['image']) : '';
         $postedData = wp_unslash($_POST['data']);
+        if(empty($postedData)){
+            return wp_send_json_error(false);
+        }
+        
         $data =array(
             'text' =>  (!isset($postedData['text']) ? 100 :sanitize_text_field ($postedData['text'])),
             'location' => sanitize_text_field ($postedData['location']),

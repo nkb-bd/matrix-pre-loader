@@ -8,7 +8,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-include 'global_functions.php';
 if ( ! function_exists( 'matrixloaderAutoload' ) ) {
     /**
      * Plugin autoloader.
