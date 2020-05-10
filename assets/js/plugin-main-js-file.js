@@ -278,6 +278,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
@@ -298,6 +321,7 @@ __webpack_require__.r(__webpack_exports__);
         width: '',
         height: '',
         loader_delay: '',
+        wait_image: '',
         custom_img: ''
       },
       rules: {}
@@ -350,9 +374,11 @@ __webpack_require__.r(__webpack_exports__);
         _this3.formData.bgcolor = data.data.bgcolor;
         _this3.formData.loader_delay = data.data.loader_delay;
         _this3.formData.matrix_style = data.data.matrix_style == 'true' ? true : false;
+        _this3.formData.wait_image = data.data.wait_image == 'true' ? true : false;
         _this3.image_list = data.data.image_list;
         _this3.formData.image = data.data.image;
         _this3.formData.custom_img = false;
+        console.log(data.data.image_list);
 
         if (data.data.custom_img == 'true') {
           _this3.formData.custom_img = true;
@@ -419,7 +445,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.el-card  {\n     border-radius: 0px!important;\n}\n.matrix-card .el-card__body{\n     padding: 0px!important;\n}\n.matrix-admin-form .el-select{\n     width: 100%;\n}.matrix-admin-form .el-select .el-input__inner{\n    background-color: #fff;\n}\n.matrix-admin-form .img-holder{\n      max-width: 70px;\n      padding: 5px;\n      background-color: #dddddd;\n}\n.bg-dark{\n     background: #99a9bf;\n}\n.grid-content{\n     border: 1px solid #eee;\n}\n.matrix-admin-form .el-input-group__append, .el-input-group__prepend{\n     border-color: #7e8993;\n}\n.matrix-admin-form .el-radio__input{\n     vertical-align: top;\n}\n.img-holder-option{\n     padding : 10px;\n     width: 2rem;\n     height:2em;\n}\n.blurDiv{\n     opacity: .4;\n}\n.pull-right{\n     float: right;\n}\n.matrix-pre-loader-img-container label:nth-child(1)  img {\n         background-color: #1ABC9C;\n}\n.matrix-pre-loader-img-container label:nth-child(2) img{\n     background-color: #34495E;\n}\n.matrix-pre-loader-img-container label:nth-child(3) img{\n     background-color: #F39C12;\n}\n.matrix-pre-loader-img-container label:nth-child(4) img{\n     background-color: #9B59B6;\n}\n.matrix-pre-loader-img-container label:nth-child(5) img{\n     background-color: #3498DB;\n}\n.matrix-pre-loader-img-container label:nth-child(6) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(7) img{\n     background-color: #2ECC71;\n}\n.matrix-pre-loader-img-container label:nth-child(8) img{\n     background-color: #2C3E50;\n}\n.matrix-pre-loader-img-container label:nth-child(9) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(10) img{\n     background-color: #8E44AD;\n}\n.matrix-pre-loader-img-container label:nth-child(11) img{\n     background-color: #2980B9;\n}\n.matrix-pre-loader-img-container label:nth-child(12) img{\n     background-color: #E74C3C;\n}\n", ""]);
+exports.push([module.i, "\n.el-card  {\n     border-radius: 0px!important;\n}\n.matrix-card .el-card__body{\n     padding: 0px!important;\n}\n.matrix-admin-form .el-select{\n     width: 100%;\n}.matrix-admin-form .el-select .el-input__inner{\n    background-color: #fff;\n}\n.matrix-admin-form .img-holder{\n      max-width: 70px;\n      padding: 5px;\n      background-color: #dddddd;\n}\n.bg-dark{\n     background: #99a9bf;\n}\n.grid-content{\n     border: 1px solid #eee;\n}\n.matrix-admin-form .el-input-group__append, .el-input-group__prepend{\n     border-color: #7e8993;\n}\n.matrix-admin-form .el-radio__input{\n     vertical-align: top;\n}\n.img-holder-option{\n     padding : 10px;\n     width: 2rem;\n     height:2em;\n}\n.blurDiv{\n     opacity: .4;\n}\n.pull-right{\n     float: right;\n}\n.matrix-pre-loader-img-container label:nth-child(1)  img {\n         background-color: #1ABC9C;\n}\n.matrix-pre-loader-img-container label:nth-child(2) img{\n     background-color: #34495E;\n}\n.matrix-pre-loader-img-container label:nth-child(3) img{\n     background-color: #F39C12;\n}\n.matrix-pre-loader-img-container label:nth-child(4) img{\n     background-color: #9B59B6;\n}\n.matrix-pre-loader-img-container label:nth-child(5) img{\n     background-color: #3498DB;\n}\n.matrix-pre-loader-img-container label:nth-child(6) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(7) img{\n     background-color: #2ECC71;\n}\n.matrix-pre-loader-img-container label:nth-child(8) img{\n     background-color: #2C3E50;\n}\n.matrix-pre-loader-img-container label:nth-child(9) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(10) img{\n     background-color: #8E44AD;\n}\n.matrix-pre-loader-img-container label:nth-child(11) img{\n     background-color: #2980B9;\n}\n.matrix-pre-loader-img-container label:nth-child(12) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(13) img{\n     background-color: #2C3E50;\n}.matrix-pre-loader-img-container label:nth-child(14) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(15) img{\n     background-color: #2980B9;\n}\n", ""]);
 
 // exports
 
@@ -1391,48 +1417,101 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c(
+                                  "el-row",
+                                  [
+                                    _c(
+                                      "el-col",
+                                      { attrs: { span: 12 } },
+                                      [
+                                        _c(
+                                          "el-form-item",
+                                          {
+                                            attrs: {
+                                              label: "Enable Matrix Style"
+                                            }
+                                          },
+                                          [
+                                            _c("el-switch", {
+                                              model: {
+                                                value:
+                                                  _vm.formData.matrix_style,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.formData,
+                                                    "matrix_style",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "formData.matrix_style"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "el-col",
+                                      { attrs: { span: 12 } },
+                                      [
+                                        !this.formData.matrix_style
+                                          ? _c(
+                                              "el-form-item",
+                                              {
+                                                staticClass: "pull-right",
+                                                attrs: {
+                                                  label: "Background Color"
+                                                }
+                                              },
+                                              [
+                                                _c("el-color-picker", {
+                                                  model: {
+                                                    value: _vm.formData.bgcolor,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.formData,
+                                                        "bgcolor",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "formData.bgcolor"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
                                   "el-form-item",
-                                  { attrs: { label: "Enable Matrix Style" } },
+                                  { attrs: { label: "Wait for Images" } },
                                   [
                                     _c("el-switch", {
                                       model: {
-                                        value: _vm.formData.matrix_style,
+                                        value: _vm.formData.wait_image,
                                         callback: function($$v) {
                                           _vm.$set(
                                             _vm.formData,
-                                            "matrix_style",
+                                            "wait_image",
                                             $$v
                                           )
                                         },
-                                        expression: "formData.matrix_style"
+                                        expression: "formData.wait_image"
                                       }
                                     })
                                   ],
                                   1
                                 ),
-                                _vm._v(" "),
-                                !this.formData.matrix_style
-                                  ? _c(
-                                      "el-form-item",
-                                      { attrs: { label: "Background Color" } },
-                                      [
-                                        _c("el-color-picker", {
-                                          model: {
-                                            value: _vm.formData.bgcolor,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.formData,
-                                                "bgcolor",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "formData.bgcolor"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e(),
                                 _vm._v(" "),
                                 !this.formData.matrix_style
                                   ? _c(
@@ -1558,77 +1637,101 @@ var render = function() {
                                     )
                                   : _vm._e(),
                                 _vm._v(" "),
-                                !this.formData.matrix_style
-                                  ? _c(
-                                      "el-form-item",
-                                      { attrs: { label: "Image Width" } },
+                                _c(
+                                  "el-row",
+                                  [
+                                    _c(
+                                      "el-col",
+                                      { attrs: { span: 15 } },
                                       [
-                                        _c(
-                                          "el-input",
-                                          {
-                                            attrs: {
-                                              type: "number",
-                                              placeholder: "100"
-                                            },
-                                            model: {
-                                              value: _vm.formData.width,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.formData,
-                                                  "width",
-                                                  _vm._n($$v)
-                                                )
+                                        !this.formData.matrix_style
+                                          ? _c(
+                                              "el-form-item",
+                                              {
+                                                attrs: {
+                                                  label: "Image Width & Hight"
+                                                }
                                               },
-                                              expression: "formData.width"
-                                            }
-                                          },
-                                          [
-                                            _c("template", { slot: "append" }, [
-                                              _vm._v("px")
-                                            ])
-                                          ],
-                                          2
-                                        )
+                                              [
+                                                _c(
+                                                  "el-input",
+                                                  {
+                                                    attrs: {
+                                                      type: "number",
+                                                      placeholder: "100"
+                                                    },
+                                                    model: {
+                                                      value: _vm.formData.width,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.formData,
+                                                          "width",
+                                                          _vm._n($$v)
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "formData.width"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "template",
+                                                      { slot: "append" },
+                                                      [_vm._v("px")]
+                                                    )
+                                                  ],
+                                                  2
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
                                       ],
                                       1
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                !this.formData.matrix_style
-                                  ? _c(
-                                      "el-form-item",
-                                      { attrs: { label: "Image Height" } },
-                                      [
-                                        _c(
-                                          "el-input",
-                                          {
-                                            attrs: {
-                                              placeholder: "100",
-                                              type: "number"
-                                            },
-                                            model: {
-                                              value: _vm.formData.height,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.formData,
-                                                  "height",
-                                                  _vm._n($$v)
-                                                )
-                                              },
-                                              expression: "formData.height"
-                                            }
-                                          },
-                                          [
-                                            _c("template", { slot: "append" }, [
-                                              _vm._v("px")
-                                            ])
-                                          ],
-                                          2
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e(),
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-col", { attrs: { span: 9 } }, [
+                                      !this.formData.matrix_style
+                                        ? _c(
+                                            "div",
+                                            [
+                                              _c(
+                                                "el-input",
+                                                {
+                                                  attrs: {
+                                                    placeholder: "100",
+                                                    type: "number"
+                                                  },
+                                                  model: {
+                                                    value: _vm.formData.height,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.formData,
+                                                        "height",
+                                                        _vm._n($$v)
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "formData.height"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "template",
+                                                    { slot: "append" },
+                                                    [_vm._v("px")]
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ])
+                                  ],
+                                  1
+                                ),
                                 _vm._v(" "),
                                 _c(
                                   "el-form-item",

@@ -54,13 +54,26 @@
                                             </el-select>
                                         </el-form-item>
 
-                                        <el-form-item label="Enable Matrix Style">
-                                            <el-switch v-model="formData.matrix_style"></el-switch>
-                                        </el-form-item>
+                                        <el-row>
+                                            <el-col :span="12">
+                                                <el-form-item label="Enable Matrix Style">
+                                                    <el-switch v-model="formData.matrix_style"></el-switch>
+                                                </el-form-item>
+                                            </el-col>
+                                            <el-col :span="12">
+                                                <el-form-item class="pull-right" label="Background Color" v-if="!this.formData.matrix_style">
+                                                    <el-color-picker v-model="formData.bgcolor"></el-color-picker>
+                                                </el-form-item>
+                                            </el-col>
+                                        </el-row>
 
-                                        <el-form-item label="Background Color" v-if="!this.formData.matrix_style">
-                                            <el-color-picker v-model="formData.bgcolor"></el-color-picker>
-                                        </el-form-item>
+                                            <el-form-item label="Wait for Images">
+                                                <el-switch v-model="formData.wait_image"></el-switch>
+                                            </el-form-item>
+
+
+
+
 
                                         <el-form-item class="matrix-pre-loader-img-container" label="Pre Loader Image"  v-if="!this.formData.matrix_style">
 
@@ -86,17 +99,27 @@
                                             </div>
                                         </el-form-item>
 
-                                        <el-form-item label="Image Width" v-if="!this.formData.matrix_style">
-                                            <el-input  type="number" placeholder="100" v-model.number="formData.width">
-                                                <template slot="append">px</template>
-                                            </el-input>
-                                        </el-form-item>
 
-                                        <el-form-item label="Image Height" v-if="!this.formData.matrix_style">
-                                            <el-input placeholder="100" type="number" v-model.number="formData.height">
-                                                <template slot="append">px</template>
-                                            </el-input>
-                                        </el-form-item>
+
+
+
+                                        <el-row>
+                                            <el-col :span="15">
+                                                <el-form-item label="Image Width & Hight" v-if="!this.formData.matrix_style">
+                                                    <el-input  type="number" placeholder="100" v-model.number="formData.width">
+                                                        <template slot="append">px</template>
+                                                    </el-input>
+                                                </el-form-item>
+                                            </el-col>
+                                            <el-col :span="9">
+                                                <div  v-if="!this.formData.matrix_style">
+                                                    <el-input placeholder="100" type="number" v-model.number="formData.height">
+                                                        <template slot="append">px</template>
+                                                    </el-input>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
+
 
 
 
@@ -157,6 +180,7 @@ export default {
                 width: '',
                 height: '',
                 loader_delay: '',
+                wait_image: '',
                 custom_img: '',
 
             },
@@ -210,10 +234,11 @@ export default {
                     this.formData.bgcolor = data.data.bgcolor;
                     this.formData.loader_delay = data.data.loader_delay;
                     this.formData.matrix_style =  (data.data.matrix_style == 'true') ? true : false;
+                    this.formData.wait_image =  (data.data.wait_image == 'true') ? true : false;
                     this.image_list =data.data.image_list;
                     this.formData.image = data.data.image
                     this.formData.custom_img= false;
-
+                    console.log(data.data.image_list)
                 if(data.data.custom_img=='true'){
 
                         this.formData.custom_img= true;
@@ -350,6 +375,14 @@ export default {
     }
     .matrix-pre-loader-img-container label:nth-child(12) img{
         background-color: #E74C3C;
+    }
+    .matrix-pre-loader-img-container label:nth-child(13) img{
+        background-color: #2C3E50;
+    }.matrix-pre-loader-img-container label:nth-child(14) img{
+        background-color: #F1C40F;
+    }
+    .matrix-pre-loader-img-container label:nth-child(15) img{
+        background-color: #2980B9;
     }
 </style>
 

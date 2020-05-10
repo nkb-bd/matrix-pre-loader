@@ -45,6 +45,7 @@ class Activator
             'width'        =>'100',
             'height'       =>'100',
             'loader_delay'       =>'1000',
+            'wait_image'       =>'true',
             'matrix_style' =>false
         );
         if ( ! get_option( 'matrix_pre_loader_option' ) ) {

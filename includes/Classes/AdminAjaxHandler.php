@@ -51,6 +51,7 @@ class AdminAjaxHandler {
             'image' => $image,
             'custom_img' => sanitize_text_field ($postedData['custom_img']),
             'loader_delay' =>(!isset($postedData['loader_delay'])&& is_int($_POST['loader_delay']) ? 0 :sanitize_text_field ($postedData['loader_delay']) )  ,
+            'wait_image' =>(!isset($postedData['wait_image'])&& is_int($_POST['wait_image']) ? 0 :sanitize_text_field ($postedData['wait_image']) )  ,
         );
 
 

@@ -20,6 +20,7 @@ class LoaderController
     private $font_size= '';
     private $font_color= '';
     private $delay= '';
+    private $image_wait= '';
     private $matrix_style= '';
 
     function __construct()
@@ -35,6 +36,7 @@ class LoaderController
         $this->font_size        = isset($data['font_size']) ? $data['font_size'] : '';
         $this->font_color        = isset($data['font_color']) ? $data['font_color'] : '';
         $this->delay            = isset($data['loader_delay']) ? $data['loader_delay'] : 0;
+        $this->wait_image       = isset($data['wait_image']) &&  ($data['wait_image'] == 'true')  ? true : false;
         $this->loader_text      = isset($data['text']) ? $data['text'] : '';
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
 
@@ -62,7 +64,7 @@ class LoaderController
             or $this->location == 'attachment' && is_attachment()
             or $this->location == 'error' && is_404()){
 
-               // location matched
+                // location matched
                 $this->loader_location_check = true;
                 $matrix_style = $this->matrix_style== 'true'? true : false;
                 if( $matrix_style){
@@ -74,7 +76,9 @@ class LoaderController
                 $matrixloaderPublicVars =array(
                     'loader_delay' =>  (int) sanitize_text_field($this->delay),
                     'font_size' =>  sanitize_text_field($this->font_size),
+                    'wait_image' =>  sanitize_text_field($this->wait_image),
                 );
+
                 wp_localize_script('matrixloader-plugin-preloader-script', 'matrixloaderPublic', $matrixloaderPublicVars);
 
                 ?>
