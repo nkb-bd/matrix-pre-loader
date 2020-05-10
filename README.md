@@ -29,6 +29,9 @@ Then activate the plugin from your WP admin dashboard.
  ### Build on top of this boilerplate
  https://github.com/hasanuzzamanbe/wp-boilerplate-plugin-with-vuejs
  
+ Thanks to for the SVG 
+https://github.com/SamHerbert/SVG-Loaders
+ 
  ### For Help:
 Email me <a href="mailto:lukman.nakib@gmail.com">lukman.nakib@gmail.com</a>
  

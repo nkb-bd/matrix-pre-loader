@@ -18,13 +18,24 @@
                                             <el-input v-model="formData.text"></el-input>
                                         </el-form-item>
 
-                                        <el-form-item label="Font Size">
-                                            <el-input placeholder="20" type="number" v-model.number="formData.font_size">
-                                                <template slot="append">px</template>
-                                            </el-input>
-                                        </el-form-item>
 
-                                        <el-form-item label="Delay Melesecond">
+
+                                        <el-row>
+                                            <el-col :span="12">
+                                                <el-form-item label="Font Size">
+                                                    <el-input placeholder="20" type="number" v-model.number="formData.font_size">
+                                                        <template slot="append">px</template>
+                                                    </el-input>
+                                                </el-form-item>
+                                            </el-col>
+                                            <el-col :span="12">
+                                                <el-form-item label="Font Color" class="pull-right">
+                                                    <el-color-picker v-model="formData.font_color"></el-color-picker>
+                                                </el-form-item>
+                                            </el-col>
+                                        </el-row>
+
+                                        <el-form-item label="Delay Millisecond(s)">
                                             <el-input placeholder="20" type="number" v-model.number="formData.loader_delay">
                                                 <template slot="append">ms</template>
                                             </el-input>
@@ -51,8 +62,9 @@
                                             <el-color-picker v-model="formData.bgcolor"></el-color-picker>
                                         </el-form-item>
 
-                                        <el-form-item label="Pre Loader Image"  v-if="!this.formData.matrix_style">
-                                            <el-radio v-model="formData.image" :key="img" :label="img" v-for="img in image_list" @change="formData.custom_img=false">
+                                        <el-form-item class="matrix-pre-loader-img-container" label="Pre Loader Image"  v-if="!this.formData.matrix_style">
+
+                                            <el-radio  v-model="formData.image" :key="img" :label="img" v-for="img in image_list" @change="formData.custom_img=false">
                                                 <img class="img-holder-option" :class="{blurDiv:formData.custom_img}"   :src="img" alt="">
                                             </el-radio>
 
@@ -136,6 +148,7 @@ export default {
             image_list:[],
             formData: {
                 text: '',
+                font_color:'',
                 font_size: '',
                 matrix_style: false,
                 location: '',
@@ -191,11 +204,12 @@ export default {
                     this.formData.text = data.data.text;
                     this.formData.location = data.data.location;
                     this.formData.font_size = data.data.font_size;
+                    this.formData.font_color = data.data.font_color;
                     this.formData.height = data.data.height;
                     this.formData.width = data.data.width;
                     this.formData.bgcolor = data.data.bgcolor;
                     this.formData.loader_delay = data.data.loader_delay;
-                    this.formData.matrix_style =  (data.data.matrix_style == true) ? true : false;
+                    this.formData.matrix_style =  (data.data.matrix_style == 'true') ? true : false;
                     this.image_list =data.data.image_list;
                     this.formData.image = data.data.image
                     this.formData.custom_img= false;
@@ -289,11 +303,53 @@ export default {
         vertical-align: top;
     }
     .img-holder-option{
-        max-width: 2rem;
-        background-color: #dddddd;
+        padding : 10px;
+        width: 2rem;
+        height:2em;
     }
     .blurDiv{
         opacity: .4;
+    }
+    .pull-right{
+        float: right;
+    }
+
+    .matrix-pre-loader-img-container label:nth-child(1)  img {
+            background-color: #1ABC9C;
+
+    }
+    .matrix-pre-loader-img-container label:nth-child(2) img{
+        background-color: #34495E;
+    }
+   .matrix-pre-loader-img-container label:nth-child(3) img{
+        background-color: #F39C12;
+    }
+    .matrix-pre-loader-img-container label:nth-child(4) img{
+        background-color: #9B59B6;
+    }
+    .matrix-pre-loader-img-container label:nth-child(5) img{
+        background-color: #3498DB;
+    }
+    .matrix-pre-loader-img-container label:nth-child(6) img{
+        background-color: #E74C3C;
+    }
+    .matrix-pre-loader-img-container label:nth-child(7) img{
+        background-color: #2ECC71;
+    }
+    .matrix-pre-loader-img-container label:nth-child(8) img{
+        background-color: #2C3E50;
+    }
+    .matrix-pre-loader-img-container label:nth-child(9) img{
+        background-color: #F1C40F;
+    }
+    .matrix-pre-loader-img-container label:nth-child(10) img{
+        background-color: #8E44AD;
+    }
+    .matrix-pre-loader-img-container label:nth-child(11) img{
+        background-color: #2980B9;
+    }
+    .matrix-pre-loader-img-container label:nth-child(12) img{
+        background-color: #E74C3C;
     }
 </style>
 

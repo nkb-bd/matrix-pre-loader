@@ -8,11 +8,12 @@ Stable tag: 4.5.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Matrix Pre Loader allows you to easily add loading animation to your website
+Matrix Pre Loader allows you to easily add loading animation, image to your website
 
 == Description ==
-Add your own image, gif or pre loaded loading animation, set where to show this loading animation. A matrix style loader is also available.
-I will kee updating plugin if some one finds it useful for their website.
+Add your own image, gif or pre loaded loading svg animation, set where to show this loading animation. A matrix style loader is also available.
+
+I will keep updating this plugin if some one finds it useful for their website.
 [Follow plugin development on Github.](https://github.com/nkb-bd/matrix-pre-loader/)
 
 
@@ -32,10 +33,12 @@ I will kee updating plugin if some one finds it useful for their website.
 1. Upload the folder to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Go to Plugins menu > Matrix Pre loader.
-4. Enter your background color code and your Preloader image link.
-5. Choose display Preloader, default is "In The Entire Website".
+4. Enter your background color code and set or upload your Preloader image.
+5. Choose display Location, default is "In The Entire Website".
 6. That is all.
 
+== Screenshots ==
+1. ** Matrix Pre Loader Settings**
 
 == Changelog ==
 

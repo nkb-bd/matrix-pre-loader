@@ -1,4 +1,4 @@
-jQuery(window).load(function() {
+jQuery(window).ready(function() {
     
     jQuery('#matrix-pre-loader-container').delay(window.matrixloaderPublic.loader_delay).fadeOut("slow");
     
@@ -9,5 +9,4 @@ jQuery(window).load(function() {
     }
     
 });
-
 

@@ -38,7 +38,7 @@ class AdminAjaxHandler {
         if(empty($postedData)){
             return wp_send_json_error(false);
         }
-        
+
         $data =array(
             'text' =>  (!isset($postedData['text']) ? 100 :sanitize_text_field ($postedData['text'])),
             'location' => sanitize_text_field ($postedData['location']),
@@ -47,11 +47,12 @@ class AdminAjaxHandler {
             'height' =>  (!isset($postedData['height']) && is_int($_POST['height'])? 100 :sanitize_text_field ($postedData['height']) ),
             'matrix_style' => sanitize_text_field ($postedData['matrix_style']),
             'font_size' => sanitize_text_field ($postedData['font_size']),
+            'font_color' => sanitize_text_field ($postedData['font_color']),
             'image' => $image,
             'custom_img' => sanitize_text_field ($postedData['custom_img']),
             'loader_delay' =>(!isset($postedData['loader_delay'])&& is_int($_POST['loader_delay']) ? 0 :sanitize_text_field ($postedData['loader_delay']) )  ,
         );
-//        print_r($data);
+
 
         update_option( 'matrix_pre_loader_option', $data );
         wp_send_json_success(true);

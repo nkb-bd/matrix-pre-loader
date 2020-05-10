@@ -41,6 +41,7 @@ class Activator
             'location'     =>'full',
             'bgcolor'      =>'#efefef',
             'font_size'      =>'20',
+            'font_color'      =>'#333',
             'width'        =>'100',
             'height'       =>'100',
             'loader_delay'       =>'1000',

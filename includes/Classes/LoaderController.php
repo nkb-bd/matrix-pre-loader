@@ -18,6 +18,7 @@ class LoaderController
     private $image_height= '';
     private $image_width= '';
     private $font_size= '';
+    private $font_color= '';
     private $delay= '';
     private $matrix_style= '';
 
@@ -25,12 +26,14 @@ class LoaderController
     {
         $data = get_option( 'matrix_pre_loader_option' );
 
+
         $this->location         = isset($data['location']) ? $data['location'] : '';
         $this->preloader_image  = isset($data['image']) ? $data['image'] : '';
         $this->bg_color         = isset($data['bgcolor']) ? $data['bgcolor'] : '';
         $this->image_height     = isset($data['height']) ? $data['height']: '';
         $this->image_width      = isset($data['width']) ?$data['width'] : '';
         $this->font_size        = isset($data['font_size']) ? $data['font_size'] : '';
+        $this->font_color        = isset($data['font_color']) ? $data['font_color'] : '';
         $this->delay            = isset($data['loader_delay']) ? $data['loader_delay'] : 0;
         $this->loader_text      = isset($data['text']) ? $data['text'] : '';
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
@@ -96,7 +99,7 @@ class LoaderController
                         bottom: 0;
                         background:url('<?php echo esc_url_raw($this->preloader_image)?>')  no-repeat 50%;
                         background-color: <?php echo sanitize_text_field($this->bg_color)?>;
-                        color: inherit;
+                        color: red;
                         -moz-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
                         -o-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
                         -webkit-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
@@ -106,16 +109,25 @@ class LoaderController
                         height:100%;
                     }
                     #matrix-pre-loader-container p{
-                        position: fixed;
+                        /*position: fixed;*/
                         font-size: <?php echo sanitize_text_field( $this->font_size) ?>px ;
-                        z-index: 999999;
-                        color: inherit;
-                        right: 49%;
-                        width: 100%;
-                        left: 48%;
-                        margin-left: -19px;
-                        margin-top: 30vh;
+                        /*z-index: 999999;*/
+                        color: <?php echo sanitize_text_field( $this->font_color) ?> ;
+                        font-family: inherit;
+                        /*right: 49%;*/
+                        /*width: 100%;*/
+                        /*left: 48%;*/
+                        /*margin-left: -19px;*/
+                        /*margin-top: 30vh;*/
                     }
+                    #matrix-pre-loader-container .centered {
+                        position: fixed;
+                        left: 50%;
+                        z-index: 999999;
+                        margin-top: 30vh;
+                        transform: translate(-50%, 0);
+                    }
+
 
                 </style>
                 <noscript>
@@ -139,11 +151,15 @@ class LoaderController
         }
         do_action('matrixloader/before_adding_custom_html');
         $matrix_style = $this->matrix_style== 'true'? true : false;
+
         if($matrix_style){
             echo '<canvas id="matrix-canvas"></canvas>';
         }else{
             echo '<div id="matrix-pre-loader-container" >
-                    <p>'.esc_html($this->loader_text).'</p>
+                    <div class="centered">
+                       <p>'.esc_html($this->loader_text).'</p>
+
+                    </div>
                     <div id="matrix-pre-loader-div"></div>
                 </div>';
         }

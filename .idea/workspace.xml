@@ -3,14 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archive.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/element.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/element.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/Activator.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Activator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/Bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/HelperClass.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/global_functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix-pre-loader.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/LoaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/LoaderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Components/Settings.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/matrix-loader-public.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/matrix-loader-public.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP&#10;JavaScript" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
   </component>
@@ -84,7 +90,9 @@
       <option name="presentableId" value="Default" />
       <updated>1586696322224</updated>
       <workItem from="1586696328006" duration="1642000" />
-      <workItem from="1586960069784" duration="4916000" />
+      <workItem from="1586960069784" duration="5185000" />
+      <workItem from="1588970958678" duration="4339000" />
+      <workItem from="1589044355294" duration="2675000" />
     </task>
     <servers />
   </component>
@@ -116,9 +124,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1586697950057" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586964126302">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1589101015991">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1586964126302" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589101015991" />
   </component>
 </project>

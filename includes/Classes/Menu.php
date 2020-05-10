@@ -9,6 +9,11 @@ class Menu
     public function register()
     {
         add_action( 'admin_menu', array($this, 'addMenus') );
+
+        add_action('wp_footer', 'matrix_loader_footer_info');
+
+
+
     }
 
     public function addMenus()
@@ -16,22 +21,22 @@ class Menu
         $menuPermission = 'manage_options';
 
 
-        $title = "Matrix Loader";
+        $title = "Matrix Pre Loader";
         global $submenu;
         add_menu_page(
             $title,
             $title,
             $menuPermission,
-            'matrixloader.php',
+            'matrixpreloader',
             array($this, 'enqueueAssets'),
             $this->getIcon(),
             25
         );
 
-        $submenu['matrixloader.php']['my_profile'] = array(
-            __('Pre Loader', 'textdomain'),
+        $submenu['matrixpreloader']['dashboard'] = array(
+            __('Pre Loader', 'matrix-pre-loader'),
             $menuPermission,
-            'admin.php?page=matrixloader.php#/',
+            'admin.php?page=matrixpreloader',
         );
 
     }
@@ -39,11 +44,11 @@ class Menu
     public function enqueueAssets() {
         do_action('matrixloader/render_admin_app');
         wp_enqueue_script('matrixloader_boot', MATRIXLOADER_URL.'assets/js/boot.js', array('jquery'), MATRIXLOADER_VERSION, true);
-       
-        // 3rd party developers can now add their scripts here
-        do_action('matrixloader/booting_admin_app');     
+
+
+        do_action('matrixloader/booting_admin_app');
         wp_enqueue_script( 'matrixloader_js', MATRIXLOADER_URL . 'assets/js/plugin-main-js-file.js', array( 'matrixloader_boot' ), MATRIXLOADER_VERSION, true );
-       
+
         //enque css file
         wp_enqueue_style('matrixloader_admin_css', MATRIXLOADER_URL.'assets/css/element.css');
 
@@ -56,6 +61,12 @@ class Menu
 
 
         wp_localize_script('matrixloader_boot', 'matrixloaderAdmin', $matrixloaderAdminVars);
+    }
+
+    public function matrix_loader_footer_info(){
+        if(true){
+            echo "string";
+        }
     }
 
     public function getIcon()
