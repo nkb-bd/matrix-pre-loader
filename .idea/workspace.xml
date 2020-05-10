@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/LoaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/LoaderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/element.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/element.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/boot.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/boot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/matrix-style-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-style-pre-loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/matrix-loader-public.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/matrix-loader-public.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +42,8 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm build" />
-      <command value="npm run watch" />
       <command value="npm run prod" />
+      <command value="npm run watch" />
     </option>
   </component>
   <component name="RunManager" selected="npm.prod">
@@ -62,8 +69,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.prod" />
         <item itemvalue="npm.watch" />
+        <item itemvalue="npm.prod" />
       </list>
     </recent_temporary>
   </component>
@@ -80,7 +87,7 @@
       <workItem from="1586696328006" duration="1642000" />
       <workItem from="1586960069784" duration="5185000" />
       <workItem from="1588970958678" duration="4339000" />
-      <workItem from="1589044355294" duration="2958000" />
+      <workItem from="1589044355294" duration="3741000" />
     </task>
     <servers />
   </component>
@@ -108,13 +115,13 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="368" y="191" width="703" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586964919075" />
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1586697950057">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1589103317517">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1586697950057" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1589101975752">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1589103317517" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1589103884134">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589101975752" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589103884134" />
   </component>
 </project>

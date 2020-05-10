@@ -21,14 +21,14 @@
 
 
                                         <el-row>
-                                            <el-col :span="12">
+                                            <el-col :span="14">
                                                 <el-form-item label="Font Size">
                                                     <el-input placeholder="20" type="number" v-model.number="formData.font_size">
                                                         <template slot="append">px</template>
                                                     </el-input>
                                                 </el-form-item>
                                             </el-col>
-                                            <el-col :span="12">
+                                            <el-col :span="10">
                                                 <el-form-item label="Font Color" class="pull-right">
                                                     <el-color-picker v-model="formData.font_color"></el-color-picker>
                                                 </el-form-item>

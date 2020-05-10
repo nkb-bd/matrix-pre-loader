@@ -1,6 +1,6 @@
 === Matrix Pre Loader ===
 Contributors: pyrobd
-Tags: preloader, website loader, loading animation, custom loader, loading screen
+Tags: preloader, loader, loading, animation, custom loader,svg
 Tested up to: 5.4
 Requires at least: 4.7.0
 Requires PHP: 5.6
@@ -19,11 +19,16 @@ I will keep updating this plugin if some one finds it useful for their website.
 
 ### The Features
 
-* Custom and Pre loaded Loader Image.
+* Pre loaded SVG animation.
 * Custom background color.
 * Options to change loader display location , for example : entire website or only home page.
+* Delay Time ,Set a minimum load time to prevent the pre-loader from disappearing too fast.
+* Option to add custom image.
+* Option to add text to loading screen
 * Compatible with major browsers.
-* Easy to use.
+* Light weight & fast.
+* Responsive & retina ready.
+* Easy to use & no coding required.
 
 
 == Installation ==
