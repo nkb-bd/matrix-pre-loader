@@ -124,7 +124,7 @@ class LoaderController
                         position: fixed;
                         left: 50%;
                         z-index: 999999;
-                        margin-top: 30vh;
+                        margin-top: 45vh;
                         transform: translate(-50%, 0);
                     }
 
