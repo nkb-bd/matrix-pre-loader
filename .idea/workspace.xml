@@ -3,14 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/matrix-style-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-style-pre-loader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/Activator.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Activator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/LoaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/LoaderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix-pre-loader.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/AdminApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/AdminApp.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Components/Supports.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Extra.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/matrix-loader-public.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/matrix-loader-public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/matrix-style-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/matrix-style-pre-loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP&#10;JavaScript" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript&#10;PHP" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
   </component>
@@ -43,12 +50,14 @@
     <option name="myCommands">
       <command value="npm build" />
       <command value="npm run prod" />
-      <command value="npm run watch" />
       <command value="git stat" />
       <command value="git status" />
       <command value="git add" />
-      <command value="git add ." />
       <command value="git commit -m ' fix' " />
+      <command value="git add ." />
+      <command value="git commit -m ' wait for images to load option' " />
+      <command value="git push" />
+      <command value="npm run watch" />
     </option>
   </component>
   <component name="RunManager" selected="npm.prod">
@@ -79,6 +88,9 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -92,7 +104,14 @@
       <workItem from="1586696328006" duration="1642000" />
       <workItem from="1586960069784" duration="5185000" />
       <workItem from="1588970958678" duration="4339000" />
-      <workItem from="1589044355294" duration="8878000" />
+      <workItem from="1589044355294" duration="9200000" />
+      <workItem from="1589137714597" duration="1022000" />
+      <workItem from="1589271188121" duration="1555000" />
+      <workItem from="1589303224106" duration="438000" />
+      <workItem from="1589359545942" duration="3666000" />
+      <workItem from="1589406320969" duration="236000" />
+      <workItem from="1589453086423" duration="189000" />
+      <workItem from="1590091724918" duration="10396000" />
     </task>
     <servers />
   </component>
@@ -100,33 +119,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1589124264381">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1590098216685">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589124264381" />
-    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1589124264379">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590098216685" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1590098216683">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589124264379" />
-    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1589124264378">
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1590098216683" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1590098216682">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589124264378" />
-    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1589124264380">
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1590098216681" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1590098216684">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589124264380" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1590098216684" />
     <state x="368" y="191" width="703" height="518" key="find.popup" timestamp="1586964919075">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="368" y="191" width="703" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586964919075" />
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1589104172437">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1590098214231">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1589104172437" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1589130128942">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1590098214231" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1590103839916">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589130128942" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1590103839916" />
   </component>
 </project>

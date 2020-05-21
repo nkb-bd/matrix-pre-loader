@@ -20,6 +20,7 @@ class LoaderController
     private $font_size= '';
     private $font_color= '';
     private $delay= '';
+    private $image_offset= '';
     private $image_wait= '';
     private $matrix_style= '';
 
@@ -38,6 +39,10 @@ class LoaderController
         $this->delay            = isset($data['loader_delay']) ? $data['loader_delay'] : 0;
         $this->wait_image       = isset($data['wait_image']) &&  ($data['wait_image'] == 'true')  ? true : false;
         $this->loader_text      = isset($data['text']) ? $data['text'] : '';
+        $this->image_offset      = isset($data['image_offset']) ? $data['image_offset'] : '';
+        $this->text_animation_in      = isset($data['text_animation_in']) ? $data['text_animation_in'] : '';
+        $this->text_animation_out      = isset($data['text_animation_out']) ? $data['text_animation_out'] : '';
+        $this->text_animation_loop      = isset($data['text_animation_loop']) ? $data['text_animation_loop'] : false;
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
 
 
@@ -71,12 +76,25 @@ class LoaderController
                     wp_enqueue_style( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/css/matrix-style-pre-loader.css', '', MATRIXLOADER_VERSION, false);
                     wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-style-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
                 }
+             //   check animation class from array https://github.com/miniMAC/magic
 
-                wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
+            $check_animation_class_animate_in = $this->check_animation_class($this->text_animation_in);
+            $this->text_animation_in = $check_animation_class_animate_in;
+            $check_animation_class_animate_out = $this->check_animation_class($this->text_animation_out);
+
+
+
+            //            animation library
+            wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/magic.min.css');
+
+            wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
                 $matrixloaderPublicVars =array(
                     'loader_delay' =>  (int) sanitize_text_field($this->delay),
                     'font_size' =>  sanitize_text_field($this->font_size),
                     'wait_image' =>  sanitize_text_field($this->wait_image),
+                    'text_animation_in' =>  sanitize_text_field($check_animation_class_animate_in),
+                    'text_animation_out' =>  sanitize_text_field($check_animation_class_animate_out),
+                    'text_animation_loop' =>  sanitize_text_field($this->text_animation_loop),
                 );
 
                 wp_localize_script('matrixloader-plugin-preloader-script', 'matrixloaderPublic', $matrixloaderPublicVars);
@@ -128,7 +146,7 @@ class LoaderController
                         position: fixed;
                         left: 50%;
                         z-index: 999999;
-                        margin-top: 45vh;
+                        margin-top: <?php echo sanitize_text_field($this->image_offset); ?>vh;
                         transform: translate(-50%, 0);
                     }
 
@@ -148,6 +166,11 @@ class LoaderController
         }
     }
 
+    public function check_animation_class($className)
+    {
+        return $className;
+    }
+
     public function customHtml()
     {
         if(!$this->loader_location_check){
@@ -161,10 +184,12 @@ class LoaderController
         }else{
             echo '<div id="matrix-pre-loader-container" >
                     <div class="centered">
-                       <p>'.esc_html($this->loader_text).'</p>
+                       <p class="matrix-pre magictime   ">'.esc_html($this->loader_text).'</p>
 
                     </div>
-                    <div id="matrix-pre-loader-div"></div>
+                    <div id="matrix-pre-loader-div">
+                    
+                    </div>
                 </div>';
         }
 

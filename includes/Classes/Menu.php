@@ -45,7 +45,6 @@ class Menu
         do_action('matrixloader/render_admin_app');
         wp_enqueue_script('matrixloader_boot', MATRIXLOADER_URL.'assets/js/boot.js', array('jquery'), MATRIXLOADER_VERSION, true);
 
-
         do_action('matrixloader/booting_admin_app');
         wp_enqueue_script( 'matrixloader_js', MATRIXLOADER_URL . 'assets/js/plugin-main-js-file.js', array( 'matrixloader_boot' ), MATRIXLOADER_VERSION, true );
 

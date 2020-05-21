@@ -26,6 +26,10 @@
                   {
                       route: 'dashboard',
                       title: 'Matrix Pre Loader Setting'
+                  },
+                  {
+                      route: 'extra',
+                      title: 'Extra'
                   }
               ])
           }
@@ -35,3 +39,10 @@
       }
   }
 </script>
+<style>
+    .topnav a.ninja-tab-active {
+        color: #fff!important;
+        background-color: #0172aa!important;
+        border-bottom: 2px solid #0172aa!important;
+    }
+</style>

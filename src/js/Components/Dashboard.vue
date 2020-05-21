@@ -19,6 +19,37 @@
                                         </el-form-item>
 
 
+                                        <el-form-item label="Text Offset" >
+                                            <el-input  type="number" placeholder="45" v-model.number="formData.image_offset">
+                                                <template slot="append">px</template>
+                                            </el-input>
+                                        </el-form-item>
+
+                                        <el-row>
+<!--                                            animation-->
+                                            <el-col :span="24">
+                                                <el-form-item label="Animate In">
+                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_in">
+
+                                                    </el-input>
+                                                </el-form-item>
+                                            </el-col>
+                                            <el-col :span="24">
+                                                <el-form-item label="Animate Out">
+                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_out">
+
+                                                    </el-input>
+                                                </el-form-item>
+                                            </el-col>
+                                            <el-col :span="24">
+                                                <el-form-item label="Loop Animation">
+                                                    <el-switch v-model="formData.text_animation_loop"></el-switch>
+                                                </el-form-item>
+                                            </el-col>
+
+
+
+                                        </el-row>
 
                                         <el-row>
                                             <el-col :span="14">
@@ -124,6 +155,7 @@
 
 
 
+
                                         <el-form-item>
                                             <el-button type="primary" @click="submitForm('formData')">Save</el-button>
                                         </el-form-item>
@@ -182,6 +214,10 @@ export default {
                 loader_delay: '',
                 wait_image: '',
                 custom_img: '',
+                image_offset: '',
+                text_animation_in: '',
+                text_animation_out: '',
+                text_animation_loop: '',
 
             },
             rules: {
@@ -204,7 +240,6 @@ export default {
                             this.dialogVisible=true;
                             this.formData.image = this.dialogImageUrl;
                         }
-
                     };
                     wp.media.editor.open();
                     return false;
@@ -237,8 +272,13 @@ export default {
                     this.formData.wait_image =  (data.data.wait_image == 'true') ? true : false;
                     this.image_list =data.data.image_list;
                     this.formData.image = data.data.image
+                    this.formData.image_offset = data.data.image_offset
                     this.formData.custom_img= false;
-                    console.log(data.data.image_list)
+                    this.formData.text_animation_in=  data.data.text_animation_in;
+                    this.formData.text_animation_out=  data.data.text_animation_out;
+                    this.formData.text_animation_loop =  (data.data.text_animation_loop == 'true') ? true : false;
+
+
                 if(data.data.custom_img=='true'){
 
                         this.formData.custom_img= true;
@@ -254,7 +294,7 @@ export default {
                             type: 'error',
                             offset: 20
                         });
-                        console.log(data);
+
 
                     }
 

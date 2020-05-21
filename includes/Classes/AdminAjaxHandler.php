@@ -38,7 +38,7 @@ class AdminAjaxHandler {
         if(empty($postedData)){
             return wp_send_json_error(false);
         }
-
+//
         $data =array(
             'text' =>  (!isset($postedData['text']) ? 100 :sanitize_text_field ($postedData['text'])),
             'location' => sanitize_text_field ($postedData['location']),
@@ -52,6 +52,10 @@ class AdminAjaxHandler {
             'custom_img' => sanitize_text_field ($postedData['custom_img']),
             'loader_delay' =>(!isset($postedData['loader_delay'])&& is_int($_POST['loader_delay']) ? 0 :sanitize_text_field ($postedData['loader_delay']) )  ,
             'wait_image' =>(!isset($postedData['wait_image'])&& is_int($_POST['wait_image']) ? 0 :sanitize_text_field ($postedData['wait_image']) )  ,
+            'image_offset' =>(!isset($postedData['image_offset'])&& is_int($_POST['image_offset']) ? 0 :sanitize_text_field ($postedData['image_offset']) )  ,
+            'text_animation_in' =>isset($postedData['text_animation_in']) ? sanitize_text_field ($postedData['text_animation_in']) : ''  ,
+            'text_animation_out' =>isset($postedData['text_animation_out']) ? sanitize_text_field ($postedData['text_animation_out'] ): ''  ,
+            'text_animation_loop' =>isset($postedData['text_animation_loop']) ? sanitize_text_field ($postedData['text_animation_loop']) : false  ,
         );
 
 
@@ -62,6 +66,7 @@ class AdminAjaxHandler {
     {
         $data = get_option( 'matrix_pre_loader_option' );
         $data['image_list'] = $this->getLoaderImg();
+
         wp_send_json_success($data);
     }
     protected function getLoaderImg(){

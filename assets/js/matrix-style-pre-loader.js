@@ -138,11 +138,25 @@ function draw() {
 }
 
 setInterval(draw, 55);
-console.log(window.matrixloaderPublic.loader_delay);
-setTimeout(matrix_plugin_remove_preloader, window.matrixloaderPublic.loader_delay);
+jQuery(document).ready(function () {
+  console.log(window.matrixloaderPublic.wait_image);
 
-function matrix_plugin_remove_preloader() {
-  document.getElementById("matrix-canvas").remove();
+  if (window.matrixloaderPublic.wait_image == true) {
+    jQuery(window).on("load", function () {
+      hide_loader_matrix();
+    });
+  } else {
+    hide_loader_matrix();
+  }
+});
+
+function hide_loader_matrix() {
+  jQuery('#matrix-canvas').delay(window.matrixloaderPublic.loader_delay).fadeOut("slow");
+  setTimeout(matrix_plugin_remove_preloader, window.matrixloaderPublic.loader_delay);
+
+  function matrix_plugin_remove_preloader() {
+    jQuery('#matrix-canvas').remove();
+  }
 }
 
 /***/ }),

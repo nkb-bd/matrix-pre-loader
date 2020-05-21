@@ -50,3 +50,7 @@ I will keep updating this plugin if some one finds it useful for their website.
 = 1.0 =
 
 * First version.
+= 1.2 =
+
+* Fixed css
+* Added more icons
