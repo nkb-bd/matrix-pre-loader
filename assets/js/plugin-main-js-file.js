@@ -109,11 +109,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdminApp',
   data: function data() {
     return {
-      topMenus: []
+      topMenus: [],
+      mainLogo: '',
+      pluginLink: 'https://wordpress.org/plugins/matrix-pre-loader/#reviews'
     };
   },
   methods: {
@@ -125,10 +139,22 @@ __webpack_require__.r(__webpack_exports__);
         route: 'extra',
         title: 'Extra'
       }]);
+    },
+    redirectTo: function redirectTo() {
+      window.open(this.pluginLink, "_blank");
     }
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.setTopmenu();
+    this.$adminGet({
+      route: "get_main_icon_svg"
+    }).then(function (data) {
+      console.log(data);
+      console.log(data.data);
+      _this.mainLogo = data.data;
+    });
   }
 });
 
@@ -1289,28 +1315,70 @@ var render = function() {
         _c(
           "div",
           { staticClass: "topnav" },
-          _vm._l(_vm.topMenus, function(menuItem) {
-            return _c(
-              "router-link",
+          [
+            _vm._l(_vm.topMenus, function(menuItem) {
+              return _c(
+                "router-link",
+                {
+                  key: menuItem.route,
+                  class: ["ninja-tab"],
+                  attrs: {
+                    "active-class": "ninja-tab-active",
+                    exact: "",
+                    to: { name: menuItem.route }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(menuItem.title) +
+                      "\n            "
+                  )
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c(
+              "el-popover",
               {
-                key: menuItem.route,
-                class: ["ninja-tab"],
                 attrs: {
-                  "active-class": "ninja-tab-active",
-                  exact: "",
-                  to: { name: menuItem.route }
+                  placement: "top-start",
+                  title: "Let us know what you think",
+                  width: "200",
+                  trigger: "hover",
+                  content:
+                    "Do leave a review if you likeed it or you can help me to improve the plugin"
                 }
               },
               [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(menuItem.title) +
-                    "\n            "
+                _c(
+                  "el-button",
+                  {
+                    staticStyle: {
+                      padding: "2px",
+                      float: "right",
+                      "margin-right": "20px"
+                    },
+                    attrs: {
+                      slot: "reference",
+                      href:
+                        "https://wordpress.org/plugins/matrix-pre-loader/#reviews"
+                    },
+                    on: { click: _vm.redirectTo },
+                    slot: "reference"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { "max-width": "40px" },
+                      attrs: { src: _vm.mainLogo }
+                    })
+                  ]
                 )
-              ]
+              ],
+              1
             )
-          }),
-          1
+          ],
+          2
         )
       ]),
       _vm._v(" "),

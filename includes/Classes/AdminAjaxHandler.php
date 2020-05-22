@@ -18,6 +18,7 @@ class AdminAjaxHandler {
         $validRoutes = array(
             'settings_data_submit' => 'settingsDataSubmit',
             'get_settings_data'    => 'getSettingsData',
+            'get_main_icon_svg'    => 'getMainIconSvg',
         );
 
         if (isset($validRoutes[$route])) {
@@ -92,6 +93,14 @@ class AdminAjaxHandler {
             }
         }
         return $images;
+    }
+
+    public function getMainIconSvg()
+    {
+        $svg = new \matrixloader\Classes\Menu;
+
+        wp_send_json_success($svg->getIcon());
+
     }
 
 }

@@ -22,15 +22,14 @@ class Menu
 
 
         $title = "Matrix Pre Loader";
-        global $submenu;
-        add_menu_page(
+
+        add_options_page(
             $title,
             $title,
             $menuPermission,
             'matrixpreloader',
             array($this, 'enqueueAssets'),
-            $this->getIcon(),
-            25
+            1
         );
 
         $submenu['matrixpreloader']['dashboard'] = array(
