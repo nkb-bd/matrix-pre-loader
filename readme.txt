@@ -37,7 +37,7 @@ I will keep updating this plugin if some one finds it useful for their website.
 
 1. Upload the folder to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to Plugins menu > Matrix Pre loader.
+3. Go to Settings menu > Matrix Pre loader.
 4. Enter your background color code and set or upload your Preloader image.
 5. Choose display Location, default is "In The Entire Website".
 6. That is all.
@@ -54,3 +54,7 @@ I will keep updating this plugin if some one finds it useful for their website.
 
 * Fixed css
 * Added more icons
+= 1.3 =
+
+* Add text animation
+

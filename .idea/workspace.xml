@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/AdminApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/AdminApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +41,12 @@
       <command value="git add" />
       <command value="git commit -m ' fix' " />
       <command value="git commit -m ' wait for images to load option' " />
-      <command value="git add ." />
       <command value="git commit -m ' added text animation and position 21 may 2020 '" />
       <command value="git commit -m ' added text animation and position 21 may 2020 &amp; new page extra'" />
-      <command value="git push" />
       <command value="npm run watch" />
+      <command value="git add ." />
+      <command value="git commit -m ' CHANGED MENU POSTION TO SETTINGS'" />
+      <command value="git push" />
     </option>
   </component>
   <component name="RunManager" selected="npm.prod">
@@ -102,7 +100,7 @@
       <workItem from="1589359545942" duration="3666000" />
       <workItem from="1589406320969" duration="236000" />
       <workItem from="1589453086423" duration="189000" />
-      <workItem from="1590091724918" duration="12989000" />
+      <workItem from="1590091724918" duration="13145000" />
     </task>
     <servers />
   </component>
@@ -110,33 +108,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1590104838085">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1590106761708">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590104838085" />
-    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1590104838084">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590106761708" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1590106761707">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1590104838084" />
-    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1590104838082">
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1590106761707" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1590106761705">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1590104838082" />
-    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1590104838084">
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1590106761705" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1590106761707">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1590104838084" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1590106761707" />
     <state x="368" y="191" width="703" height="518" key="find.popup" timestamp="1586964919075">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="368" y="191" width="703" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586964919075" />
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1590104837885">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1590106809984">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1590104837885" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1590106606947">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1590106809984" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1590106777200">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1590106606947" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1590106777200" />
   </component>
 </project>
