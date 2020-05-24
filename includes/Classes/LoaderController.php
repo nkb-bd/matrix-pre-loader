@@ -82,6 +82,14 @@ class LoaderController
             $this->text_animation_in = $check_animation_class_animate_in;
             $check_animation_class_animate_out = $this->check_animation_class($this->text_animation_out);
 
+            //check elementor activation and preview mode
+            if ( did_action( 'elementor/loaded' ) ) {
+                if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+                    // dont print link
+                    $this->wait_image = false;
+                }
+            }
+
 
 
             //            animation library

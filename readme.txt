@@ -58,4 +58,5 @@ I will keep updating this plugin if some one finds it useful for their website.
 = 1.3 =
 
 * Add text animation
+* Fixed elementor issue.
 

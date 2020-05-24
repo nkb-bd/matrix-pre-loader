@@ -7,6 +7,7 @@
        <el-container>
             <el-header>
                 <h2>Thank you for trying the plugin</h2>
+                <p>Do not forget leave review <a href="https://wordpress.org/plugins/matrix-pre-loader/#reviews" target="_blank" class="is-success" type="primary">here</a> if you like it.</p>
 
             </el-header>
             <el-main>
@@ -46,7 +47,7 @@
                 </el-table>
 
                 <el-row style="padding: 20px;">
-                    <a href="https://github.com/miniMAC/magic"> Thanks to magic animation css</a>
+                    <a target="_blank" href="https://github.com/miniMAC/magic"> Thanks to magic animation css, for more animation class visit this link</a>
 
                 </el-row>
                 <el-button type="info" plain @click="redirrestUrl()">For support you may knock me</el-button>

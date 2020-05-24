@@ -47,6 +47,9 @@ class Activator
             'loader_delay'       =>'1000',
             'wait_image'       =>'true',
             'image_offset'       =>45,
+            'text_animation_in'       =>'vanishIn',
+            'text_animation_out'       =>'',
+            'text_animation_loop'       =>false,
             'matrix_style' =>false
         );
         if ( ! get_option( 'matrix_pre_loader_option' ) ) {

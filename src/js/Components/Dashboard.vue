@@ -30,13 +30,34 @@
                                             <el-col :span="24">
                                                 <el-form-item label="Animate In">
                                                     <el-input placeholder="none" type="text" v-model="formData.text_animation_in">
+                                                        <template slot="append">
+                                                            <el-popover
+                                                                    placement="top-start"
+                                                                    title="Animation"
+                                                                    width="220"
+                                                                    trigger="hover"
+                                                                    content="You can use animation class from Extra Menu tab">
+                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
+                                                            </el-popover>
 
+                                                        </template>
                                                     </el-input>
                                                 </el-form-item>
                                             </el-col>
                                             <el-col :span="24">
                                                 <el-form-item label="Animate Out">
                                                     <el-input placeholder="none" type="text" v-model="formData.text_animation_out">
+                                                        <template slot="append">
+                                                            <el-popover
+                                                                    placement="top-start"
+                                                                    title="Animation"
+                                                                    width="220"
+                                                                    trigger="hover"
+                                                                    content="You can use animation class from Extra Menu tab">
+                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
+                                                            </el-popover>
+
+                                                        </template>
 
                                                     </el-input>
                                                 </el-form-item>

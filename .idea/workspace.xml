@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/matrix-loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/matrix-loader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/Activator.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Activator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Classes/LoaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/LoaderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Components/Extra.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Extra.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +42,16 @@
       <command value="npm build" />
       <command value="npm run prod" />
       <command value="git stat" />
-      <command value="git status" />
       <command value="git add" />
       <command value="git commit -m ' fix' " />
       <command value="git commit -m ' wait for images to load option' " />
       <command value="git commit -m ' added text animation and position 21 may 2020 '" />
       <command value="git commit -m ' added text animation and position 21 may 2020 &amp; new page extra'" />
-      <command value="npm run watch" />
-      <command value="git push" />
-      <command value="git add ." />
       <command value="git commit -m ' CHANGED MENU POSTION TO SETTINGS'" />
+      <command value="git push" />
+      <command value="git status" />
+      <command value="git add ." />
+      <command value="npm run watch" />
     </option>
   </component>
   <component name="RunManager" selected="npm.prod">
@@ -72,8 +77,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.watch" />
         <item itemvalue="npm.prod" />
+        <item itemvalue="npm.watch" />
       </list>
     </recent_temporary>
   </component>
@@ -100,7 +105,8 @@
       <workItem from="1589359545942" duration="3666000" />
       <workItem from="1589406320969" duration="236000" />
       <workItem from="1589453086423" duration="189000" />
-      <workItem from="1590091724918" duration="13197000" />
+      <workItem from="1590091724918" duration="13510000" />
+      <workItem from="1590170483714" duration="3130000" />
     </task>
     <servers />
   </component>
@@ -108,33 +114,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1590106871008">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1590346034158">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590106871008" />
-    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1590106871007">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590346034158" />
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1590162074803" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1590346034157">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1590106871007" />
-    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1590106871006">
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1590346034157" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1590162074802" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1590346034156">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1590106871006" />
-    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1590106871008">
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1590346034156" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1590162074801" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1590346034157">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1590106871008" />
-    <state x="368" y="191" width="703" height="518" key="find.popup" timestamp="1586964919075">
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1590346034157" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1590162074802" />
+    <state x="368" y="191" width="703" height="518" key="find.popup" timestamp="1590170507869">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="368" y="191" width="703" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586964919075" />
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1590106871027">
+    <state x="368" y="191" width="703" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1590170507869" />
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1590346033928">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1590106871027" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1590106893474">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1590346033928" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1590345998967">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1590106893474" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1590345998967" />
   </component>
 </project>
