@@ -35,6 +35,14 @@ class AdminAjaxHandler {
     {
         $data = array();
         $image = isset($_POST['data']['image'])? esc_url_raw($_POST['data']['image']) : '';
+        $exclude = isset( $_POST['data']['exclude'] ) ? (array) $_POST['data']['exclude'] : array();
+        $excludeSanitized = [];
+        if( is_array($exclude) ){
+            foreach ($exclude as $e){
+                $excludeSanitized [] = is_int($e) ?$e :(int) $e;
+            }
+        }
+
         $postedData = wp_unslash($_POST['data']);
         if(empty($postedData)){
             return wp_send_json_error(false);
@@ -43,7 +51,10 @@ class AdminAjaxHandler {
         $data =array(
             'text' =>  (!isset($postedData['text']) ? 100 :sanitize_text_field ($postedData['text'])),
             'location' => sanitize_text_field ($postedData['location']),
+            'exclude' => $excludeSanitized,
             'bgcolor' => sanitize_text_field ($postedData['bgcolor']),
+            'bg_image' => esc_url_raw ($postedData['bg_image']),
+            'opacity' => sanitize_text_field ($postedData['opacity']),
             'width' => (!isset($postedData['width'])  && is_int($_POST['width'])? 100 :sanitize_text_field ($postedData['width']) ) ,
             'height' =>  (!isset($postedData['height']) && is_int($_POST['height'])? 100 :sanitize_text_field ($postedData['height']) ),
             'matrix_style' => sanitize_text_field ($postedData['matrix_style']),
@@ -67,7 +78,7 @@ class AdminAjaxHandler {
     {
         $data = get_option( 'matrix_pre_loader_option' );
         $data['image_list'] = $this->getLoaderImg();
-
+        $data['pages_posts'] = $this->getPostsPages();
         wp_send_json_success($data);
     }
     protected function getLoaderImg(){
@@ -100,6 +111,28 @@ class AdminAjaxHandler {
         $svg = new \matrixloader\Classes\Menu;
 
         wp_send_json_success($svg->getIcon());
+
+    }
+
+    public function getPostsPages()
+    {
+
+        $data =array();
+        $pages = get_pages();
+
+        if(count($pages)>0){
+            foreach ($pages as $d) {
+                $data['pages'][]= array('ID'=>$d->ID, 'post_title'=>$d->post_title);
+            }
+        }
+
+        $posts = get_posts();
+        if(count($posts)>0){
+            foreach ($posts as $d) {
+                $data['posts'][]= array('ID'=>$d->ID, 'post_title'=>$d->post_title);
+            }
+        }
+        return $data;
 
     }
 

@@ -14,7 +14,8 @@
   "dependencies": {
     "@wordpress/hooks": "^2.4.0",
     "element-ui": "^2.10.1",
-    "node-sass": "^4.13.1",
+    "is-image-url": "^1.1.8",
+    "node-sass": "^4.14.1",
     "sass": "^1.25.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7"

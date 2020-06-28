@@ -12,6 +12,9 @@ class Menu
 
         add_action('wp_footer', 'matrix_loader_footer_info');
 
+        add_filter('admin_footer_text', array($this, 'footerMessage'));
+
+
 
 
     }
@@ -40,6 +43,14 @@ class Menu
 
     }
 
+    public function footerMessage  ($text) {
+        $post_type = filter_input(INPUT_GET, 'page');
+        $message = 'If you like this Loader plugin  <a target="_blank" href="https://wordpress.org/support/plugin/matrix-pre-loader/reviews/#new-post">You can show your support by leaving a ★★★★★ rating</a>. Thanks you for using this tiny plugin :)';
+        if ($post_type == 'matrixpreloader'){
+            return $message;
+        }
+            return $text;
+    }
     public function enqueueAssets() {
         do_action('matrixloader/render_admin_app');
         wp_enqueue_script('matrixloader_boot', MATRIXLOADER_URL.'assets/js/boot.js', array('jquery'), MATRIXLOADER_VERSION, true);

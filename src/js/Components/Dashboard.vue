@@ -5,180 +5,328 @@
         <el-card class="matrix-card" shadow="never">
             <el-container>
 
-                    <el-col :span="10">
+                    <el-col :span="13">
                         <div class="grid-content ">
                             <el-header>
                                 <h2>Setup Your Pre Loader</h2>
                             </el-header>
                             <el-main>
                                 <el-row>
-                                    <el-form hide-required-asterisk :model="formData" :rules="rules" ref="formData" label-width="auto" class="matrix-admin-form">
+                                    <el-form hide-required-asterisk :model="formData"  ref="formData" l class="matrix-admin-form">
+                                        <!-- tab start -->
+                                        <!--                                        display location-->
+                                        <el-tabs class="el-menu-vertical-demo" tabPosition="left" type="border-card">
 
-                                        <el-form-item label="Loading text" prop="name">
-                                            <el-input v-model="formData.text"></el-input>
-                                        </el-form-item>
+                                            <el-tab-pane label="Location">
+                                                <div class="tab-content">
+                                                    <div class="tab-title">
+                                                        Display Location
+                                                    </div>
+                                                    <div class="tab-body">
+                                                       <!-- loader location -->
+                                                        <el-form-item label="Location" prop="region">
+                                                            <el-select v-model="formData.location" placeholder="Pre Loader Location">
+                                                                <el-option  label="Full Webiste" value="full"></el-option>
+                                                                <el-option label="Home Page" value="home"></el-option>
+                                                                <el-option label="Front Page" value="front"></el-option>
+                                                                <el-option label="Posts" value="post"></el-option>
+                                                                <el-option label="Pages" value="page"></el-option>
+                                                                <el-option label="Categories" value="category"></el-option>
+                                                                <el-option label="Attachment" value="attachment"></el-option>
+                                                                <el-option label="Error Page" value="error"></el-option>
+                                                            </el-select>
+                                                        </el-form-item>
 
+                                                        <!-- loader location exclude -->
+                                                        <el-form-item label="Exclude Page/Post">
+                                                            <el-switch v-model="excludeSwitch"></el-switch>
 
-                                        <el-form-item label="Text Offset" >
-                                            <el-input  type="number" placeholder="45" v-model.number="formData.image_offset">
-                                                <template slot="append">px</template>
-                                            </el-input>
-                                        </el-form-item>
-
-                                        <el-row>
-<!--                                            animation-->
-                                            <el-col :span="24">
-                                                <el-form-item label="Animate In">
-                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_in">
-                                                        <template slot="append">
-                                                            <el-popover
-                                                                    placement="top-start"
-                                                                    title="Animation"
-                                                                    width="220"
-                                                                    trigger="hover"
-                                                                    content="You can use animation class from Extra Menu tab">
-                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
-                                                            </el-popover>
-
-                                                        </template>
-                                                    </el-input>
-                                                </el-form-item>
-                                            </el-col>
-                                            <el-col :span="24">
-                                                <el-form-item label="Animate Out">
-                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_out">
-                                                        <template slot="append">
-                                                            <el-popover
-                                                                    placement="top-start"
-                                                                    title="Animation"
-                                                                    width="220"
-                                                                    trigger="hover"
-                                                                    content="You can use animation class from Extra Menu tab">
-                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
-                                                            </el-popover>
-
-                                                        </template>
-
-                                                    </el-input>
-                                                </el-form-item>
-                                            </el-col>
-                                            <el-col :span="24">
-                                                <el-form-item label="Loop Animation">
-                                                    <el-switch v-model="formData.text_animation_loop"></el-switch>
-                                                </el-form-item>
-                                            </el-col>
+                                                            <el-select v-if="excludeSwitch==true" multiple v-model="formData.exclude" placeholder="Select">
+                                                                <el-option-group
+                                                                        v-for="group in options"
+                                                                        :key="group.ID"
+                                                                        :label="group.label">
+                                                                    <el-option
+                                                                            v-for="item in group.options"
+                                                                            :key="item.ID"
+                                                                            :label="item.post_title"
+                                                                            :value="item.ID">
+                                                                    </el-option>
+                                                                </el-option-group>
+                                                            </el-select>
+                                                        </el-form-item>
 
 
 
-                                        </el-row>
-
-                                        <el-row>
-                                            <el-col :span="14">
-                                                <el-form-item label="Font Size">
-                                                    <el-input placeholder="20" type="number" v-model.number="formData.font_size">
-                                                        <template slot="append">px</template>
-                                                    </el-input>
-                                                </el-form-item>
-                                            </el-col>
-                                            <el-col :span="10">
-                                                <el-form-item label="Font Color" class="pull-right">
-                                                    <el-color-picker v-model="formData.font_color"></el-color-picker>
-                                                </el-form-item>
-                                            </el-col>
-                                        </el-row>
-
-                                        <el-form-item label="Delay Millisecond(s)">
-                                            <el-input placeholder="20" type="number" v-model.number="formData.loader_delay">
-                                                <template slot="append">ms</template>
-                                            </el-input>
-                                        </el-form-item>
-
-                                        <el-form-item label="Location" prop="region">
-                                            <el-select v-model="formData.location" placeholder="Pre Loader Location">
-                                                <el-option  label="Full Webiste" value="full"></el-option>
-                                                <el-option label="Home Page" value="home"></el-option>
-                                                <el-option label="Front Page" value="front"></el-option>
-                                                <el-option label="Posts" value="post"></el-option>
-                                                <el-option label="Pages" value="page"></el-option>
-                                                <el-option label="Categories" value="category"></el-option>
-                                                <el-option label="Attachment" value="attachment"></el-option>
-                                                <el-option label="Error Page" value="error"></el-option>
-                                            </el-select>
-                                        </el-form-item>
-
-                                        <el-row>
-                                            <el-col :span="12">
-                                                <el-form-item label="Enable Matrix Style">
-                                                    <el-switch v-model="formData.matrix_style"></el-switch>
-                                                </el-form-item>
-                                            </el-col>
-                                            <el-col :span="12">
-                                                <el-form-item class="pull-right" label="Background Color" v-if="!this.formData.matrix_style">
-                                                    <el-color-picker v-model="formData.bgcolor"></el-color-picker>
-                                                </el-form-item>
-                                            </el-col>
-                                        </el-row>
-
-                                            <el-form-item label="Wait for Images">
-                                                <el-switch v-model="formData.wait_image"></el-switch>
-                                            </el-form-item>
-
-
-
-
-
-                                        <el-form-item class="matrix-pre-loader-img-container" label="Pre Loader Image"  v-if="!this.formData.matrix_style">
-
-                                            <el-radio  v-model="formData.image" :key="img" :label="img" v-for="img in image_list" @change="formData.custom_img=false">
-                                                <img class="img-holder-option" :class="{blurDiv:formData.custom_img}"   :src="img" alt="">
-                                            </el-radio>
-
-                                            <el-radio v-model="formData.custom_img" :label="true" @change="setCustomImg()" border>
-                                                Custom
-                                            </el-radio>
-
-                                            <div class="upload-box" v-if="formData.custom_img==true">
-                                                <el-button type="primary"
-                                                           plain
-                                                           size="small"
-                                                           @click="fileUpload()"
-                                                >Upload<i class="el-icon-upload"></i></el-button>
-                                                <div  v-if="dialogImageUrl!=''">
-
-                                                    <img class="img-holder"  :src="dialogImageUrl" alt="">
-
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </el-form-item>
+                                            </el-tab-pane>
+                                            <el-tab-pane label="Icon">
+                                                <div class="tab-content">
+                                                    <div class="tab-title">
+                                                        Loader Icon
+                                                    </div>
+                                                    <div class="tab-body">
+
+                                                        <el-row>
+                                                            <!--matrix style -->
+                                                            <el-col :span="12">
+                                                                <el-form-item label="Enable Matrix Style">
+                                                                    <el-switch v-model="formData.matrix_style"></el-switch>
+                                                                </el-form-item>
+                                                            </el-col>
+                                                            <!--loader delay -->
+
+                                                            <el-col :span="12">
+                                                                <el-form-item label="Delay Millisecond(s)">
+                                                                    <el-input placeholder="20" type="number" v-model.number="formData.loader_delay">
+                                                                        <template slot="append">ms</template>
+                                                                    </el-input>
+                                                                </el-form-item>
+                                                            </el-col>
+
+                                                        </el-row>
+
+
+
+                                                        <!-- loader image or icon  -->
+                                                        <el-form-item class="matrix-pre-loader-img-container" label="Pre Loader Image"  v-if="!this.formData.matrix_style">
+
+                                                            <el-radio  v-model="formData.image" :key="img" :label="img" v-for="img in image_list" @change="formData.custom_img=false">
+                                                                <img class="img-holder-option" :class="{blurDiv:formData.custom_img}"   :src="img" alt="">
+                                                            </el-radio>
+
+                                                            <el-radio v-model="formData.custom_img" :label="true" @change="setCustomImg()" border>
+                                                                Custom
+                                                            </el-radio>
+
+                                                            <div class="upload-box" v-if="formData.custom_img==true">
+                                                                <el-button type="primary"
+                                                                           plain
+                                                                           size="small"
+                                                                           @click="fileUpload()"
+                                                                >Upload<i class="el-icon-upload"></i></el-button>
+                                                                <div  v-if="dialogImageUrl!=''">
+
+                                                                    <img class="img-holder"  :src="dialogImageUrl" alt="">
+
+                                                                </div>
+                                                            </div>
+                                                        </el-form-item>
+
+                                                        <!-- loader width and height -->
+                                                        <el-row>
+                                                            <el-col :span="12">
+                                                                <el-form-item label="Image Width">
+                                                                    <el-input  type="number" placeholder="100" v-model.number="formData.width">
+                                                                        <template slot="append">px</template>
+                                                                    </el-input>
+                                                                </el-form-item>
+                                                            </el-col>
+                                                            <el-col :span="12">
+                                                                <div >
+                                                                    <el-form-item label="Image Hight">
+
+                                                                    <el-input placeholder="100" type="number" v-model.number="formData.height">
+                                                                        <template slot="append">px</template>
+                                                                    </el-input>
+                                                                    </el-form-item>
+
+                                                                </div>
+                                                            </el-col>
+                                                        </el-row>
+
+                                                        <!-- loader BG Opacity -->
+
+                                                        <el-col :span="24">
+
+                                                        </el-col>
 
 
 
 
 
-                                        <el-row>
-                                            <el-col :span="15">
-                                                <el-form-item label="Image Width & Hight" v-if="!this.formData.matrix_style">
-                                                    <el-input  type="number" placeholder="100" v-model.number="formData.width">
-                                                        <template slot="append">px</template>
-                                                    </el-input>
-                                                </el-form-item>
-                                            </el-col>
-                                            <el-col :span="9">
-                                                <div  v-if="!this.formData.matrix_style">
-                                                    <el-input placeholder="100" type="number" v-model.number="formData.height">
-                                                        <template slot="append">px</template>
-                                                    </el-input>
+
+
+                                                    </div>
                                                 </div>
-                                            </el-col>
-                                        </el-row>
+                                            </el-tab-pane>
+                                            <el-tab-pane label="Background">
+                                                <div class="tab-content">
+                                                    <div class="tab-title">
+                                                        Loading Background
+                                                    </div>
+                                                    <div class="tab-body">
+
+
+                                                        <!-- loader opacity -->
+                                                        <el-form-item label="Background Opacity">
+                                                            <div class="block">
+                                                                <el-slider show-input :step="0.1" :max="1"  v-model.number="formData.opacity" :format-tooltip="formatTooltip">
+
+                                                                </el-slider>
+                                                            </div>
+                                                        </el-form-item>
+
+
+                                                        <!-- loader background -->
+                                                        <el-form-item class="" label="Background Color" v-if="!this.formData.matrix_style">
+                                                            <el-color-picker v-model="formData.bgcolor"></el-color-picker>
+                                                        </el-form-item>
+
+                                                        <!-- loader text -->
+
+                                                        <el-form-item label="Loading text" >
+                                                            <el-input v-model="formData.text"></el-input>
+                                                        </el-form-item>
+                                                        <!-- loader background image -->
+
+                                                        <el-form-item prop="bg_image" label="Background Image Url(click outside after inserting the link)" >
+                                                            <el-input @change="checkImage()" @paste="checkImage()" v-model="formData.bg_image">
+                                                                <template slot="append">
+                                                                    <el-popover
+                                                                            placement="top-start"
+                                                                            title="Background Image"
+                                                                            width="240"
+                                                                            trigger="hover"
+                                                                            content="You can add background image or keep it empty, if no image found this  will be skipped">
+                                                                        <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
+                                                                    </el-popover>
+
+                                                                </template>
+                                                            </el-input>
+                                                        </el-form-item>
+                                                        <el-form-item v-if="validImage" label=" Image Preview" >
+                                                            <img  style="max-height: 400px;"  :src="formData.bg_image" @error="invalidImage()">
+
+                                                        </el-form-item>
+                                                        <div v-else-if="formData.bg_image!==''">
+                                                            <el-form-item>
+                                                                <el-alert
+                                                                        title="Please insert a valid image url or keep it empty"
+                                                                        type="error">
+                                                                </el-alert>
+                                                            </el-form-item>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </el-tab-pane>
+                                            <el-tab-pane label="Text">
+                                                <div class="tab-content">
+                                                    <div class="tab-title">
+                                                       Loader Text
+                                                    </div>
+                                                    <div class="tab-body">
+                                                        <!-- loader text -->
+
+                                                        <el-form-item label="Loading text" prop="name">
+                                                            <el-input v-model="formData.text"></el-input>
+                                                        </el-form-item>
+
+                                                        <!-- loader text size -->
+                                                        <el-row>
+                                                            <el-col :span="14">
+                                                                <el-form-item label="Font Size">
+                                                                    <el-input placeholder="20" type="number" v-model.number="formData.font_size">
+                                                                        <template slot="append">px</template>
+                                                                    </el-input>
+                                                                </el-form-item>
+                                                            </el-col>
+                                                            <el-col :span="10">
+                                                                <el-form-item label="Font Color" >
+                                                                    <el-color-picker v-model="formData.font_color"></el-color-picker>
+                                                                </el-form-item>
+                                                            </el-col>
+                                                        </el-row>
+
+                                                        <!-- loader text offset -->
+
+                                                        <el-form-item label="Text Offset" >
+                                                            <el-input  type="number" placeholder="45" v-model.number="formData.image_offset">
+                                                                <template slot="append">px</template>
+                                                            </el-input>
+                                                        </el-form-item>
 
 
 
 
 
 
-                                        <el-form-item>
-                                            <el-button type="primary" @click="submitForm('formData')">Save</el-button>
+                                                    </div>
+                                                </div>
+                                            </el-tab-pane>
+
+                                            <el-tab-pane label="Animation">
+                                                <div class="tab-content">
+                                                    <div class="tab-title">
+                                                        Loading Animation
+                                                    </div>
+                                                    <div class="tab-body">
+                                                        <!-- loader animation -->
+
+                                                        <el-row>
+                                                            <!--                                            animation-->
+                                                            <el-col :span="24">
+                                                                <el-form-item label="Animate In">
+                                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_in">
+                                                                        <template slot="append">
+                                                                            <el-popover
+                                                                                    placement="top-start"
+                                                                                    title="Animation"
+                                                                                    width="220"
+                                                                                    trigger="hover"
+                                                                                    content="You can use animation class from Extra Menu tab">
+                                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
+                                                                            </el-popover>
+
+                                                                        </template>
+                                                                    </el-input>
+                                                                </el-form-item>
+                                                            </el-col>
+                                                            <el-col :span="24">
+                                                                <el-form-item label="Animate Out">
+                                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_out">
+                                                                        <template slot="append">
+                                                                            <el-popover
+                                                                                    placement="top-start"
+                                                                                    title="Animation"
+                                                                                    width="220"
+                                                                                    trigger="hover"
+                                                                                    content="You can use animation class from Extra Menu tab">
+                                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
+                                                                            </el-popover>
+
+                                                                        </template>
+
+                                                                    </el-input>
+                                                                </el-form-item>
+                                                            </el-col>
+                                                            <el-col :span="24">
+                                                                <el-form-item label="Loop Animation">
+                                                                    <el-switch disabled v-model="formData.text_animation_loop"></el-switch>
+                                                                </el-form-item>
+                                                            </el-col>
+
+
+
+                                                        </el-row>
+
+
+                                                    </div>
+                                                </div>
+                                            </el-tab-pane>
+
+                                        </el-tabs>
+
+
+
+
+
+                                        <el-form-item style="padding: 10px 0px;">
+                                            <el-button class="pull-right" type="primary"   @click="submitForm('formData')">Save</el-button>
+
                                         </el-form-item>
                                     </el-form>
 
@@ -187,7 +335,7 @@
                             </el-main>
                         </div>
                     </el-col>
-                    <el-col :span="14">
+                    <el-col :span="11">
                         <div class="grid-content">
                             <el-header>
                                 <h2>Preview</h2>
@@ -216,7 +364,12 @@
 export default {
     name: 'Dashboard',
     data(){
+
         return {
+            excludeSwitch: false,
+            submitDisable:false,
+            validImage : true,
+            options: [],
             dialogVisible:false,
             dialogImageUrl:'',
             iframe:'',
@@ -228,7 +381,10 @@ export default {
                 font_size: '',
                 matrix_style: false,
                 location: '',
+                exclude:[],
                 bgcolor: '',
+                bg_image:'',
+                opacity:0,
                 image: '',
                 width: '',
                 height: '',
@@ -241,16 +397,26 @@ export default {
                 text_animation_loop: '',
 
             },
-            rules: {
 
-            }
         }
     },
     methods: {
+        checkImage(){
+            this.validImage = true;
+
+        },
+        invalidImage(){
+            this.validImage = false;
+            return true;
+
+        },
 
         setCustomImg(){
             this.formData.custom_img=true ;
             this.formData.image=this.dialogImageUrl;
+        },
+        formatTooltip(val) {
+            return val ;
         },
         fileUpload(){
             if ( typeof wp !== 'undefined' && wp.media && wp.media.editor) {
@@ -280,7 +446,6 @@ export default {
                 route: "get_settings_data"
             }).then((data)=>{
 
-
                     this.formData.text = data.data.text;
                     this.formData.location = data.data.location;
                     this.formData.font_size = data.data.font_size;
@@ -288,6 +453,24 @@ export default {
                     this.formData.height = data.data.height;
                     this.formData.width = data.data.width;
                     this.formData.bgcolor = data.data.bgcolor;
+                    this.formData.bg_image = data.data.bg_image;
+                    if(data.data.bg_image!=''){
+                        this.checkImage()
+                    }
+                    this.formData.opacity = parseFloat(data.data.opacity);
+
+
+                this.options= [{
+                    label: 'Pages',
+                    options: data.data.pages_posts.pages
+                },{
+                    label: 'Posts',
+                    options: data.data.pages_posts.posts
+                }];
+                this.formData.exclude = data.data.exclude
+                if( data.data.exclude.length > 0){
+                    this.excludeSwitch = true;
+                }
                     this.formData.loader_delay = data.data.loader_delay;
                     this.formData.matrix_style =  (data.data.matrix_style == 'true') ? true : false;
                     this.formData.wait_image =  (data.data.wait_image == 'true') ? true : false;
@@ -356,10 +539,82 @@ export default {
         this.getData();
         this.iframe = window.matrixloaderAdmin.base_url;
 
+        this.$router.beforeEach((to, from, next) => {
+            var self = this;
+            if(to.name =='dashboard'){
+                next();
+
+            }else{
+                this.$confirm('Click save to save changes or cancel ?')
+                    .then(function () {
+
+                        self.submitForm();
+                         next();
+                    })
+                    .catch(function () {
+                         next();
+
+                    });
+            }
+
+
+
+        });
+
     }
 }
 </script>
 <style>
+    .el-slider__runway {
+        width: 100%;
+        height: 6px;
+        margin: 16px 0;
+        background-color: #e4e7ed;
+        border-radius: 3px;
+        position: relative;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    .el-slider:after, .el-slider:before {
+        display: table;
+        content: "";
+    }
+    .el-slider__button-wrapper .el-tooltip, .el-slider__button-wrapper:after {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .el-slider__bar {
+        height: 6px;
+        background-color: #409eff;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        position: absolute;
+    }
+    .el-slider__button-wrapper {
+        height: 36px;
+        width: 36px;
+        position: absolute;
+        z-index: 1001;
+        top: -15px;
+        transform: translateX(-50%);
+        background-color: transparent;
+        text-align: center;
+        user-select: none;
+        line-height: normal;
+    }
+    .el-slider__button {
+        width: 16px;
+        height: 16px;
+        border: 2px solid #409eff;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: .2s;
+        user-select: none;
+    }
+    .el-slider__button-wrapper:after {
+        content: "";
+        height: 100%;
+    }
     .el-card  {
         border-radius: 0px!important;
     }
@@ -444,6 +699,56 @@ export default {
     }
     .matrix-pre-loader-img-container label:nth-child(15) img{
         background-color: #2980B9;
+    }
+    .el-header{
+        padding: 0 5px;
+        margin: 10px 0px;
+    }
+    #matrixloader_app .el-tabs--left .el-tabs__header.is-left{
+        margin-right: 0px;
+    }
+    #matrixloader_app .el-tabs--border-card{
+        box-shadow: none!important;
+    }
+    /*sub menu*/
+    .el-tabs--left .el-tabs__header.is-left {
+
+    }
+    .el-tabs__content .tab-title{
+        background: #f1f1f1;
+        padding:10px 15px;
+    }
+    .el-tabs--border-card .el-tabs__content {
+        padding: 0px!important;
+    }
+    .el-form-item__label-wrap, .el-form-item__content{
+        margin: 0px!important;
+    }
+    .el-form-item {
+        padding: 0px 20px;
+    }
+    .el-form-item__label-wrap{
+        float: none!important;
+    }
+    .is-disabled,.el-tabs__nav-next {
+        display: none;
+    }
+    .el-tabs--left.el-tabs--border-card .el-tabs__item.is-left {
+        color:     #5c5b59;
+    }
+    .el-input-number__decrease {
+        left: 3px!important;
+    }
+    .el-tabs--left .el-tabs__nav-wrap.is-left.is-scrollable, .el-tabs--left .el-tabs__nav-wrap.is-right.is-scrollable, .el-tabs--right .el-tabs__nav-wrap.is-left.is-scrollable, .el-tabs--right .el-tabs__nav-wrap.is-right.is-scrollable {
+        padding: 38px 0!important;
+    }
+
+    .el-tabs--left .el-tabs__nav.is-left{
+        min-height: 450px;
+    }
+
+    .el-form-item__label{
+        float: none!important;
     }
 </style>
 

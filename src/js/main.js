@@ -13,12 +13,15 @@ window.matrixloader.Vue.mixin({
     }
 });
 
+
+
 import {routes} from './routes'
 
 const router = new window.matrixloader.Router({
     routes: window.matrixloader.applyFilters('matrixloader_global_vue_routes', routes),
     linkActiveClass: 'active'
 });
+
 
 import App from './AdminApp'
 
@@ -28,3 +31,6 @@ new window.matrixloader.Vue({
     router: router
 });
 
+
+
+// Try edit message

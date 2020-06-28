@@ -10,7 +10,7 @@
                         title="Let us know what you think"
                         width="200"
                         trigger="hover"
-                        content="Do leave a review if you likeed it or you can help me to improve the plugin">
+                        content="Do leave a review if you liked it or you can help me to improve the plugin">
                     <el-button slot="reference" @click="redirectTo" href="https://wordpress.org/plugins/matrix-pre-loader/#reviews" style="padding:2px;float:right;margin-right: 20px" >
                         <img style="max-width: 40px" :src="mainLogo">
                     </el-button>
@@ -46,6 +46,8 @@
                       title: 'Extra'
                   }
               ])
+
+
           },
           redirectTo(){
               window.open(this.pluginLink, "_blank");
@@ -71,5 +73,14 @@
         color: #fff!important;
         background-color: #0172aa!important;
         border-bottom: 2px solid #0172aa!important;
+    }
+    .matrixloader_main_nav{
+        width: 100%;
+    }
+    #matrixloader_app{
+        margin-left: -20px;
+    }
+    .matrix-card{
+        margin: 20px;
     }
 </style>

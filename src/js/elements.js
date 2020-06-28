@@ -2,6 +2,7 @@ import Vue from 'vue';
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
 
+
 import {
     Button,
     ButtonGroup,
@@ -52,6 +53,7 @@ import {
     DropdownMenu,
     Upload,
     Notification,
+    Slider,
     Card
 } from 'element-ui';
 
@@ -103,6 +105,7 @@ Vue.use(Col);
 Vue.use(Transfer);
 Vue.use(DatePicker);
 Vue.use(Submenu);
+Vue.use(Slider);
 
 Vue.prototype.$message = Message;
 Vue.prototype.$msgbox = MessageBox;
@@ -110,6 +113,7 @@ Vue.prototype.$alert = MessageBox.alert;
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$prompt = MessageBox.prompt;
 Vue.prototype.$notify = Notification;
+
 
 locale.use(lang);
 

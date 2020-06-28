@@ -7,47 +7,47 @@
        <el-container>
             <el-header>
                 <h2>Thank you for trying the plugin</h2>
-                <p>Do not forget leave review <a href="https://wordpress.org/plugins/matrix-pre-loader/#reviews" target="_blank" class="is-success" type="primary">here</a> if you like it.</p>
+                <p>Do not forget leave review <a href="https://wordpress.org/plugins/matrix-pre-loader/#reviews" target="_blank" class="is-success" type="primary">here</a> if you think you like this plugin :)</p>
 
             </el-header>
             <el-main>
-                Here is the list of animation class you can use :
+                Here is a list of few animation class you can use :
                 <el-table
                         :data="tableData"
                         stripe
                         style="width: 100%">
                     <el-table-column
-                            prop="MAGIC_EFFECTS"
-                            label="MAGIC EFFECTS"
+                            prop="Fading_entrances"
+                            label="Fading entrances"
                             width="180">
                     </el-table-column>
                     <el-table-column
-                            prop="BLING"
-                            label="BLING"
+                            prop="Fading_exits"
+                            label="Fading exits"
                             width="180">
                     </el-table-column>
                     <el-table-column
-                            prop="STATIC_EFFECTS"
-                            label="STATIC EFFECTS"
+                            prop="Flippers_In"
+                            label="Flippers In"
                             width="180">
                     </el-table-column>
 
                     <el-table-column
-                            prop="STATIC_EFFECTS_OUT"
-                            label="STATIC EFFECTS OUT">
+                            prop="Flippers_Out"
+                            label="Flippers Out">
                     </el-table-column>
                     <el-table-column
-                            prop="PERSPECTIVE"
-                            label="PERSPECTIVE">
+                            prop="Sliding_entrances"
+                            label="Sliding entrances">
                     </el-table-column><el-table-column
-                            prop="ROTATE"
-                            label="ROTATE">
+                            prop="Sliding_exits"
+                            label="Sliding exits">
                     </el-table-column>
 
                 </el-table>
 
                 <el-row style="padding: 20px;">
-                    <a target="_blank" href="https://github.com/miniMAC/magic"> Thanks to magic animation css, for more animation class visit this link</a>
+                    <a target="_blank" href="https://animate.style/"> Thanks to animate.style css, for more animation class visit this link</a>
 
                 </el-row>
                 <el-button type="info" plain @click="redirrestUrl()">For support you may knock me</el-button>
@@ -65,21 +65,21 @@ export default {
         return {
             Author: 'https://www.github.com/nkb-bd',
             tableData: [{
-                MAGIC_EFFECTS:'magic',
-                BLING:'puffIn',
-                STATIC_EFFECTS:"openDownLeft",
-                STATIC_EFFECTS_OUT:"openDownLeftOut",
-                PERSPECTIVE:"openDownRightOut",
-                ROTATE:"rotateDown",
-            },{
+                Fading_entrances:'fadeIn',
+                Fading_exits:'fadeOut',
+                Flippers_In:"flipInX",
+                Flippers_Out:"flipOutX",
+                Sliding_entrances:"slideInRight",
+                Sliding_exits:"slideOutLeft",
+            }, {
+                    Fading_entrances:'fadeInLeft',
+                    Fading_exits:'fadeOutRight',
+                    Flippers_In:"flipInY",
+                    Flippers_Out:"flipOutY",
+                    Sliding_entrances:"slideInUp",
+                    Sliding_exits:"slideOutUp",
 
-                MAGIC_EFFECTS:'twisterInDown',
-                BLING:'puffOut',
-                STATIC_EFFECTS:"openDownRight",
-                STATIC_EFFECTS_OUT:"openDownRightOut",
-                PERSPECTIVE:"perspectiveUp",
-                ROTATE:"rotateUp",
-            },]
+            }]
 
         }
     },

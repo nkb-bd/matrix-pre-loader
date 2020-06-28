@@ -12,9 +12,12 @@ class LoaderController
 
     private $loader_location_check= 'ok';
     private $location= '';
+    private $excludedLocation= '';
     private $loader_text= '';
     private $preloader_image= '';
     private $bg_color= '';
+    private $bg_image= '';
+    private $opacity= '';
     private $image_height= '';
     private $image_width= '';
     private $font_size= '';
@@ -30,8 +33,13 @@ class LoaderController
 
 
         $this->location         = isset($data['location']) ? $data['location'] : '';
+        $this->excludedLocation         = isset($data['exclude']) ? $data['exclude'] : '';
+
+
         $this->preloader_image  = isset($data['image']) ? $data['image'] : '';
         $this->bg_color         = isset($data['bgcolor']) ? $data['bgcolor'] : '';
+        $this->bg_image         = isset($data['bg_image']) ? $data['bg_image'] : '';
+        $this->opacity         = isset($data['opacity']) ? $data['opacity'] : '';
         $this->image_height     = isset($data['height']) ? $data['height']: '';
         $this->image_width      = isset($data['width']) ?$data['width'] : '';
         $this->font_size        = isset($data['font_size']) ? $data['font_size'] : '';
@@ -58,16 +66,22 @@ class LoaderController
 
     public function customScripts ()
     {
+        global $post;
+
+
         //check loader location
-        if(	$this->location == 'full'
-            or $this->location == 'homepage' && is_home()
-            or $this->location == 'front' && is_front_page()
-            or $this->location == 'post' && is_single()
-            or $this->location == 'page' and is_page()
-            or $this->location == 'category' && is_category()
-            or $this->location == 'tags' && is_tag()
-            or $this->location == 'attachment' && is_attachment()
-            or $this->location == 'error' && is_404()){
+        if(	(
+                $this->location == 'full'
+                or $this->location == 'homepage' && is_home()
+                or $this->location == 'front' && is_front_page()
+                or $this->location == 'post' && is_single()
+                or $this->location == 'page' and is_page()
+                or $this->location == 'category' && is_category()
+                or $this->location == 'tags' && is_tag()
+                or $this->location == 'attachment' && is_attachment()
+                or $this->location == 'error' && is_404()
+            ) and  !in_array($post->ID,$this->excludedLocation )
+        ){
 
                 // location matched
                 $this->loader_location_check = true;
@@ -93,7 +107,8 @@ class LoaderController
 
 
             //            animation library
-            wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/magic.min.css');
+//            wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/magic.min.css');
+            wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/animate.min.css');
 
             wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
                 $matrixloaderPublicVars =array(
@@ -121,43 +136,89 @@ class LoaderController
                         z-index: 9;
                         background-color: #000000;
                     }
-                    #matrix-pre-loader-div{
+
+                    #matrix-preloader-wrapper {
                         position: fixed;
                         top: 0;
                         left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background:url('<?php echo esc_url_raw($this->preloader_image)?>')  no-repeat 50%;
-                        background-color: <?php echo sanitize_text_field($this->bg_color)?>;
-                        color: red;
-                        -moz-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
-                        -o-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
-                        -webkit-background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
-                        background-size:<?php echo sanitize_text_field($this->image_width); ?>px <?php echo sanitize_text_field($this->image_height); ?>px;
-                        z-index: 99999;
-                        width:100%;
-                        height:100%;
-                    }
-                    #matrix-pre-loader-container p{
-                        /*position: fixed;*/
-                        font-size: <?php echo sanitize_text_field( $this->font_size) ?>px ;
-                        /*z-index: 999999;*/
-                        color: <?php echo sanitize_text_field( $this->font_color) ?> ;
-                        font-family: inherit;
-                        /*right: 49%;*/
-                        /*width: 100%;*/
-                        /*left: 48%;*/
-                        /*margin-left: -19px;*/
-                        /*margin-top: 30vh;*/
-                    }
-                    #matrix-pre-loader-container .centered {
-                        position: fixed;
-                        left: 50%;
+                        -webkit-transform: translateX(0);
+                        -ms-transform: translateX(0);
+                        transform: translateX(0);
                         z-index: 999999;
-                        margin-top: <?php echo sanitize_text_field($this->image_offset); ?>vh;
-                        transform: translate(-50%, 0);
+                        width: 100%;
+                        height: 100%;
+                        background: transparent !important; }
+                    .loaded #matrix-preloader-wrapper {
+                        -webkit-transform: translateX(-200%);
+                        -ms-transform: translateX(-200%);
+                        transform: translateX(-200%);
+                        visibility: hidden;
+                        pointer-events: none;
+                        transition: all;
+                        transition-delay: 1s; }
+
+                    #matrix-preloader-wrapper .loader-inner {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        z-index: 1001;
+                        text-align: center;
+                        transition: all 0s;
+                        font-size: 0; }
+                    #matrix-preloader-wrapper .loader-text-inner {
+                        position: absolute;
+                        top: <?php echo $this->image_offset ?>%;
+                        left: 50%;
+                        font-size:  <?php echo $this->font_size ?>px;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        z-index: 1001;
+                        text-align: center;
+                        transition: all 0s;
+                      }
+                    #matrix-preloader-wrapper .loader-inner #loader {
+                        position: relative;
+                        z-index: 1002;
+                        display: inline-block;
+                        margin: 0 auto;
+                        background: none !important;
+                        color: #248acc; }
+                    #matrix-preloader-wrapper .loader-section {
+                        position: fixed;
+                        z-index: 999;
+                        width: 50%;
+                        height: 100%;
+                        background: <?php echo $this->bg_color; ?> ;
+                        opacity: <?php echo $this->opacity?>;
+                        transition: all 0s;
+                        will-change: transform; }
+
+                    #matrix-preloader-wrapper .loader-section.section-box {
+                        top: 0;
+                        left: 0;
+                        width: 100%; }
+                    .loaded #matrix-preloader-wrapper .loader-section.section-box {
+                        display: none;
                     }
 
+                    #matrix-preloader-wrapper #loader {
+                        width: <?php echo $this->image_width ?>px;
+                        height: <?php echo $this->image_height ?>px;
+                        max-width: 90vw; }
+                    #matrix-preloader-wrapper #loader img {
+                        position: relative;
+                        z-index: 1;
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        margin: 0 auto; }
+                    #matrix-canvas{
+                        opacity: <?php echo $this->opacity?>;
+                    }
 
                 </style>
                 <noscript>
@@ -181,24 +242,48 @@ class LoaderController
 
     public function customHtml()
     {
+
+
         if(!$this->loader_location_check){
             return;
         }
         do_action('matrixloader/before_adding_custom_html');
         $matrix_style = $this->matrix_style== 'true'? true : false;
+        //animation
+        if($this->text_animation_in!=''){
+            $animationClass = 'animate__animated'.$this->text_animation_in;
+        }else{
+            $animationClass = '';
+        }
+        //background image
+        $bgImageStyle= '';
+        if($this->bg_image!=''){
 
+            if(@getimagesize($this->bg_image)){
+                //image exists!
+                    $bgImageStyle ='background-image: url('.$this->bg_image.');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;';
+                }
+            }
         if($matrix_style){
             echo '<canvas id="matrix-canvas"></canvas>';
         }else{
-            echo '<div id="matrix-pre-loader-container" >
-                    <div class="centered">
-                       <p class="matrix-pre magictime   ">'.esc_html($this->loader_text).'</p>
+            echo '
 
-                    </div>
-                    <div id="matrix-pre-loader-div">
-                    
-                    </div>
-                </div>';
+
+<div id="matrix-preloader-wrapper" class="" >
+    <div class="loader-inner">
+        <div id="loader">
+            <img data-no-lazy="1" class="skip-lazy" alt="loader image" src="'.$this->preloader_image.'">
+        </div>
+    </div>
+    <div class="loader-text-inner" >
+        '.$this->loader_text.'
+    </div>
+    <div style="'.$bgImageStyle.'" class="  loader-section section-box '.$animationClass.'"></div>
+</div>
+
+
+';
         }
 
 

@@ -5,7 +5,7 @@ export const routes = [
     {
         path: '/',
         name: 'dashboard',
-        component: Dashboard
+        component: Dashboard,
     },
     {
         path: '/extra',
