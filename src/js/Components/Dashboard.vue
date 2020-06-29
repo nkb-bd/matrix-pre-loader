@@ -169,16 +169,12 @@
                                                         </el-form-item>
 
 
-                                                        <!-- loader background -->
+                                                        <!-- loader background color -->
                                                         <el-form-item class="" label="Background Color" v-if="!this.formData.matrix_style">
                                                             <el-color-picker v-model="formData.bgcolor"></el-color-picker>
                                                         </el-form-item>
 
-                                                        <!-- loader text -->
 
-                                                        <el-form-item label="Loading text" >
-                                                            <el-input v-model="formData.text"></el-input>
-                                                        </el-form-item>
                                                         <!-- loader background image -->
 
                                                         <el-form-item prop="bg_image" label="Background Image Url(click outside after inserting the link)" >
@@ -303,11 +299,7 @@
                                                                     </el-input>
                                                                 </el-form-item>
                                                             </el-col>
-                                                            <el-col :span="24">
-                                                                <el-form-item label="Loop Animation">
-                                                                    <el-switch disabled v-model="formData.text_animation_loop"></el-switch>
-                                                                </el-form-item>
-                                                            </el-col>
+                                                        
 
 
 

@@ -523,14 +523,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
@@ -2439,35 +2431,6 @@ var render = function() {
                                                   "el-form-item",
                                                   {
                                                     attrs: {
-                                                      label: "Loading text"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("el-input", {
-                                                      model: {
-                                                        value:
-                                                          _vm.formData.text,
-                                                        callback: function(
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.formData,
-                                                            "text",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "formData.text"
-                                                      }
-                                                    })
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "el-form-item",
-                                                  {
-                                                    attrs: {
                                                       prop: "bg_image",
                                                       label:
                                                         "Background Image Url(click outside after inserting the link)"
@@ -3041,47 +3004,6 @@ var render = function() {
                                                               ],
                                                               2
                                                             )
-                                                          ],
-                                                          1
-                                                        )
-                                                      ],
-                                                      1
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "el-col",
-                                                      { attrs: { span: 24 } },
-                                                      [
-                                                        _c(
-                                                          "el-form-item",
-                                                          {
-                                                            attrs: {
-                                                              label:
-                                                                "Loop Animation"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("el-switch", {
-                                                              attrs: {
-                                                                disabled: ""
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.formData
-                                                                    .text_animation_loop,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.formData,
-                                                                    "text_animation_loop",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "formData.text_animation_loop"
-                                                              }
-                                                            })
                                                           ],
                                                           1
                                                         )

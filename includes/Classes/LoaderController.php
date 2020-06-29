@@ -33,7 +33,7 @@ class LoaderController
 
 
         $this->location         = isset($data['location']) ? $data['location'] : '';
-        $this->excludedLocation         = isset($data['exclude']) ? $data['exclude'] : '';
+        $this->excludedLocation         = isset($data['exclude']) ? $data['exclude'] : array();
 
 
         $this->preloader_image  = isset($data['image']) ? $data['image'] : '';
@@ -173,6 +173,7 @@ class LoaderController
                         top: <?php echo $this->image_offset ?>%;
                         left: 50%;
                         font-size:  <?php echo $this->font_size ?>px;
+                        color: <?php echo $this->font_color?>;
                         -webkit-transform: translate(-50%, -50%);
                         -ms-transform: translate(-50%, -50%);
                         transform: translate(-50%, -50%);
@@ -270,17 +271,17 @@ class LoaderController
             echo '
 
 
-<div id="matrix-preloader-wrapper" class="" >
-    <div class="loader-inner">
-        <div id="loader">
-            <img data-no-lazy="1" class="skip-lazy" alt="loader image" src="'.$this->preloader_image.'">
-        </div>
-    </div>
-    <div class="loader-text-inner" >
-        '.$this->loader_text.'
-    </div>
-    <div style="'.$bgImageStyle.'" class="  loader-section section-box '.$animationClass.'"></div>
-</div>
+                <div id="matrix-preloader-wrapper" class="" >
+                    <div class="loader-inner">
+                        <div id="loader">
+                            <img data-no-lazy="1" class="skip-lazy" alt="loader image" src="'.$this->preloader_image.'">
+                        </div>
+                    </div>
+                    <div class="loader-text-inner" >
+                        '.$this->loader_text.'
+                    </div>
+                    <div style="'.$bgImageStyle.'" class="  loader-section section-box '.$animationClass.'"></div>
+                </div>
 
 
 ';

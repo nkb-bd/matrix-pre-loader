@@ -42,7 +42,7 @@ class Activator
             'bgcolor'      =>'#efefef',
             'bg_image'      =>'',
             'opacity'      =>1,
-            'exclude'     =>'',
+            'exclude'     =>array(),
             'font_size'      =>'20',
             'font_color'      =>'#333',
             'width'        =>'100',

@@ -60,3 +60,11 @@ I will keep updating this plugin if some one finds it useful for their website.
 * Add text animation
 * Fixed elementor issue.
 
+= 1.4 =
+
+* Add exclude post or page option,
+* background image
+* opacity
+* animate.style animation css
+
+

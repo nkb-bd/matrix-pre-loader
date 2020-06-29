@@ -22,7 +22,6 @@ const router = new window.matrixloader.Router({
     linkActiveClass: 'active'
 });
 
-
 import App from './AdminApp'
 
 new window.matrixloader.Vue({

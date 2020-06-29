@@ -3,25 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9fb78355-5e2f-4419-9f2f-25c2cd652c96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/element.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/element.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/boot.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/boot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-pre-loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/matrix-style-pre-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/matrix-style-pre-loader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/plugin-main-js-file.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/Activator.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Activator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/AdminAjaxHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Classes/LoaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/LoaderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Classes/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Classes/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix-loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/matrix-loader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/AdminApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/AdminApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Components/Extra.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Components/Extra.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/elements.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/matrix-loader-public.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/matrix-loader-public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,12 +69,13 @@
       <command value="git commit -m ' added text animation and position 21 may 2020 '" />
       <command value="git commit -m ' added text animation and position 21 may 2020 &amp; new page extra'" />
       <command value="git commit -m ' CHANGED MENU POSTION TO SETTINGS'" />
-      <command value="git status" />
       <command value="npm run prod" />
-      <command value="git add ." />
       <command value="git commit -m ' added text animation and position '" />
-      <command value="git push" />
       <command value="npm install --save is-image-url" />
+      <command value="git add ." />
+      <command value="git commit -m 'Added animate.css, bg Image, opacity, section wise setting'" />
+      <command value="git status" />
+      <command value="git push" />
       <command value="npm run watch" />
     </option>
   </component>
@@ -117,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.LoaderController.php" />
         <item itemvalue="npm.watch" />
+        <item itemvalue="JavaScript Debug.LoaderController.php" />
         <item itemvalue="npm.prod" />
       </list>
     </recent_temporary>
@@ -160,7 +148,7 @@
       <workItem from="1592996082127" duration="5084000" />
       <workItem from="1593109097669" duration="23157000" />
       <workItem from="1593348150401" duration="1438000" />
-      <workItem from="1593364169077" duration="8596000" />
+      <workItem from="1593364169077" duration="11799000" />
     </task>
     <servers />
   </component>
@@ -168,26 +156,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1593350122310">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1593446441873">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1593237515405" />
-    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1593350122310" />
-    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1593350122309">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1593444932437" />
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1593446441873" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1593446441872">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1593237515401" />
-    <state width="1398" height="226" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1593350122309" />
-    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1593350122308">
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1593444932436" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1593446441872" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1593446441872">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1593237515391" />
-    <state width="1398" height="226" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1593350122308" />
-    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1593350122310">
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1593444932435" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1593446441872" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1593446441873">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1593237515402" />
-    <state width="1398" height="226" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1593350122310" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1593444932436" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1593446441873" />
     <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593364750869">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -196,13 +184,13 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="368" y="191" width="858" height="582" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1593370293941" />
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1593364362306">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1593444907916">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1593364362306" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1593375223439">
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1593444907916" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1593445032635">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1593375223439" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1593445032635" />
   </component>
 </project>
