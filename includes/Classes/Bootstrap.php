@@ -12,9 +12,14 @@ class Bootstrap
     public function boot()
     {
         if (is_admin()) {
-            $this->adminHooks();
+            $this->adminHooks(); //admin area
+        }else{
+          $this->mainHook(); //public area
+
         }
-        $this->mainHook();
+
+
+
     }
 
     public function adminHooks()
@@ -48,4 +53,3 @@ class Bootstrap
     }
 
 }
-

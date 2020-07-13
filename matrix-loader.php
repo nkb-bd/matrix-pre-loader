@@ -3,7 +3,7 @@
 /*
 Plugin Name: Matrix Pre Loader
 Description: A simple  pre loader plugin for WordPres website.
-Version: 1.3
+Version: 2.0.0
 Author: Lukman Nakib
 Author URI: https://github.com/nkb-bd
 License: GPLv2 or later
@@ -33,7 +33,7 @@ defined('ABSPATH') or die('!');
 
 if(!defined('MATRIXLOADER_VERSION')){
 
-    define('MATRIXLOADER_VERSION', '1.3');
+    define('MATRIXLOADER_VERSION', '2.0.0');
     define('MATRIXLOADER_MAIN_FILE', __FILE__);
     define('MATRIXLOADER_URL', plugin_dir_url(__FILE__));
     define('MATRIXLOADER_DIR', plugin_dir_path(__FILE__));
@@ -56,7 +56,3 @@ if(!defined('MATRIXLOADER_VERSION')){
         deactivate_plugins(plugin_basename(__FILE__));
     });
 }
-
-
-
-

@@ -1,18 +1,24 @@
 <template>
     <div>
-        <!-- example content  start -->
+
 
         <el-card class="matrix-card" shadow="never">
-            <el-container>
+            <el-container :class="formData.active== false?'matrix-admin-form inactive-pluign-matrixloader':'' ">
 
                     <el-col :span="13">
                         <div class="grid-content ">
                             <el-header>
-                                <h2>Setup Your Pre Loader</h2>
+                                <h2>Setup Your Preloader</h2>
+                                    <el-switch @change="submitForm()"   v-model="formData.active"></el-switch>
+
+                                     <span :class=" formData.active ==true ? 'active-matrix-preloader' :'inactive'">
+                                        <span  v-if="!formData.active">In</span> Active
+                                      </span>
+
                             </el-header>
                             <el-main>
                                 <el-row>
-                                    <el-form hide-required-asterisk :model="formData"  ref="formData" l class="matrix-admin-form">
+                                    <el-form  hide-required-asterisk :model="formData"  ref="formData" class="matrix-admin-form" >
                                         <!-- tab start -->
                                         <!--                                        display location-->
                                         <el-tabs class="el-menu-vertical-demo" tabPosition="left" type="border-card">
@@ -37,6 +43,15 @@
                                                             </el-select>
                                                         </el-form-item>
 
+                                                        <!-- loader show once per session -->
+                                                         <el-form-item label="Show" prop="region">
+                                                             <el-select v-model="formData.show_per_session" placeholder="">
+                                                                 <el-option  label="Always" value="false"></el-option>
+                                                                 <el-option label="Once Per Session" value="true"></el-option>
+
+                                                             </el-select>
+                                                         </el-form-item>
+
                                                         <!-- loader location exclude -->
                                                         <el-form-item label="Exclude Page/Post">
                                                             <el-switch v-model="excludeSwitch"></el-switch>
@@ -54,6 +69,11 @@
                                                                     </el-option>
                                                                 </el-option-group>
                                                             </el-select>
+                                                        </el-form-item>
+
+                                                        <!-- loader close button-->
+                                                        <el-form-item label="Show Close Button">
+                                                            <el-switch v-model="formData.close_button_on"></el-switch>
                                                         </el-form-item>
 
 
@@ -92,8 +112,11 @@
                                                         <!-- loader image or icon  -->
                                                         <el-form-item class="matrix-pre-loader-img-container" label="Pre Loader Image"  v-if="!this.formData.matrix_style">
 
-                                                            <el-radio  v-model="formData.image" :key="img" :label="img" v-for="img in image_list" @change="formData.custom_img=false">
+                                                            <el-radio  v-model="formData.image" :key="img" :label="img" v-for="img in image_list" v-if=" img!='none' " @change="formData.custom_img=false">
                                                                 <img class="img-holder-option" :class="{blurDiv:formData.custom_img}"   :src="img" alt="">
+                                                            </el-radio>
+                                                            <el-radio v-else   v-model="formData.image" :key="img" :label="img"" @change="formData.custom_img=false">
+                                                               None
                                                             </el-radio>
 
                                                             <el-radio v-model="formData.custom_img" :label="true" @change="setCustomImg()" border>
@@ -265,43 +288,66 @@
                                                         <el-row>
                                                             <!--                                            animation-->
                                                             <el-col :span="24">
-                                                                <el-form-item label="Animate In">
-                                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_in">
-                                                                        <template slot="append">
-                                                                            <el-popover
-                                                                                    placement="top-start"
-                                                                                    title="Animation"
-                                                                                    width="220"
-                                                                                    trigger="hover"
-                                                                                    content="You can use animation class from Extra Menu tab">
-                                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
-                                                                            </el-popover>
+                                                                <el-form-item label="Loader Animate In">
+                                                                    <el-select filterable clearable placeholder="none" type="text" v-model="formData.loader_animation_in">
 
-                                                                        </template>
-                                                                    </el-input>
+                                                                          <el-option
+                                                                                  v-for="item in animate_class_list_array"
+                                                                                  :key="item"
+                                                                                  :label="item"
+                                                                                  :value="item">
+                                                                          </el-option>
+
+                                                                  </el-select>
                                                                 </el-form-item>
                                                             </el-col>
                                                             <el-col :span="24">
-                                                                <el-form-item label="Animate Out">
-                                                                    <el-input placeholder="none" type="text" v-model="formData.text_animation_out">
-                                                                        <template slot="append">
-                                                                            <el-popover
-                                                                                    placement="top-start"
-                                                                                    title="Animation"
-                                                                                    width="220"
-                                                                                    trigger="hover"
-                                                                                    content="You can use animation class from Extra Menu tab">
-                                                                                <el-button slot="reference"> <i class="el-icon-info"></i></el-button>
-                                                                            </el-popover>
+                                                                <el-form-item label="Loader Animate Out">
 
-                                                                        </template>
+                                                                  <el-select filterable clearable placeholder="none" type="text" v-model="formData.loader_animation_out">
 
-                                                                    </el-input>
+                                                                          <el-option
+                                                                                  v-for="item in animate_class_list_array"
+                                                                                  :key="item"
+                                                                                  :label="item"
+                                                                                  :value="item">
+                                                                          </el-option>
+
+                                                                    </el-select>
                                                                 </el-form-item>
                                                             </el-col>
-                                                        
 
 
+                                                        </el-row>
+                                                        <el-row>
+
+                                                              <el-col :span="12">
+                                                                  <el-form-item label="Text Animation">
+                                                                      <el-select filterable clearable v-model="formData.text_animation_in" placeholder="Select">
+
+                                                                              <el-option
+                                                                                      v-for="item in animate_class_list_array"
+                                                                                      :key="item"
+                                                                                      :label="item"
+                                                                                      :value="item">
+                                                                              </el-option>
+
+                                                                      </el-select>
+                                                                  </el-form-item>
+                                                              </el-col>
+
+                                                              <el-col :span="12">
+                                                                  <el-form-item label="Text Animation Type">
+                                                                      <el-select filterable clearable v-model="formData.text_animation_in_type" placeholder="Select">
+
+                                                                              <el-option  label="Reverse" value="reverse"></el-option>
+                                                                              <el-option  label="Shuffle" value="shuffle"></el-option>
+                                                                              <el-option  label="Sync" value="Sync"></el-option>
+                                                                              <el-option  label="Sequence" value="sequence"></el-option>
+
+                                                                      </el-select>
+                                                                  </el-form-item>
+                                                              </el-col>
 
                                                         </el-row>
 
@@ -328,7 +374,7 @@
                         </div>
                     </el-col>
                     <el-col :span="11">
-                        <div class="grid-content">
+                        <div class="grid-content matrix-preloader-preview-area">
                             <el-header>
                                 <h2>Preview</h2>
 
@@ -358,6 +404,7 @@ export default {
     data(){
 
         return {
+            loaderActive: true,
             excludeSwitch: false,
             submitDisable:false,
             validImage : true,
@@ -367,7 +414,10 @@ export default {
             iframe:'',
             customImg:false,
             image_list:[],
+            animate_class_list_array:[],
+            animate_class_list:'flash bounce shake tada swing wobble pulse flip flipInX flipOutX flipInY flipOutY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig fadeOut fadeOutUp fadeOutDown fadeOutLeft fadeOutRight fadeOutUpBig fadeOutDownBig fadeOutLeftBig fadeOutRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollIn rollOut',
             formData: {
+                active:true,
                 text: '',
                 font_color:'',
                 font_size: '',
@@ -384,11 +434,15 @@ export default {
                 wait_image: '',
                 custom_img: '',
                 image_offset: '',
+                loader_animation_in: '',
+                loader_animation_out: '',
                 text_animation_in: '',
-                text_animation_out: '',
-                text_animation_loop: '',
+                text_animation_in_type: '',
+                close_button_on:false,
+                show_per_session:'',
 
             },
+
 
         }
     },
@@ -439,6 +493,8 @@ export default {
             }).then((data)=>{
 
                     this.formData.text = data.data.text;
+                    this.formData.active = data.data.active;
+                    this.loaderActive =  data.data.active;
                     this.formData.location = data.data.location;
                     this.formData.font_size = data.data.font_size;
                     this.formData.font_color = data.data.font_color;
@@ -470,9 +526,12 @@ export default {
                     this.formData.image = data.data.image
                     this.formData.image_offset = data.data.image_offset
                     this.formData.custom_img= false;
-                    this.formData.text_animation_in=  data.data.text_animation_in;
-                    this.formData.text_animation_out=  data.data.text_animation_out;
-                    this.formData.text_animation_loop =  (data.data.text_animation_loop == 'true') ? true : false;
+                    this.formData.loader_animation_in=  data.data.loader_animation_in;
+                    this.formData.loader_animation_out=  data.data.loader_animation_out;
+                    this.formData.text_animation_in =  data.data.text_animation_in;
+                    this.formData.text_animation_in_type =  data.data.text_animation_in_type;
+                    this.formData.close_button_on =  data.data.close_button_on;
+                    this.formData.show_per_session =  data.data.show_per_session;
 
 
                 if(data.data.custom_img=='true'){
@@ -530,6 +589,8 @@ export default {
     mounted() {
         this.getData();
         this.iframe = window.matrixloaderAdmin.base_url;
+
+        this.animate_class_list_array = this.animate_class_list.split(' ');
 
         this.$router.beforeEach((to, from, next) => {
             var self = this;
@@ -742,5 +803,20 @@ export default {
     .el-form-item__label{
         float: none!important;
     }
+    .active-matrix-preloader{
+      color: #409EFF;
+      font-weight:500;
+      font-size:14px;
+      height: 20px;
+    }
+    .inactive{
+      color:red;
+      font-weight:500;
+      font-size:14px;
+      height: 20px;
+    }
+    .inactive-pluign-matrixloader .matrix-admin-form,.inactive-pluign-matrixloader .matrix-preloader-preview-area{
+        opacity:.5;
+        pointer-events:none;
+    }
 </style>
-

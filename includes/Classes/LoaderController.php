@@ -11,47 +11,63 @@ class LoaderController
 {
 
     private $loader_location_check= 'ok';
-    private $location= '';
-    private $excludedLocation= '';
-    private $loader_text= '';
-    private $preloader_image= '';
-    private $bg_color= '';
-    private $bg_image= '';
-    private $opacity= '';
-    private $image_height= '';
-    private $image_width= '';
-    private $font_size= '';
-    private $font_color= '';
-    private $delay= '';
-    private $image_offset= '';
-    private $image_wait= '';
-    private $matrix_style= '';
+    private $location ;
+    private $excludedLocation ;
+
+
+    private $preloader_image ;
+    private $bg_color ;
+    private $bg_image ;
+    private $opacity ;
+    private $image_height ;
+    private $font_size ;
+    private $font_color ;
+    private $delay ;
+    private $wait_image ;
+    private $loader_text ;
+    private $image_offset ;
+    private $loader_animation_in ;
+    private $loader_animation_out ;
+    private $text_animation_in ;
+    private $text_animation_in_type ;
+    private $matrix_style ;
+    private $close_button_on ;
+    private $show_per_session ;
+    private $active ;
 
     function __construct()
     {
-        $data = get_option( 'matrix_pre_loader_option' );
 
+        
+        $data = get_option( 'matrix_pre_loader_option' );
+        // echo "<pre>";
+        // print_r($data);
 
         $this->location         = isset($data['location']) ? $data['location'] : '';
         $this->excludedLocation         = isset($data['exclude']) ? $data['exclude'] : array();
 
 
-        $this->preloader_image  = isset($data['image']) ? $data['image'] : '';
-        $this->bg_color         = isset($data['bgcolor']) ? $data['bgcolor'] : '';
-        $this->bg_image         = isset($data['bg_image']) ? $data['bg_image'] : '';
-        $this->opacity         = isset($data['opacity']) ? $data['opacity'] : '';
-        $this->image_height     = isset($data['height']) ? $data['height']: '';
-        $this->image_width      = isset($data['width']) ?$data['width'] : '';
-        $this->font_size        = isset($data['font_size']) ? $data['font_size'] : '';
+        $this->preloader_image   = isset($data['image']) ? $data['image'] : '';
+        $this->bg_color          = isset($data['bgcolor']) ? $data['bgcolor'] : '';
+        $this->bg_image          = isset($data['bg_image']) ? $data['bg_image'] : '';
+        $this->opacity           = isset($data['opacity']) ? $data['opacity'] : '';
+        $this->image_height      = isset($data['height']) ? $data['height']: '';
+        $this->image_width       = isset($data['width']) ?$data['width'] : '';
+        $this->font_size         = isset($data['font_size']) ? $data['font_size'] : '';
         $this->font_color        = isset($data['font_color']) ? $data['font_color'] : '';
-        $this->delay            = isset($data['loader_delay']) ? $data['loader_delay'] : 0;
-        $this->wait_image       = isset($data['wait_image']) &&  ($data['wait_image'] == 'true')  ? true : false;
-        $this->loader_text      = isset($data['text']) ? $data['text'] : '';
+        $this->delay             = isset($data['loader_delay']) ? $data['loader_delay'] : 0;
+        $this->wait_image        = isset($data['wait_image']) &&  ($data['wait_image'] == 'true')  ? true : false;
+        $this->loader_text       = isset($data['text']) ? $data['text'] : '';
         $this->image_offset      = isset($data['image_offset']) ? $data['image_offset'] : '';
-        $this->text_animation_in      = isset($data['text_animation_in']) ? $data['text_animation_in'] : '';
-        $this->text_animation_out      = isset($data['text_animation_out']) ? $data['text_animation_out'] : '';
-        $this->text_animation_loop      = isset($data['text_animation_loop']) ? $data['text_animation_loop'] : false;
+        $this->loader_animation_in      = isset($data['loader_animation_in']) ? $data['loader_animation_in'] : '';
+        $this->loader_animation_out      = isset($data['loader_animation_out']) ? $data['loader_animation_out'] : '';
+        $this->text_animation_in      = isset($data['text_animation_in']) && $data['text_animation_in']!='' ?  $data['text_animation_in'] : '';
+        $this->text_animation_in_type      = isset($data['text_animation_in_type']) && $data['text_animation_in_type']!='' ?  $data['text_animation_in_type'] : '';
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
+        $this->close_button_on  = ($data['close_button_on'] == 'true') ? true : false;
+        $this->show_per_session = isset($data['show_per_session']) && $data['show_per_session']== 'true' ?true : false;
+        $this->active     = ($data['active'] == true) ? true : false;
+
 
 
     }
@@ -59,28 +75,37 @@ class LoaderController
     public function register()
     {
 
+        if(!$this->active){
+          return;
+        }
+        add_action('init',  array($this,'start_session'));
         add_action( 'wp_body_open', array($this,'customHtml') );
         add_action( 'wp_head', array($this,'customScripts') );
 
+    }
+
+    public function start_session(){
+        if(!session_id()) {
+          session_start();
+        }
     }
 
     public function customScripts ()
     {
         global $post;
 
-
         //check loader location
         if(	(
                 $this->location == 'full'
                 or $this->location == 'homepage' && is_home()
                 or $this->location == 'front' && is_front_page()
-                or $this->location == 'post' && is_single()
+                or $this->location == 'post' && is_single('')
                 or $this->location == 'page' and is_page()
                 or $this->location == 'category' && is_category()
                 or $this->location == 'tags' && is_tag()
                 or $this->location == 'attachment' && is_attachment()
                 or $this->location == 'error' && is_404()
-            ) and  !in_array($post->ID,$this->excludedLocation )
+            ) and  !in_array($post->ID,$this->excludedLocation ) and ( $this->check_if_show_by_sesssoin())
         ){
 
                 // location matched
@@ -92,9 +117,7 @@ class LoaderController
                 }
              //   check animation class from array https://github.com/miniMAC/magic
 
-            $check_animation_class_animate_in = $this->check_animation_class($this->text_animation_in);
-            $this->text_animation_in = $check_animation_class_animate_in;
-            $check_animation_class_animate_out = $this->check_animation_class($this->text_animation_out);
+
 
             //check elementor activation and preview mode
             if ( did_action( 'elementor/loaded' ) ) {
@@ -107,7 +130,6 @@ class LoaderController
 
 
             //            animation library
-//            wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/magic.min.css');
             wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/animate.min.css');
 
             wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
@@ -115,9 +137,9 @@ class LoaderController
                     'loader_delay' =>  (int) sanitize_text_field($this->delay),
                     'font_size' =>  sanitize_text_field($this->font_size),
                     'wait_image' =>  sanitize_text_field($this->wait_image),
-                    'text_animation_in' =>  sanitize_text_field($check_animation_class_animate_in),
-                    'text_animation_out' =>  sanitize_text_field($check_animation_class_animate_out),
-                    'text_animation_loop' =>  sanitize_text_field($this->text_animation_loop),
+                    'loader_animation_in' =>  sanitize_text_field($this->loader_animation_in),
+                    'loader_animation_out' =>  sanitize_text_field($this->loader_animation_out),
+                    'text_animation_in_type' =>  sanitize_text_field($this->text_animation_in_type),
                 );
 
                 wp_localize_script('matrixloader-plugin-preloader-script', 'matrixloaderPublic', $matrixloaderPublicVars);
@@ -168,8 +190,17 @@ class LoaderController
                         text-align: center;
                         transition: all 0s;
                         font-size: 0; }
+                    #matrix-preloader-wrapper .loader-inner-closer {
+                      right: 10px;
+                      top: 10px;
+                      z-index: 9999;
+                      position: absolute;
+                      cursor:pointer ;
+                      font-size: 16px;
+                    }
                     #matrix-preloader-wrapper .loader-text-inner {
-                        position: absolute;
+                        position: relative;
+                        visibility: hidden;
                         top: <?php echo $this->image_offset ?>%;
                         left: 50%;
                         font-size:  <?php echo $this->font_size ?>px;
@@ -179,6 +210,7 @@ class LoaderController
                         transform: translate(-50%, -50%);
                         z-index: 1001;
                         text-align: center;
+                        width: 100%;
                         transition: all 0s;
                       }
                     #matrix-preloader-wrapper .loader-inner #loader {
@@ -236,10 +268,6 @@ class LoaderController
         }
     }
 
-    public function check_animation_class($className)
-    {
-        return $className;
-    }
 
     public function customHtml()
     {
@@ -251,11 +279,31 @@ class LoaderController
         do_action('matrixloader/before_adding_custom_html');
         $matrix_style = $this->matrix_style== 'true'? true : false;
         //animation
-        if($this->text_animation_in!=''){
-            $animationClass = 'animate__animated'.$this->text_animation_in;
+        if($this->loader_animation_in!=''){
+            $animationClass = 'animate__animated '.$this->loader_animation_in;
         }else{
             $animationClass = '';
         }
+        // change svg color
+        if(!empty($this->preloader_image) && $this->preloader_image != 'http://none' ){
+          $svg = file_get_contents($this->preloader_image);
+          $svg_colored = str_replace('#fff',$this->font_color,$svg);
+          $svg_colored = str_replace('#','%23',$svg_colored);
+          $svg_img =   "<img src='data:image/svg+xml;utf8,".$svg_colored."''>";
+
+        }else{
+
+          $svg_img = '';
+        }
+
+
+        if($this->close_button_on == true){
+            $closeHtml ='<a class="matrix-preloader-close"> <div class="dashicons dashicons-no-alt"></div> </a>';
+        }else{
+            $closeHtml ='';
+        }
+
+
         //background image
         $bgImageStyle= '';
         if($this->bg_image!=''){
@@ -267,26 +315,50 @@ class LoaderController
             }
         if($matrix_style){
             echo '<canvas id="matrix-canvas"></canvas>';
-        }else{
-            echo '
+          }else{
+            ob_start();
+              ?>
+                  <div id="matrix-preloader-wrapper" >
+
+                      <div class="loader-inner-closer">
+                          <?php echo $closeHtml ?>
+                      </div>
+                      <div class="loader-inner">
+                          <div id="loader" >
+                              <?php echo  $svg_img?>
+                          </div>
+                      </div>
+                      <div class="loader-text-inner"   data-in-effect="<?php echo $this->text_animation_in?>" >
+                          <!-- <?php echo $this->loader_text?> -->
+                          <ul class="texts" style="display: none">
+                            <li> <?php echo $this->loader_text?></li>
+
+                          </ul>
+                      </div>
+                      <div style="<?php echo $bgImageStyle ?>" class="  loader-section section-box <?php echo $animationClass?> "></div>
+                  </div>
+          <?php
+
+          echo $output = ob_get_clean();
+          }
 
 
-                <div id="matrix-preloader-wrapper" class="" >
-                    <div class="loader-inner">
-                        <div id="loader">
-                            <img data-no-lazy="1" class="skip-lazy" alt="loader image" src="'.$this->preloader_image.'">
-                        </div>
-                    </div>
-                    <div class="loader-text-inner" >
-                        '.$this->loader_text.'
-                    </div>
-                    <div style="'.$bgImageStyle.'" class="  loader-section section-box '.$animationClass.'"></div>
-                </div>
+    }
 
+    public function check_if_show_by_sesssoin(){
 
-';
+        if(!$this->show_per_session){
+          return true;
         }
 
+        if(!isset(  $_SESSION['matrixPreLoader_shown'])){
 
+            $_SESSION['matrixPreLoader_shown'] = 1;
+            $notShowed = true;
+        }else{
+
+              $notShowed = false;
+        }
+        return $notShowed && $this->show_per_session; //check if not showed true and show per session is true
     }
 }

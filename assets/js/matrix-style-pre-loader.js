@@ -168,7 +168,7 @@ function hide_loader_matrix() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nakib/Practice/wp_lab/wp-content/plugins/matrix-pre-loader/src/js/matrix-style-pre-loader.js */"./src/js/matrix-style-pre-loader.js");
+module.exports = __webpack_require__(/*! C:\Users\Asus\Local Sites\wpfluentforms\app\public\wp-content\plugins\matrix-pre-loader\src\js\matrix-style-pre-loader.js */"./src/js/matrix-style-pre-loader.js");
 
 
 /***/ })

@@ -35,6 +35,7 @@ class Activator
     private function migrate()
     {
         //  no table required for now
+
         $default = array(
             'text'         => '',
             'image'        => MATRIXLOADER_URL.'assets/images/puff.svg',
@@ -50,8 +51,8 @@ class Activator
             'loader_delay'       =>'600',
             'wait_image'       =>'true',
             'image_offset'       =>60,
-            'text_animation_in'       =>'',
-            'text_animation_out'       =>'flipOutY',
+            'loader_animation_in'       =>'',
+            'loader_animation_out'       =>'flipOutY',
             'text_animation_loop'       =>false,
             'matrix_style' =>false
         );

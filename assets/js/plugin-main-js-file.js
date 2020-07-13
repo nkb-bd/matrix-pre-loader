@@ -523,10 +523,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
     return {
+      loaderActive: true,
       excludeSwitch: false,
       submitDisable: false,
       validImage: true,
@@ -536,7 +583,10 @@ __webpack_require__.r(__webpack_exports__);
       iframe: '',
       customImg: false,
       image_list: [],
+      animate_class_list_array: [],
+      animate_class_list: 'flash bounce shake tada swing wobble pulse flip flipInX flipOutX flipInY flipOutY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig fadeOut fadeOutUp fadeOutDown fadeOutLeft fadeOutRight fadeOutUpBig fadeOutDownBig fadeOutLeftBig fadeOutRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollIn rollOut',
       formData: {
+        active: true,
         text: '',
         font_color: '',
         font_size: '',
@@ -553,9 +603,12 @@ __webpack_require__.r(__webpack_exports__);
         wait_image: '',
         custom_img: '',
         image_offset: '',
+        loader_animation_in: '',
+        loader_animation_out: '',
         text_animation_in: '',
-        text_animation_out: '',
-        text_animation_loop: ''
+        text_animation_in_type: '',
+        close_button_on: false,
+        show_per_session: ''
       }
     };
   },
@@ -608,6 +661,8 @@ __webpack_require__.r(__webpack_exports__);
         route: "get_settings_data"
       }).then(function (data) {
         _this3.formData.text = data.data.text;
+        _this3.formData.active = data.data.active;
+        _this3.loaderActive = data.data.active;
         _this3.formData.location = data.data.location;
         _this3.formData.font_size = data.data.font_size;
         _this3.formData.font_color = data.data.font_color;
@@ -641,9 +696,12 @@ __webpack_require__.r(__webpack_exports__);
         _this3.formData.image = data.data.image;
         _this3.formData.image_offset = data.data.image_offset;
         _this3.formData.custom_img = false;
+        _this3.formData.loader_animation_in = data.data.loader_animation_in;
+        _this3.formData.loader_animation_out = data.data.loader_animation_out;
         _this3.formData.text_animation_in = data.data.text_animation_in;
-        _this3.formData.text_animation_out = data.data.text_animation_out;
-        _this3.formData.text_animation_loop = data.data.text_animation_loop == 'true' ? true : false;
+        _this3.formData.text_animation_in_type = data.data.text_animation_in_type;
+        _this3.formData.close_button_on = data.data.close_button_on;
+        _this3.formData.show_per_session = data.data.show_per_session;
 
         if (data.data.custom_img == 'true') {
           _this3.formData.custom_img = true;
@@ -693,6 +751,7 @@ __webpack_require__.r(__webpack_exports__);
 
     this.getData();
     this.iframe = window.matrixloaderAdmin.base_url;
+    this.animate_class_list_array = this.animate_class_list.split(' ');
     this.$router.beforeEach(function (to, from, next) {
       var self = _this5;
 
@@ -843,7 +902,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.el-slider__runway {\n     width: 100%;\n     height: 6px;\n     margin: 16px 0;\n     background-color: #e4e7ed;\n     border-radius: 3px;\n     position: relative;\n     cursor: pointer;\n     vertical-align: middle;\n}\n.el-slider:after, .el-slider:before {\n     display: table;\n     content: \"\";\n}\n.el-slider__button-wrapper .el-tooltip, .el-slider__button-wrapper:after {\n     display: inline-block;\n     vertical-align: middle;\n}\n.el-slider__bar {\n     height: 6px;\n     background-color: #409eff;\n     border-top-left-radius: 3px;\n     border-bottom-left-radius: 3px;\n     position: absolute;\n}\n.el-slider__button-wrapper {\n     height: 36px;\n     width: 36px;\n     position: absolute;\n     z-index: 1001;\n     top: -15px;\n     -webkit-transform: translateX(-50%);\n             transform: translateX(-50%);\n     background-color: transparent;\n     text-align: center;\n     -webkit-user-select: none;\n        -moz-user-select: none;\n         -ms-user-select: none;\n             user-select: none;\n     line-height: normal;\n}\n.el-slider__button {\n     width: 16px;\n     height: 16px;\n     border: 2px solid #409eff;\n     background-color: #fff;\n     border-radius: 50%;\n     -webkit-transition: .2s;\n     transition: .2s;\n     -webkit-user-select: none;\n        -moz-user-select: none;\n         -ms-user-select: none;\n             user-select: none;\n}\n.el-slider__button-wrapper:after {\n     content: \"\";\n     height: 100%;\n}\n.el-card  {\n     border-radius: 0px!important;\n}\n.matrix-card .el-card__body{\n     padding: 0px!important;\n}\n.matrix-admin-form .el-select{\n     width: 100%;\n}.matrix-admin-form .el-select .el-input__inner{\n    background-color: #fff;\n}\n.matrix-admin-form .img-holder{\n      max-width: 70px;\n      padding: 5px;\n      background-color: #dddddd;\n}\n.bg-dark{\n     background: #99a9bf;\n}\n.grid-content{\n     border: 1px solid #eee;\n}\n.matrix-admin-form .el-input-group__append, .el-input-group__prepend{\n     border-color: #7e8993;\n}\n.matrix-admin-form .el-radio__input{\n     vertical-align: top;\n}\n.img-holder-option{\n     padding : 10px;\n     width: 2rem;\n     height:2em;\n}\n.blurDiv{\n     opacity: .4;\n}\n.pull-right{\n     float: right;\n}\n.matrix-pre-loader-img-container label:nth-child(1)  img {\n         background-color: #1ABC9C;\n}\n.matrix-pre-loader-img-container label:nth-child(2) img{\n     background-color: #34495E;\n}\n.matrix-pre-loader-img-container label:nth-child(3) img{\n     background-color: #F39C12;\n}\n.matrix-pre-loader-img-container label:nth-child(4) img{\n     background-color: #9B59B6;\n}\n.matrix-pre-loader-img-container label:nth-child(5) img{\n     background-color: #3498DB;\n}\n.matrix-pre-loader-img-container label:nth-child(6) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(7) img{\n     background-color: #2ECC71;\n}\n.matrix-pre-loader-img-container label:nth-child(8) img{\n     background-color: #2C3E50;\n}\n.matrix-pre-loader-img-container label:nth-child(9) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(10) img{\n     background-color: #8E44AD;\n}\n.matrix-pre-loader-img-container label:nth-child(11) img{\n     background-color: #2980B9;\n}\n.matrix-pre-loader-img-container label:nth-child(12) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(13) img{\n     background-color: #2C3E50;\n}.matrix-pre-loader-img-container label:nth-child(14) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(15) img{\n     background-color: #2980B9;\n}\n.el-header{\n     padding: 0 5px;\n     margin: 10px 0px;\n}\n#matrixloader_app .el-tabs--left .el-tabs__header.is-left{\n     margin-right: 0px;\n}\n#matrixloader_app .el-tabs--border-card{\n     box-shadow: none!important;\n}\n /*sub menu*/\n.el-tabs--left .el-tabs__header.is-left {\n}\n.el-tabs__content .tab-title{\n     background: #f1f1f1;\n     padding:10px 15px;\n}\n.el-tabs--border-card .el-tabs__content {\n     padding: 0px!important;\n}\n.el-form-item__label-wrap, .el-form-item__content{\n     margin: 0px!important;\n}\n.el-form-item {\n     padding: 0px 20px;\n}\n.el-form-item__label-wrap{\n     float: none!important;\n}\n.is-disabled,.el-tabs__nav-next {\n     display: none;\n}\n.el-tabs--left.el-tabs--border-card .el-tabs__item.is-left {\n     color:     #5c5b59;\n}\n.el-input-number__decrease {\n     left: 3px!important;\n}\n.el-tabs--left .el-tabs__nav-wrap.is-left.is-scrollable, .el-tabs--left .el-tabs__nav-wrap.is-right.is-scrollable, .el-tabs--right .el-tabs__nav-wrap.is-left.is-scrollable, .el-tabs--right .el-tabs__nav-wrap.is-right.is-scrollable {\n     padding: 38px 0!important;\n}\n.el-tabs--left .el-tabs__nav.is-left{\n     min-height: 450px;\n}\n.el-form-item__label{\n     float: none!important;\n}\n", ""]);
+exports.push([module.i, "\n.el-slider__runway {\n     width: 100%;\n     height: 6px;\n     margin: 16px 0;\n     background-color: #e4e7ed;\n     border-radius: 3px;\n     position: relative;\n     cursor: pointer;\n     vertical-align: middle;\n}\n.el-slider:after, .el-slider:before {\n     display: table;\n     content: \"\";\n}\n.el-slider__button-wrapper .el-tooltip, .el-slider__button-wrapper:after {\n     display: inline-block;\n     vertical-align: middle;\n}\n.el-slider__bar {\n     height: 6px;\n     background-color: #409eff;\n     border-top-left-radius: 3px;\n     border-bottom-left-radius: 3px;\n     position: absolute;\n}\n.el-slider__button-wrapper {\n     height: 36px;\n     width: 36px;\n     position: absolute;\n     z-index: 1001;\n     top: -15px;\n     transform: translateX(-50%);\n     background-color: transparent;\n     text-align: center;\n     -webkit-user-select: none;\n        -moz-user-select: none;\n         -ms-user-select: none;\n             user-select: none;\n     line-height: normal;\n}\n.el-slider__button {\n     width: 16px;\n     height: 16px;\n     border: 2px solid #409eff;\n     background-color: #fff;\n     border-radius: 50%;\n     transition: .2s;\n     -webkit-user-select: none;\n        -moz-user-select: none;\n         -ms-user-select: none;\n             user-select: none;\n}\n.el-slider__button-wrapper:after {\n     content: \"\";\n     height: 100%;\n}\n.el-card  {\n     border-radius: 0px!important;\n}\n.matrix-card .el-card__body{\n     padding: 0px!important;\n}\n.matrix-admin-form .el-select{\n     width: 100%;\n}.matrix-admin-form .el-select .el-input__inner{\n    background-color: #fff;\n}\n.matrix-admin-form .img-holder{\n      max-width: 70px;\n      padding: 5px;\n      background-color: #dddddd;\n}\n.bg-dark{\n     background: #99a9bf;\n}\n.grid-content{\n     border: 1px solid #eee;\n}\n.matrix-admin-form .el-input-group__append, .el-input-group__prepend{\n     border-color: #7e8993;\n}\n.matrix-admin-form .el-radio__input{\n     vertical-align: top;\n}\n.img-holder-option{\n     padding : 10px;\n     width: 2rem;\n     height:2em;\n}\n.blurDiv{\n     opacity: .4;\n}\n.pull-right{\n     float: right;\n}\n.matrix-pre-loader-img-container label:nth-child(1)  img {\n         background-color: #1ABC9C;\n}\n.matrix-pre-loader-img-container label:nth-child(2) img{\n     background-color: #34495E;\n}\n.matrix-pre-loader-img-container label:nth-child(3) img{\n     background-color: #F39C12;\n}\n.matrix-pre-loader-img-container label:nth-child(4) img{\n     background-color: #9B59B6;\n}\n.matrix-pre-loader-img-container label:nth-child(5) img{\n     background-color: #3498DB;\n}\n.matrix-pre-loader-img-container label:nth-child(6) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(7) img{\n     background-color: #2ECC71;\n}\n.matrix-pre-loader-img-container label:nth-child(8) img{\n     background-color: #2C3E50;\n}\n.matrix-pre-loader-img-container label:nth-child(9) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(10) img{\n     background-color: #8E44AD;\n}\n.matrix-pre-loader-img-container label:nth-child(11) img{\n     background-color: #2980B9;\n}\n.matrix-pre-loader-img-container label:nth-child(12) img{\n     background-color: #E74C3C;\n}\n.matrix-pre-loader-img-container label:nth-child(13) img{\n     background-color: #2C3E50;\n}.matrix-pre-loader-img-container label:nth-child(14) img{\n     background-color: #F1C40F;\n}\n.matrix-pre-loader-img-container label:nth-child(15) img{\n     background-color: #2980B9;\n}\n.el-header{\n     padding: 0 5px;\n     margin: 10px 0px;\n}\n#matrixloader_app .el-tabs--left .el-tabs__header.is-left{\n     margin-right: 0px;\n}\n#matrixloader_app .el-tabs--border-card{\n     box-shadow: none!important;\n}\n /*sub menu*/\n.el-tabs--left .el-tabs__header.is-left {\n}\n.el-tabs__content .tab-title{\n     background: #f1f1f1;\n     padding:10px 15px;\n}\n.el-tabs--border-card .el-tabs__content {\n     padding: 0px!important;\n}\n.el-form-item__label-wrap, .el-form-item__content{\n     margin: 0px!important;\n}\n.el-form-item {\n     padding: 0px 20px;\n}\n.el-form-item__label-wrap{\n     float: none!important;\n}\n.is-disabled,.el-tabs__nav-next {\n     display: none;\n}\n.el-tabs--left.el-tabs--border-card .el-tabs__item.is-left {\n     color:     #5c5b59;\n}\n.el-input-number__decrease {\n     left: 3px!important;\n}\n.el-tabs--left .el-tabs__nav-wrap.is-left.is-scrollable, .el-tabs--left .el-tabs__nav-wrap.is-right.is-scrollable, .el-tabs--right .el-tabs__nav-wrap.is-left.is-scrollable, .el-tabs--right .el-tabs__nav-wrap.is-right.is-scrollable {\n     padding: 38px 0!important;\n}\n.el-tabs--left .el-tabs__nav.is-left{\n     min-height: 450px;\n}\n.el-form-item__label{\n     float: none!important;\n}\n.active-matrix-preloader{\n   color: #409EFF;\n   font-weight:500;\n   font-size:14px;\n   height: 20px;\n}\n.inactive{\n   color:red;\n   font-weight:500;\n   font-size:14px;\n   height: 20px;\n}\n.inactive-pluign-matrixloader .matrix-admin-form,.inactive-pluign-matrixloader .matrix-preloader-preview-area{\n     opacity:.5;\n     pointer-events:none;\n}\n", ""]);
 
 // exports
 
@@ -1632,15 +1691,58 @@ var render = function() {
         [
           _c(
             "el-container",
+            {
+              class:
+                _vm.formData.active == false
+                  ? "matrix-admin-form inactive-pluign-matrixloader"
+                  : ""
+            },
             [
               _c("el-col", { attrs: { span: 13 } }, [
                 _c(
                   "div",
                   { staticClass: "grid-content " },
                   [
-                    _c("el-header", [
-                      _c("h2", [_vm._v("Setup Your Pre Loader")])
-                    ]),
+                    _c(
+                      "el-header",
+                      [
+                        _c("h2", [_vm._v("Setup Your Preloader")]),
+                        _vm._v(" "),
+                        _c("el-switch", {
+                          on: {
+                            change: function($event) {
+                              return _vm.submitForm()
+                            }
+                          },
+                          model: {
+                            value: _vm.formData.active,
+                            callback: function($$v) {
+                              _vm.$set(_vm.formData, "active", $$v)
+                            },
+                            expression: "formData.active"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            class:
+                              _vm.formData.active == true
+                                ? "active-matrix-preloader"
+                                : "inactive"
+                          },
+                          [
+                            !_vm.formData.active
+                              ? _c("span", [_vm._v("In")])
+                              : _vm._e(),
+                            _vm._v(
+                              " Active\n                                  "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c(
                       "el-main",
@@ -1655,8 +1757,7 @@ var render = function() {
                                 staticClass: "matrix-admin-form",
                                 attrs: {
                                   "hide-required-asterisk": "",
-                                  model: _vm.formData,
-                                  l: ""
+                                  model: _vm.formData
                                 }
                               },
                               [
@@ -1793,6 +1894,60 @@ var render = function() {
                                                   "el-form-item",
                                                   {
                                                     attrs: {
+                                                      label: "Show",
+                                                      prop: "region"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "el-select",
+                                                      {
+                                                        attrs: {
+                                                          placeholder: ""
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.formData
+                                                              .show_per_session,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.formData,
+                                                              "show_per_session",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "formData.show_per_session"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c("el-option", {
+                                                          attrs: {
+                                                            label: "Always",
+                                                            value: "false"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("el-option", {
+                                                          attrs: {
+                                                            label:
+                                                              "Once Per Session",
+                                                            value: "true"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "el-form-item",
+                                                  {
+                                                    attrs: {
                                                       label: "Exclude Page/Post"
                                                     }
                                                   },
@@ -1876,6 +2031,36 @@ var render = function() {
                                                           1
                                                         )
                                                       : _vm._e()
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "el-form-item",
+                                                  {
+                                                    attrs: {
+                                                      label: "Show Close Button"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("el-switch", {
+                                                      model: {
+                                                        value:
+                                                          _vm.formData
+                                                            .close_button_on,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.formData,
+                                                            "close_button_on",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "formData.close_button_on"
+                                                      }
+                                                    })
                                                   ],
                                                   1
                                                 )
@@ -2027,54 +2212,94 @@ var render = function() {
                                                         _vm._l(
                                                           _vm.image_list,
                                                           function(img) {
-                                                            return _c(
-                                                              "el-radio",
-                                                              {
-                                                                key: img,
-                                                                attrs: {
-                                                                  label: img
-                                                                },
-                                                                on: {
-                                                                  change: function(
-                                                                    $event
-                                                                  ) {
-                                                                    _vm.formData.custom_img = false
-                                                                  }
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    _vm.formData
-                                                                      .image,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      _vm.formData,
-                                                                      "image",
-                                                                      $$v
+                                                            return img != "none"
+                                                              ? _c(
+                                                                  "el-radio",
+                                                                  {
+                                                                    key: img,
+                                                                    attrs: {
+                                                                      label: img
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        _vm.formData.custom_img = false
+                                                                      }
+                                                                    },
+                                                                    model: {
+                                                                      value:
+                                                                        _vm
+                                                                          .formData
+                                                                          .image,
+                                                                      callback: function(
+                                                                        $$v
+                                                                      ) {
+                                                                        _vm.$set(
+                                                                          _vm.formData,
+                                                                          "image",
+                                                                          $$v
+                                                                        )
+                                                                      },
+                                                                      expression:
+                                                                        "formData.image"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("img", {
+                                                                      staticClass:
+                                                                        "img-holder-option",
+                                                                      class: {
+                                                                        blurDiv:
+                                                                          _vm
+                                                                            .formData
+                                                                            .custom_img
+                                                                      },
+                                                                      attrs: {
+                                                                        src: img,
+                                                                        alt: ""
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              : _c(
+                                                                  "el-radio",
+                                                                  {
+                                                                    key: img,
+                                                                    attrs: {
+                                                                      label: img
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        _vm.formData.custom_img = false
+                                                                      }
+                                                                    },
+                                                                    model: {
+                                                                      value:
+                                                                        _vm
+                                                                          .formData
+                                                                          .image,
+                                                                      callback: function(
+                                                                        $$v
+                                                                      ) {
+                                                                        _vm.$set(
+                                                                          _vm.formData,
+                                                                          "image",
+                                                                          $$v
+                                                                        )
+                                                                      },
+                                                                      expression:
+                                                                        "formData.image"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                           None\n                                                        "
                                                                     )
-                                                                  },
-                                                                  expression:
-                                                                    "formData.image"
-                                                                }
-                                                              },
-                                                              [
-                                                                _c("img", {
-                                                                  staticClass:
-                                                                    "img-holder-option",
-                                                                  class: {
-                                                                    blurDiv:
-                                                                      _vm
-                                                                        .formData
-                                                                        .custom_img
-                                                                  },
-                                                                  attrs: {
-                                                                    src: img,
-                                                                    alt: ""
-                                                                  }
-                                                                })
-                                                              ]
-                                                            )
+                                                                  ]
+                                                                )
                                                           }
                                                         ),
                                                         _vm._v(" "),
@@ -2822,17 +3047,155 @@ var render = function() {
                                                           {
                                                             attrs: {
                                                               label:
-                                                                "Animate In"
+                                                                "Loader Animate In"
                                                             }
                                                           },
                                                           [
                                                             _c(
-                                                              "el-input",
+                                                              "el-select",
                                                               {
                                                                 attrs: {
+                                                                  filterable:
+                                                                    "",
+                                                                  clearable: "",
                                                                   placeholder:
                                                                     "none",
                                                                   type: "text"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm.formData
+                                                                      .loader_animation_in,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.formData,
+                                                                      "loader_animation_in",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "formData.loader_animation_in"
+                                                                }
+                                                              },
+                                                              _vm._l(
+                                                                _vm.animate_class_list_array,
+                                                                function(item) {
+                                                                  return _c(
+                                                                    "el-option",
+                                                                    {
+                                                                      key: item,
+                                                                      attrs: {
+                                                                        label: item,
+                                                                        value: item
+                                                                      }
+                                                                    }
+                                                                  )
+                                                                }
+                                                              ),
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "el-col",
+                                                      { attrs: { span: 24 } },
+                                                      [
+                                                        _c(
+                                                          "el-form-item",
+                                                          {
+                                                            attrs: {
+                                                              label:
+                                                                "Loader Animate Out"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "el-select",
+                                                              {
+                                                                attrs: {
+                                                                  filterable:
+                                                                    "",
+                                                                  clearable: "",
+                                                                  placeholder:
+                                                                    "none",
+                                                                  type: "text"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm.formData
+                                                                      .loader_animation_out,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.formData,
+                                                                      "loader_animation_out",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "formData.loader_animation_out"
+                                                                }
+                                                              },
+                                                              _vm._l(
+                                                                _vm.animate_class_list_array,
+                                                                function(item) {
+                                                                  return _c(
+                                                                    "el-option",
+                                                                    {
+                                                                      key: item,
+                                                                      attrs: {
+                                                                        label: item,
+                                                                        value: item
+                                                                      }
+                                                                    }
+                                                                  )
+                                                                }
+                                                              ),
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "el-row",
+                                                  [
+                                                    _c(
+                                                      "el-col",
+                                                      { attrs: { span: 12 } },
+                                                      [
+                                                        _c(
+                                                          "el-form-item",
+                                                          {
+                                                            attrs: {
+                                                              label:
+                                                                "Text Animation"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "el-select",
+                                                              {
+                                                                attrs: {
+                                                                  filterable:
+                                                                    "",
+                                                                  clearable: "",
+                                                                  placeholder:
+                                                                    "Select"
                                                                 },
                                                                 model: {
                                                                   value:
@@ -2851,59 +3214,22 @@ var render = function() {
                                                                     "formData.text_animation_in"
                                                                 }
                                                               },
-                                                              [
-                                                                _c(
-                                                                  "template",
-                                                                  {
-                                                                    slot:
-                                                                      "append"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "el-popover",
-                                                                      {
-                                                                        attrs: {
-                                                                          placement:
-                                                                            "top-start",
-                                                                          title:
-                                                                            "Animation",
-                                                                          width:
-                                                                            "220",
-                                                                          trigger:
-                                                                            "hover",
-                                                                          content:
-                                                                            "You can use animation class from Extra Menu tab"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "el-button",
-                                                                          {
-                                                                            attrs: {
-                                                                              slot:
-                                                                                "reference"
-                                                                            },
-                                                                            slot:
-                                                                              "reference"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "i",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "el-icon-info"
-                                                                              }
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ],
-                                                                      1
-                                                                    )
-                                                                  ],
-                                                                  1
-                                                                )
-                                                              ],
-                                                              2
+                                                              _vm._l(
+                                                                _vm.animate_class_list_array,
+                                                                function(item) {
+                                                                  return _c(
+                                                                    "el-option",
+                                                                    {
+                                                                      key: item,
+                                                                      attrs: {
+                                                                        label: item,
+                                                                        value: item
+                                                                      }
+                                                                    }
+                                                                  )
+                                                                }
+                                                              ),
+                                                              1
                                                             )
                                                           ],
                                                           1
@@ -2914,95 +3240,94 @@ var render = function() {
                                                     _vm._v(" "),
                                                     _c(
                                                       "el-col",
-                                                      { attrs: { span: 24 } },
+                                                      { attrs: { span: 12 } },
                                                       [
                                                         _c(
                                                           "el-form-item",
                                                           {
                                                             attrs: {
                                                               label:
-                                                                "Animate Out"
+                                                                "Text Animation Type"
                                                             }
                                                           },
                                                           [
                                                             _c(
-                                                              "el-input",
+                                                              "el-select",
                                                               {
                                                                 attrs: {
+                                                                  filterable:
+                                                                    "",
+                                                                  clearable: "",
                                                                   placeholder:
-                                                                    "none",
-                                                                  type: "text"
+                                                                    "Select"
                                                                 },
                                                                 model: {
                                                                   value:
                                                                     _vm.formData
-                                                                      .text_animation_out,
+                                                                      .text_animation_in_type,
                                                                   callback: function(
                                                                     $$v
                                                                   ) {
                                                                     _vm.$set(
                                                                       _vm.formData,
-                                                                      "text_animation_out",
+                                                                      "text_animation_in_type",
                                                                       $$v
                                                                     )
                                                                   },
                                                                   expression:
-                                                                    "formData.text_animation_out"
+                                                                    "formData.text_animation_in_type"
                                                                 }
                                                               },
                                                               [
                                                                 _c(
-                                                                  "template",
+                                                                  "el-option",
                                                                   {
-                                                                    slot:
-                                                                      "append"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "el-popover",
-                                                                      {
-                                                                        attrs: {
-                                                                          placement:
-                                                                            "top-start",
-                                                                          title:
-                                                                            "Animation",
-                                                                          width:
-                                                                            "220",
-                                                                          trigger:
-                                                                            "hover",
-                                                                          content:
-                                                                            "You can use animation class from Extra Menu tab"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "el-button",
-                                                                          {
-                                                                            attrs: {
-                                                                              slot:
-                                                                                "reference"
-                                                                            },
-                                                                            slot:
-                                                                              "reference"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "i",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "el-icon-info"
-                                                                              }
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ],
-                                                                      1
-                                                                    )
-                                                                  ],
-                                                                  1
+                                                                    attrs: {
+                                                                      label:
+                                                                        "Reverse",
+                                                                      value:
+                                                                        "reverse"
+                                                                    }
+                                                                  }
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "el-option",
+                                                                  {
+                                                                    attrs: {
+                                                                      label:
+                                                                        "Shuffle",
+                                                                      value:
+                                                                        "shuffle"
+                                                                    }
+                                                                  }
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "el-option",
+                                                                  {
+                                                                    attrs: {
+                                                                      label:
+                                                                        "Sync",
+                                                                      value:
+                                                                        "Sync"
+                                                                    }
+                                                                  }
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "el-option",
+                                                                  {
+                                                                    attrs: {
+                                                                      label:
+                                                                        "Sequence",
+                                                                      value:
+                                                                        "sequence"
+                                                                    }
+                                                                  }
                                                                 )
                                                               ],
-                                                              2
+                                                              1
                                                             )
                                                           ],
                                                           1
@@ -3061,7 +3386,7 @@ var render = function() {
               _c("el-col", { attrs: { span: 11 } }, [
                 _c(
                   "div",
-                  { staticClass: "grid-content" },
+                  { staticClass: "grid-content matrix-preloader-preview-area" },
                   [
                     _c(
                       "el-header",
@@ -3350,7 +3675,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -3359,7 +3689,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -3699,7 +4029,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nakib/Practice/wp_lab/wp-content/plugins/matrix-pre-loader/src/js/main.js */"./src/js/main.js");
+module.exports = __webpack_require__(/*! C:\Users\Asus\Local Sites\wpfluentforms\app\public\wp-content\plugins\matrix-pre-loader\src\js\main.js */"./src/js/main.js");
 
 
 /***/ })

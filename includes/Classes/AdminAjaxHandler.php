@@ -65,9 +65,13 @@ class AdminAjaxHandler {
             'loader_delay' =>(!isset($postedData['loader_delay'])&& is_int($_POST['loader_delay']) ? 0 :sanitize_text_field ($postedData['loader_delay']) )  ,
             'wait_image' =>(!isset($postedData['wait_image'])&& is_int($_POST['wait_image']) ? 0 :sanitize_text_field ($postedData['wait_image']) )  ,
             'image_offset' =>(!isset($postedData['image_offset'])&& is_int($_POST['image_offset']) ? 0 :sanitize_text_field ($postedData['image_offset']) )  ,
+            'loader_animation_in' =>isset($postedData['loader_animation_in']) ? sanitize_text_field ($postedData['loader_animation_in']) : ''  ,
+            'loader_animation_out' =>isset($postedData['loader_animation_out']) ? sanitize_text_field ($postedData['loader_animation_out'] ): ''  ,
             'text_animation_in' =>isset($postedData['text_animation_in']) ? sanitize_text_field ($postedData['text_animation_in']) : ''  ,
-            'text_animation_out' =>isset($postedData['text_animation_out']) ? sanitize_text_field ($postedData['text_animation_out'] ): ''  ,
-            'text_animation_loop' =>isset($postedData['text_animation_loop']) ? sanitize_text_field ($postedData['text_animation_loop']) : false  ,
+            'text_animation_in_type' =>isset($postedData['text_animation_in_type']) ? sanitize_text_field ($postedData['text_animation_in_type']) : ''  ,
+            'active' =>isset($postedData['active']) ? rest_sanitize_boolean ($postedData['active']) : true  ,
+            'close_button_on' =>isset($postedData['close_button_on']) ? rest_sanitize_boolean ($postedData['close_button_on']) : false  ,
+            'show_per_session' =>isset($postedData['show_per_session']) ? rest_sanitize_boolean ($postedData['show_per_session']) : false  ,
         );
 
 
@@ -103,6 +107,7 @@ class AdminAjaxHandler {
                 continue;
             }
         }
+        $images[] = 'none';
         return $images;
     }
 
