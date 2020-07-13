@@ -55,8 +55,7 @@ require('./jquery.lettering.js');
                 let animate_out = window.matrixloaderPublic.loader_animation_out;
                 if(animate_out != ''){
 
-                     let x =document.getElementsByClassName("loader-text-inner")[0]; x.remove();
-                     let x2 =document.getElementsByClassName("loader-inner")[0]; x2.remove();
+                    let x =document.getElementsByClassName("loader-inner")[0]; x.remove();
                     animateCSS('.loader-section',animate_out).then((message) => {
                         document.body.classList.add( 'loaded' )
                         removeElement();

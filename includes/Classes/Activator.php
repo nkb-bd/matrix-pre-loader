@@ -37,25 +37,34 @@ class Activator
         //  no table required for now
 
         $default = array(
-            'text'         => '',
+            'text' => 'Loading . . .',
+            'location' => 'full',
+            'exclude' =>
+                array (
+                ),
+            'bgcolor' => '#CD1D1D',
+            'bg_image' => '',
+            'opacity' => '1',
+            'width' => '100',
+            'height' => '100',
+            'matrix_style' => 'false',
+            'font_size' => '20',
+            'font_color' => '#F2EEEE',
             'image'        => MATRIXLOADER_URL.'assets/images/puff.svg',
-            'location'     =>'full',
-            'bgcolor'      =>'#efefef',
-            'bg_image'      =>'',
-            'opacity'      =>1,
-            'exclude'     =>array(),
-            'font_size'      =>'20',
-            'font_color'      =>'#333',
-            'width'        =>'100',
-            'height'       =>'100',
-            'loader_delay'       =>'600',
-            'wait_image'       =>'true',
-            'image_offset'       =>60,
-            'loader_animation_in'       =>'',
-            'loader_animation_out'       =>'flipOutY',
-            'text_animation_loop'       =>false,
-            'matrix_style' =>false
+            'custom_img' => 'false',
+            'loader_delay' => '1000',
+            'wait_image' => 'true',
+            'image_offset' => '60',
+            'loader_animation_in' => '',
+            'loader_animation_out' => 'fadeOutDown',
+            'text_animation_in' => 'fadeIn',
+            'text_animation_in_type' => 'sequence',
+            'active' => true,
+            'close_button_on' => false,
+            'show_per_session' => false,
         );
+
+
         if ( ! get_option( 'matrix_pre_loader_option' ) ) {
             update_option( 'matrix_pre_loader_option', $default );
         }

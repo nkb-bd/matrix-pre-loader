@@ -9,10 +9,9 @@ class Menu
     public function register()
     {
         add_action( 'admin_menu', array($this, 'addMenus') );
-
         add_action('wp_footer', 'matrix_loader_footer_info');
-
         add_filter('admin_footer_text', array($this, 'footerMessage'));
+        add_filter('plugin_action_links_'.MATRIXLOADER_BASENAME, array($this,'settings_link'));
 
 
 
@@ -24,7 +23,7 @@ class Menu
         $menuPermission = 'manage_options';
 
 
-        $title = "Matrix Pre Loader";
+        $title = "Preloader Matrix";
 
         add_options_page(
             $title,
@@ -76,6 +75,14 @@ class Menu
         if(true){
             echo "string";
         }
+    }
+
+    public function settings_link($links)
+    {
+        $links[] = '<a href="' .
+            admin_url( 'options-general.php?page=matrixpreloader#/' ) .
+            '">' . __('Settings') . '</a>';
+        return $links;
     }
 
     public function getIcon()

@@ -38,7 +38,7 @@ class LoaderController
     function __construct()
     {
 
-        
+
         $data = get_option( 'matrix_pre_loader_option' );
         // echo "<pre>";
         // print_r($data);
@@ -64,9 +64,9 @@ class LoaderController
         $this->text_animation_in      = isset($data['text_animation_in']) && $data['text_animation_in']!='' ?  $data['text_animation_in'] : '';
         $this->text_animation_in_type      = isset($data['text_animation_in_type']) && $data['text_animation_in_type']!='' ?  $data['text_animation_in_type'] : '';
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
-        $this->close_button_on  = ($data['close_button_on'] == 'true') ? true : false;
+        $this->close_button_on  = (isset($data['close_button_on']) && $data['close_button_on'] == true) ? true : false;
         $this->show_per_session = isset($data['show_per_session']) && $data['show_per_session']== 'true' ?true : false;
-        $this->active     = ($data['active'] == true) ? true : false;
+        $this->active     = (isset($data['active']) &&$data['active'] == false) ? false : true;
 
 
 
@@ -74,6 +74,8 @@ class LoaderController
 
     public function register()
     {
+
+
 
         if(!$this->active){
           return;
@@ -284,8 +286,10 @@ class LoaderController
         }else{
             $animationClass = '';
         }
+//        echo $this->preloader_image;exit;
         // change svg color
-        if(!empty($this->preloader_image) && $this->preloader_image != 'http://none' ){
+        
+        if(!empty($this->preloader_image) && $this->preloader_image != 'http://none' && $this->preloader_image !=' ' ){
           $svg = file_get_contents($this->preloader_image);
           $svg_colored = str_replace('#fff',$this->font_color,$svg);
           $svg_colored = str_replace('#','%23',$svg_colored);

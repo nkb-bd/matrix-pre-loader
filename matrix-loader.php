@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Matrix Pre Loader
+Plugin Name: Preloader Matrix
 Description: A simple  pre loader plugin for WordPres website.
 Version: 2.0.0
 Author: Lukman Nakib
@@ -37,6 +37,7 @@ if(!defined('MATRIXLOADER_VERSION')){
     define('MATRIXLOADER_MAIN_FILE', __FILE__);
     define('MATRIXLOADER_URL', plugin_dir_url(__FILE__));
     define('MATRIXLOADER_DIR', plugin_dir_path(__FILE__));
+    define('MATRIXLOADER_BASENAME', plugin_basename(__FILE__));
 
     require_once(MATRIXLOADER_DIR . 'includes/autoload.php');
 
@@ -53,6 +54,6 @@ if(!defined('MATRIXLOADER_VERSION')){
 
 } else {
     add_action('admin_init', function () {
-        deactivate_plugins(plugin_basename(__FILE__));
+        deactivate_plugins(MATRIXLOADER_BASENAME);
     });
 }
