@@ -1,8 +1,22 @@
 # WordPress Pre Loader Plugin With Vue.js
 
-#### A simple preloader WordPress using vue js.
+#### A simple preloader with style and animations, WordPress using backend with vue js.
 
-## How to :
+* Select & exclude loader display location , for example : entire website or only home page.
+* Pre loaded SVG animation & color customization.
+* Add custom image & background color.
+* Add text & color to loading screen.
+* Add animation to screen & text.
+* Compatible with major browsers.
+* Light weight, Responsive  & fast.
+* Easy to use & no coding required.
+* Delay Time ,Set a minimum load time to prevent the
+pre-loader from disappearing too fast.
+* More then 50 loading animation type
+
+
+[WordPress Repository Link](https://wordpress.org/plugins/matrix-pre-loader/)
+## How to start :
 
 * Clone this repository on your `plugin folder`
 
@@ -11,20 +25,7 @@
 Then activate the plugin from your WP admin dashboard.
 
 
- ### NB: These 3 plugins are already installed on this project, You can use those or remove that if you don't need.
- * element-ui
- * vue-router
- * @Wordpress/hooks
- For more details please check the `package.json` file
- 
- 
- ### After Development Production:
- When your Plugin development complete and you want to use for production. Then run `npm run prod` after that you can delete some files which are already build.
- 
- Files/Folder you should delete on production:
- * node modules 
- * src
- * package-lock.json
+
  
  ### Build on top of this boilerplate
  https://github.com/hasanuzzamanbe/wp-boilerplate-plugin-with-vuejs

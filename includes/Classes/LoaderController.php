@@ -288,7 +288,7 @@ class LoaderController
         }
 //        echo $this->preloader_image;exit;
         // change svg color
-        
+
         if(!empty($this->preloader_image) && $this->preloader_image != 'http://none' && $this->preloader_image !=' ' ){
           $svg = file_get_contents($this->preloader_image);
           $svg_colored = str_replace('#fff',$this->font_color,$svg);
@@ -332,8 +332,8 @@ class LoaderController
                               <?php echo  $svg_img?>
                           </div>
                       </div>
-                      <div class="loader-text-inner"   data-in-effect="<?php echo $this->text_animation_in?>" >
-                          <!-- <?php echo $this->loader_text?> -->
+                      <div class="loader-text-inner"   data-in-effect="animate__animated animate__<?php echo $this->text_animation_in?>" >
+
                           <ul class="texts" style="display: none">
                             <li> <?php echo $this->loader_text?></li>
 

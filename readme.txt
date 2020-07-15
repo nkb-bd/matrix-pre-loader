@@ -8,27 +8,28 @@ Stable tag: 4.5.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Matrix Pre Loader allows you to easily add loading animation, image to your website
+Add loading style, image, animation, image to your website. Very lightweight and was
 
 == Description ==
-Add your own image, gif or pre loaded loading svg animation, set where to show this loading animation. A matrix style loader is also available.
+Add your own image, gif or pre loaded loading svg & text animation, set where to show this loading animation. A matrix style loader is also available.
 
 I will keep updating this plugin if some one finds it useful for their website.
 [Follow plugin development on Github.](https://github.com/nkb-bd/matrix-pre-loader/)
 
 
-### The Features
+### Features
 
-* Pre loaded SVG animation.
-* Custom background color.
-* Options to change loader display location , for example : entire website or only home page.
-* Delay Time ,Set a minimum load time to prevent the pre-loader from disappearing too fast.
-* Option to add custom image.
-* Option to add text to loading screen
+* Select & exclude loader display location , for example : entire website or only home page.
+* Pre loaded SVG animation & color customization.
+* Add custom image & background color.
+* Add text & color to loading screen.
+* Add animation to screen & text.
 * Compatible with major browsers.
-* Light weight & fast.
-* Responsive & retina ready.
+* Light weight, Responsive  & fast.
 * Easy to use & no coding required.
+* Delay Time ,Set a minimum load time to prevent the
+pre-loader from disappearing too fast.
+* More then 50 loading animation type
 
 
 == Installation ==
