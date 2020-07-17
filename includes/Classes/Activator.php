@@ -35,7 +35,6 @@ class Activator
     private function migrate()
     {
         //  no table required for now
-        delete_option( 'matrix_pre_loader_option' );
         $default = array(
             'text' => 'Loading . . .',
             'location' => 'full',
@@ -65,10 +64,10 @@ class Activator
         );
 
 
-        if ( ! get_option( 'matrix_pre_loader_option' ) ) {
-            update_option( 'matrix_pre_loader_option', $default );
+        if ( ! get_option( 'matrix_pre_loader_option2' ) ) {
+            update_option( 'matrix_pre_loader_option2', $default );
         }
-        update_option( 'matrix_pre_loader_option', $default );
+        update_option( 'matrix_pre_loader_option2', $default );
 
     }
 

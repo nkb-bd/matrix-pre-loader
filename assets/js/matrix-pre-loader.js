@@ -462,8 +462,14 @@ __webpack_require__(/*! ./jquery.lettering.js */ "./src/js/jquery.lettering.js")
       reverse: animation_type === 'reverse'
     }
   });
-  jQuery('.loader-text-inner').on('outAnimationEnd.tlt', function () {// do something
-  });
+  var animation_loop = window.matrixloaderPublic.text_animation_in_loop;
+
+  if (animation_loop) {
+    jQuery('.loader-text-inner').on('inAnimationEnd.tlt', function () {
+      jQuery('.loader-text-inner').textillate('start');
+    });
+  }
+
   var close = document.getElementsByClassName("loader-inner-closer")[0];
   close.addEventListener('click', function () {
     removeElement();

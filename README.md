@@ -3,19 +3,20 @@
 #### A simple preloader with style and animations, WordPress using backend with vue js.
 
 * Select & exclude loader display location , for example : entire website or only home page.
+* Show only once per session or always.
 * Pre loaded SVG animation & color customization.
-* Add custom image & background color.
+* Add custom image, background color, opacity.
 * Add text & color to loading screen.
 * Add animation to screen & text.
+* Show close button.
 * Compatible with major browsers.
 * Light weight, Responsive  & fast.
 * Easy to use & no coding required.
 * Delay Time ,Set a minimum load time to prevent the
 pre-loader from disappearing too fast.
-* More then 50 loading animation type
+* More then 50 loading animation type 
 
-
-[WordPress Repository Link](https://wordpress.org/plugins/matrix-pre-loader/)
+[Plugin Link](https://wordpress.org/plugins/matrix-pre-loader/)
 ## How to start :
 
 * Clone this repository on your `plugin folder`

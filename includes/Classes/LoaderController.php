@@ -39,7 +39,7 @@ class LoaderController
     {
 
 
-        $data = get_option( 'matrix_pre_loader_option' );
+        $data = get_option( 'matrix_pre_loader_option2' );
         // echo "<pre>";
         // print_r($data);
 
@@ -63,6 +63,7 @@ class LoaderController
         $this->loader_animation_out      = isset($data['loader_animation_out']) ? $data['loader_animation_out'] : '';
         $this->text_animation_in      = isset($data['text_animation_in']) && $data['text_animation_in']!='' ?  $data['text_animation_in'] : '';
         $this->text_animation_in_type      = isset($data['text_animation_in_type']) && $data['text_animation_in_type']!='' ?  $data['text_animation_in_type'] : '';
+        $this->text_animation_in_loop      = isset($data['text_animation_in_loop']) && $data['text_animation_in_loop']!='' ?  $data['text_animation_in_loop'] : false;
         $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
         $this->close_button_on  = (isset($data['close_button_on']) && $data['close_button_on'] == true) ? true : false;
         $this->show_per_session = isset($data['show_per_session']) && $data['show_per_session']== 'true' ?true : false;
@@ -138,7 +139,7 @@ class LoaderController
                 $matrixloaderPublicVars =array(
                     'loader_delay' =>  (int) sanitize_text_field($this->delay),
                     'font_size' =>  sanitize_text_field($this->font_size),
-                    'wait_image' =>  sanitize_text_field($this->wait_image),
+                    'text_animation_in_loop' =>  sanitize_text_field($this->text_animation_in_loop),
                     'loader_animation_in' =>  sanitize_text_field($this->loader_animation_in),
                     'loader_animation_out' =>  sanitize_text_field($this->loader_animation_out),
                     'text_animation_in_type' =>  sanitize_text_field($this->text_animation_in_type),

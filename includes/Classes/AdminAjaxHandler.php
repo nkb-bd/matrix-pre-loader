@@ -69,18 +69,19 @@ class AdminAjaxHandler {
             'loader_animation_out' =>isset($postedData['loader_animation_out']) ? sanitize_text_field ($postedData['loader_animation_out'] ): ''  ,
             'text_animation_in' =>isset($postedData['text_animation_in']) ? sanitize_text_field ($postedData['text_animation_in']) : ''  ,
             'text_animation_in_type' =>isset($postedData['text_animation_in_type']) ? sanitize_text_field ($postedData['text_animation_in_type']) : ''  ,
+            'text_animation_in_loop' =>isset($postedData['text_animation_in_loop']) ? rest_sanitize_boolean($postedData['text_animation_in_loop']) : false  ,
             'active' =>isset($postedData['active']) ? rest_sanitize_boolean ($postedData['active']) : true  ,
             'close_button_on' =>isset($postedData['close_button_on']) ? rest_sanitize_boolean ($postedData['close_button_on']) : false  ,
             'show_per_session' =>isset($postedData['show_per_session']) ? rest_sanitize_boolean ($postedData['show_per_session']) : false  ,
         );
 
 
-        update_option( 'matrix_pre_loader_option', $data );
+        update_option( 'matrix_pre_loader_option2', $data );
         wp_send_json_success(true);
     }
     protected function getSettingsData()
     {
-        $data = get_option( 'matrix_pre_loader_option' );
+        $data = get_option( 'matrix_pre_loader_option2' );
         $data['image_list'] = $this->getLoaderImg();
         $data['pages_posts'] = $this->getPostsPages();
         wp_send_json_success($data);

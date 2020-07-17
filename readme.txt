@@ -20,10 +20,12 @@ I will keep updating this plugin if some one finds it useful for their website.
 ### Features
 
 * Select & exclude loader display location , for example : entire website or only home page.
+* Show only once per session or always.
 * Pre loaded SVG animation & color customization.
-* Add custom image & background color.
+* Add custom image, background color, opacity.
 * Add text & color to loading screen.
 * Add animation to screen & text.
+* Show close button.
 * Compatible with major browsers.
 * Light weight, Responsive  & fast.
 * Easy to use & no coding required.
@@ -61,11 +63,12 @@ pre-loader from disappearing too fast.
 * Add text animation
 * Fixed elementor issue.
 
-= 1.4 =
+= 2.0 =
 
-* Add exclude post or page option,
+* Add exclude post or page option
 * background image
 * opacity
-* animate.style animation css
-
+* animate.style animation css & animation loop
+* show per session
+* close button
 

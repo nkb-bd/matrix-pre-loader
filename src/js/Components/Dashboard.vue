@@ -348,6 +348,11 @@
                                                                       </el-select>
                                                                   </el-form-item>
                                                               </el-col>
+                                                              <el-col>
+                                                                  <el-form-item label="Text Animation Loop">
+                                                                        <el-switch v-model="formData.text_animation_in_loop"></el-switch>
+                                                                  </el-form-item>
+                                                              </el-col>
 
                                                         </el-row>
 
@@ -440,6 +445,7 @@ export default {
                 text_animation_in_type: '',
                 close_button_on:false,
                 show_per_session:'',
+                text_animation_in_loop:false,
 
             },
 
@@ -530,6 +536,7 @@ export default {
                     this.formData.loader_animation_out=  data.data.loader_animation_out;
                     this.formData.text_animation_in =  data.data.text_animation_in;
                     this.formData.text_animation_in_type =  data.data.text_animation_in_type;
+                    this.formData.text_animation_in_loop =  data.data.text_animation_in_loop;
                     this.formData.close_button_on =  data.data.close_button_on;
                     this.formData.show_per_session =  data.data.show_per_session;
 

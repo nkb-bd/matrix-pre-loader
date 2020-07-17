@@ -3,7 +3,7 @@ require('./jquery.lettering.js');
 
 ( function() {
 
-    var animation_type = window.matrixloaderPublic.text_animation_in_type
+    var animation_type = window.matrixloaderPublic.text_animation_in_type;
     jQuery('.loader-text-inner').textillate({
 
         in:{
@@ -16,10 +16,13 @@ require('./jquery.lettering.js');
 
         }
     });
-    jQuery('.loader-text-inner').on('outAnimationEnd.tlt', function () {
-      // do something
-
-    });
+    var animation_loop = window.matrixloaderPublic.text_animation_in_loop;
+    if(animation_loop){
+        jQuery('.loader-text-inner').on('inAnimationEnd.tlt', function () {
+            jQuery('.loader-text-inner').textillate('start')
+        });
+    }
+   
 
 
 

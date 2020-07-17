@@ -569,6 +569,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
@@ -608,7 +613,8 @@ __webpack_require__.r(__webpack_exports__);
         text_animation_in: '',
         text_animation_in_type: '',
         close_button_on: false,
-        show_per_session: ''
+        show_per_session: '',
+        text_animation_in_loop: false
       }
     };
   },
@@ -700,6 +706,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.formData.loader_animation_out = data.data.loader_animation_out;
         _this3.formData.text_animation_in = data.data.text_animation_in;
         _this3.formData.text_animation_in_type = data.data.text_animation_in_type;
+        _this3.formData.text_animation_in_loop = data.data.text_animation_in_loop;
         _this3.formData.close_button_on = data.data.close_button_on;
         _this3.formData.show_per_session = data.data.show_per_session;
 
@@ -3329,6 +3336,43 @@ var render = function() {
                                                               ],
                                                               1
                                                             )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "el-col",
+                                                      [
+                                                        _c(
+                                                          "el-form-item",
+                                                          {
+                                                            attrs: {
+                                                              label:
+                                                                "Text Animation Loop"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("el-switch", {
+                                                              model: {
+                                                                value:
+                                                                  _vm.formData
+                                                                    .text_animation_in_loop,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.formData,
+                                                                    "text_animation_in_loop",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "formData.text_animation_in_loop"
+                                                              }
+                                                            })
                                                           ],
                                                           1
                                                         )
