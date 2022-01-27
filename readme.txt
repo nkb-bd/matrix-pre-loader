@@ -1,37 +1,38 @@
-=== Matrix Pre Loader ===
+=== Preloader Matrix ===
 Contributors: pyrobd
-Tags: preloader, loader, loading, animation, custom loader,svg
-Tested up to: 5.4
+Tags: preloader, loader, load, page preloader, loader screen
+Tested up to: 5.9
 Requires at least: 4.7.0
 Requires PHP: 5.6
-Stable tag: 4.5.2
-License: GPLv2 or later
+Stable tag: 2.0.1
+License: GPLv2 or laterx
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add loading style, image, animation, image to your website. Very lightweight and was
+Add loading screen, image, text, animation to your website. Lightweight and Easy. Select & exclude location. Also animate the loading text.
 
 == Description ==
-Add your own image, gif or pre loaded loading svg & text animation, set where to show this loading animation. A matrix style loader is also available.
+Add your own image, gif or pre loaded loading SVG & text animation, set where to show this loading animation.
 
-I will keep updating this plugin if some one finds it useful for their website.
-[Follow plugin development on Github.](https://github.com/nkb-bd/matrix-pre-loader/)
+[Check plugin development on Github.](https://github.com/nkb-bd/matrix-pre-loader/)
+[youtube https://www.youtube.com/watch?v=ZhW1N9drvJI]
 
 
 ### Features
 
-* Select & exclude loader display location , for example : entire website or only home page.
-* Show only once per session or always.
+* Select & exclude loader display location, for example : entire website or only home page.
+* Animate loader text with the animation you like
+* Show loader only once per session or always.
 * Pre loaded SVG animation & color customization.
 * Add custom image, background color, opacity.
 * Add text & color to loading screen.
 * Add animation to screen & text.
-* Show close button.
+* Show close button on loader screen.
 * Compatible with major browsers.
 * Light weight, Responsive  & fast.
 * Easy to use & no coding required.
 * Delay Time ,Set a minimum load time to prevent the
 pre-loader from disappearing too fast.
-* More then 50 loading animation type
+* More then 40 loading animation type
 
 
 == Installation ==
@@ -71,4 +72,8 @@ pre-loader from disappearing too fast.
 * animate.style animation css & animation loop
 * show per session
 * close button
+
+= 2.01 =
+* Update WordPress supported version
+
 
