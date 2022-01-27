@@ -64,9 +64,11 @@ class LoaderController
         $this->text_animation_in      = isset($data['text_animation_in']) && $data['text_animation_in']!='' ?  $data['text_animation_in'] : '';
         $this->text_animation_in_type      = isset($data['text_animation_in_type']) && $data['text_animation_in_type']!='' ?  $data['text_animation_in_type'] : '';
         $this->text_animation_in_loop      = isset($data['text_animation_in_loop']) && $data['text_animation_in_loop']!='' ?  $data['text_animation_in_loop'] : false;
-        $this->matrix_style     = ($data['matrix_style'] == 'true') ? true : false;
+        $this->matrix_style     = isset($data['matrix_style']) && $data['matrix_style'] == 'true' ? true : false;
+
         $this->close_button_on  = (isset($data['close_button_on']) && $data['close_button_on'] == true) ? true : false;
-        $this->show_per_session = isset($data['show_per_session']) && $data['show_per_session']== 'true' ?true : false;
+        $this->show_per_session = isset($data['show_per_session']) && $data['show_per_session']== '1' ? '1' : '0';
+//
         $this->active     = (isset($data['active']) &&$data['active'] == false) ? false : true;
 
 
@@ -124,6 +126,7 @@ class LoaderController
 
             //check elementor activation and preview mode
             if ( did_action( 'elementor/loaded' ) ) {
+                // echo "string"; exit;
                 if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
                     // dont print link
                     $this->wait_image = false;
@@ -229,9 +232,8 @@ class LoaderController
                         width: 50%;
                         height: 100%;
                         background: <?php echo $this->bg_color; ?> ;
-                        opacity: <?php echo $this->opacity?>;
-                        transition: all 0s;
-                        will-change: transform; }
+                        opacity: <?php echo $this->opacity?>!important;
+                       }
 
                     #matrix-preloader-wrapper .loader-section.section-box {
                         top: 0;
@@ -283,18 +285,25 @@ class LoaderController
         $matrix_style = $this->matrix_style== 'true'? true : false;
         //animation
         if($this->loader_animation_in!=''){
-            $animationClass = 'animate__animated '.$this->loader_animation_in;
+            $animationClass = 'animate__animated animate__'.$this->loader_animation_in;
         }else{
             $animationClass = '';
         }
-//        echo $this->preloader_image;exit;
         // change svg color
 
         if(!empty($this->preloader_image) && $this->preloader_image != 'http://none' && $this->preloader_image !=' ' ){
-          $svg = file_get_contents($this->preloader_image);
-          $svg_colored = str_replace('#fff',$this->font_color,$svg);
-          $svg_colored = str_replace('#','%23',$svg_colored);
-          $svg_img =   "<img src='data:image/svg+xml;utf8,".$svg_colored."''>";
+            $temp = explode('.',$this->preloader_image);
+            $ext = array_pop($temp);
+              if ($ext == 'svg'){
+                  $svg = file_get_contents($this->preloader_image);
+                  $svg_colored = str_replace('#fff',$this->font_color,$svg);
+                  $svg_colored = str_replace('#','%23',$svg_colored);
+                  $svg_img =   "<img src='data:image/svg+xml;utf8,".$svg_colored."''>";
+
+              }else{
+                  $svg_img = '<img src="'.$this->preloader_image.'" alt="preloader-matrix" >';
+              }
+
 
         }else{
 

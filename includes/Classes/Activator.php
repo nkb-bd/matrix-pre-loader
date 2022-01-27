@@ -55,12 +55,12 @@ class Activator
             'wait_image' => 'true',
             'image_offset' => '60',
             'loader_animation_in' => '',
-            'loader_animation_out' => 'fadeOutDown',
-            'text_animation_in' => 'fadeIn',
+            'loader_animation_out' => 'fadeMatrixOutDown',
+            'text_animation_in' => 'fadeMatrixIn',
             'text_animation_in_type' => 'sequence',
             'active' => true,
             'close_button_on' => false,
-            'show_per_session' => false,
+            'show_per_session' => '0',
         );
 
 

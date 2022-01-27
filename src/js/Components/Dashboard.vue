@@ -601,7 +601,7 @@ export default {
 
         this.$router.beforeEach((to, from, next) => {
             var self = this;
-            if(to.name =='dashboard'){
+            if(from.name !='dashboard'){
                 next();
 
             }else{

@@ -2,7 +2,7 @@
     <div id="matrixloader_app">
         <div class="matrixloader_main_nav">
             <div class="topnav">
-                <router-link v-for="menuItem in topMenus" :key="menuItem.route" active-class="ninja-tab-active" exact :class="['ninja-tab']" :to="{ name: menuItem.route }">
+                <router-link v-for="menuItem in topMenus" :key="menuItem.route" active-class="matrix-preloader-tab-active" exact :class="['matrix-preloader-tab']" :to="{ name: menuItem.route }">
                     {{ menuItem.title }}
                 </router-link>
                 <el-popover
@@ -44,6 +44,10 @@
                   {
                       route: 'extra',
                       title: 'Extra'
+                  },
+                  {
+                      route: 'support',
+                      title: 'Developer'
                   }
               ])
 
@@ -59,8 +63,7 @@
               route: "get_main_icon_svg"
           }).then((data)=>{
 
-              console.log(data)
-              console.log(data.data)
+             
               this.mainLogo = data.data;
 
               }
@@ -69,7 +72,7 @@
   }
 </script>
 <style>
-    .topnav a.ninja-tab-active {
+    .topnav a.matrix-preloader-tab-active {
         color: #fff!important;
         background-color: #0172aa!important;
         border-bottom: 2px solid #0172aa!important;

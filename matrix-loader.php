@@ -2,8 +2,8 @@
 
 /*
 Plugin Name: Preloader Matrix
-Description: A simple  pre loader plugin for WordPres website.
-Version: 2.0.0
+Description: A simple  preloader plugin with animated text.
+Version: 2.0.1
 Author: Lukman Nakib
 Author URI: https://github.com/nkb-bd
 License: GPLv2 or later
@@ -24,8 +24,6 @@ Text Domain: matrix-pre-loader
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- *
- * Copyright 2019 Plugin Name LLC. All rights reserved.
  */
 
 
@@ -33,7 +31,7 @@ defined('ABSPATH') or die('!');
 
 if(!defined('MATRIXLOADER_VERSION')){
 
-    define('MATRIXLOADER_VERSION', '2.0.0');
+    define('MATRIXLOADER_VERSION', '2.0.1');
     define('MATRIXLOADER_MAIN_FILE', __FILE__);
     define('MATRIXLOADER_URL', plugin_dir_url(__FILE__));
     define('MATRIXLOADER_DIR', plugin_dir_path(__FILE__));

@@ -262,7 +262,7 @@
     minDisplayTime: 2000,
     initialDelay: 0,
     in: {
-      effect: 'fadeInLeftBig',
+      effect: 'fadeMatrixInLeftBig',
       delayScale: 1.5,
       delay: 50,
       sync: false,

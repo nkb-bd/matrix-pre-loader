@@ -47,7 +47,8 @@ class AdminAjaxHandler {
         if(empty($postedData)){
             return wp_send_json_error(false);
         }
-//
+//        echo '<pre>';
+//      print_r($_POST);exit;
         $data =array(
             'text' =>  (!isset($postedData['text']) ? 100 :sanitize_text_field ($postedData['text'])),
             'location' => sanitize_text_field ($postedData['location']),
@@ -72,7 +73,7 @@ class AdminAjaxHandler {
             'text_animation_in_loop' =>isset($postedData['text_animation_in_loop']) ? rest_sanitize_boolean($postedData['text_animation_in_loop']) : false  ,
             'active' =>isset($postedData['active']) ? rest_sanitize_boolean ($postedData['active']) : true  ,
             'close_button_on' =>isset($postedData['close_button_on']) ? rest_sanitize_boolean ($postedData['close_button_on']) : false  ,
-            'show_per_session' =>isset($postedData['show_per_session']) ? rest_sanitize_boolean ($postedData['show_per_session']) : false  ,
+            'show_per_session' =>isset($postedData['show_per_session']) ? sanitize_text_field($postedData['show_per_session']) : '0'  ,
         );
 
 
@@ -82,6 +83,7 @@ class AdminAjaxHandler {
     protected function getSettingsData()
     {
         $data = get_option( 'matrix_pre_loader_option2' );
+
         $data['image_list'] = $this->getLoaderImg();
         $data['pages_posts'] = $this->getPostsPages();
         wp_send_json_success($data);

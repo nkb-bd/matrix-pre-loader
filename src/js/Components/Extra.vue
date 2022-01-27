@@ -7,8 +7,7 @@
        <el-container>
             <el-header>
                 <h2>Thank you for trying the plugin</h2>
-                <p>Do not forget leave review <a href="https://wordpress.org/plugins/matrix-pre-loader/#reviews" target="_blank" class="is-success" type="primary">here</a> if you think you like this plugin :)</p>
-
+               
             </el-header>
             <el-main>
                 Here is a list of few animation class you can use :
@@ -50,7 +49,6 @@
                     <a target="_blank" href="https://animate.style/"> Thanks to animate.style css, for more animation class visit this link</a>
 
                 </el-row>
-                <el-button type="info" plain @click="redirrestUrl()">For support you may knock me</el-button>
             </el-main>
         </el-container>
         </el-card>
