@@ -71,7 +71,11 @@ class LoaderController
 //
         $this->active     = (isset($data['active']) &&$data['active'] == false) ? false : true;
 
-
+        // GSAP settings
+        $this->gsap_animation_preset = isset($data['gsap_animation_preset']) ? $data['gsap_animation_preset'] : '';
+        $this->gsap_custom_text = isset($data['gsap_custom_text']) ? $data['gsap_custom_text'] : 'Loading...';
+        $this->gsap_icon_color = isset($data['gsap_icon_color']) ? $data['gsap_icon_color'] : '#FFFFFF';
+        $this->gsap_text_color = isset($data['gsap_text_color']) ? $data['gsap_text_color'] : '#FFFFFF';
 
     }
 
@@ -138,7 +142,23 @@ class LoaderController
             //            animation library
             wp_enqueue_style('matrixloader_animation_css', MATRIXLOADER_URL.'assets/css/animate.min.css');
 
-            wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery'), MATRIXLOADER_VERSION, false);
+            wp_enqueue_script(
+                'matrixloader-gsap',
+                MATRIXLOADER_URL . 'assets/js/vendor/gsap/gsap.min.js',
+                array(), // No dependencies for GSAP core
+                '3.12.5', // GSAP version
+                true // Load in footer
+            );
+
+            wp_enqueue_script(
+                'matrixloader-gsap-animations',
+                MATRIXLOADER_URL . 'assets/js/gsap-animations.js',
+                array('matrixloader-gsap', 'jquery'), // Added jquery as it's often useful
+                MATRIXLOADER_VERSION, // Use plugin version
+                true // Load in footer
+            );
+
+            wp_enqueue_script( 'matrixloader-plugin-preloader-script', MATRIXLOADER_URL.'assets/js/matrix-pre-loader.js', array('jquery', 'matrixloader-gsap', 'matrixloader-gsap-animations'), MATRIXLOADER_VERSION, false);
                 $matrixloaderPublicVars =array(
                     'loader_delay' =>  (int) sanitize_text_field($this->delay),
                     'font_size' =>  sanitize_text_field($this->font_size),
@@ -146,10 +166,16 @@ class LoaderController
                     'loader_animation_in' =>  sanitize_text_field($this->loader_animation_in),
                     'loader_animation_out' =>  sanitize_text_field($this->loader_animation_out),
                     'text_animation_in_type' =>  sanitize_text_field($this->text_animation_in_type),
+                    // Add new GSAP vars
+                    'gsap_animation_preset' => sanitize_text_field($this->gsap_animation_preset),
+                    'gsap_custom_text' => sanitize_text_field($this->gsap_custom_text),
+                    'gsap_icon_color' => sanitize_hex_color($this->gsap_icon_color), // Use sanitize_hex_color for colors
+                    'gsap_text_color' => sanitize_hex_color($this->gsap_text_color),   // Use sanitize_hex_color for colors
                 );
 
                 wp_localize_script('matrixloader-plugin-preloader-script', 'matrixloaderPublic', $matrixloaderPublicVars);
 
+                // GSAP and gsap-animations are now array dependencies for matrix-pre-loader.js
                 ?>
                 <style type="text/css">
                     #matrix-canvas{
@@ -330,6 +356,21 @@ class LoaderController
         if($matrix_style){
             echo '<canvas id="matrix-canvas"></canvas>';
           }else{
+            // GSAP Preloader HTML
+            if (!empty($this->gsap_animation_preset) && $this->gsap_animation_preset !== '') {
+                echo '<div id="matrix-gsap-preloader" style="display: none;">'; // Initially hidden, JS will show
+                echo '  <div class="matrix-gsap-preloader-inner">';
+                echo '    <div class="gsap-icon-container">'; // Container for icon
+                echo '      <span class="gsap-icon">★</span>'; // Placeholder icon
+                echo '    </div>';
+                echo '    <div class="gsap-text-container">'; // Container for text
+                echo '      <span class="gsap-text">' . esc_html($this->gsap_custom_text) . '</span>';
+                echo '    </div>';
+                echo '  </div>';
+                echo '</div>';
+            }
+            // End GSAP Preloader HTML
+
             ob_start();
               ?>
                   <div id="matrix-preloader-wrapper" >

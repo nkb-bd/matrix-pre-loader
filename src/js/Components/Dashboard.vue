@@ -361,6 +361,35 @@
                                                 </div>
                                             </el-tab-pane>
 
+                                            <el-tab-pane label="GSAP Animations">
+                                                <div class="tab-content">
+                                                    <div class="tab-title">
+                                                        GSAP Animation Settings
+                                                    </div>
+                                                    <div class="tab-body">
+                                                        <el-form-item label="GSAP Animation Preset">
+                                                          <el-select v-model="formData.gsap_animation_preset" placeholder="Select Preset">
+                                                            <el-option label="None" value=""></el-option>
+                                                            <el-option label="Fade In Zoom" value="fadeInZoom"></el-option>
+                                                            <el-option label="Slide In From Sides" value="slideInFromSides"></el-option>
+                                                            <el-option label="Spinner" value="spinner"></el-option>
+                                                          </el-select>
+                                                        </el-form-item>
+
+                                                        <el-form-item label="GSAP Custom Text">
+                                                          <el-input v-model="formData.gsap_custom_text"></el-input>
+                                                        </el-form-item>
+
+                                                        <el-form-item label="GSAP Icon Color">
+                                                          <el-color-picker v-model="formData.gsap_icon_color"></el-color-picker>
+                                                        </el-form-item>
+
+                                                        <el-form-item label="GSAP Text Color">
+                                                          <el-color-picker v-model="formData.gsap_text_color"></el-color-picker>
+                                                        </el-form-item>
+                                                    </div>
+                                                </div>
+                                            </el-tab-pane>
                                         </el-tabs>
 
 
@@ -446,7 +475,10 @@ export default {
                 close_button_on:false,
                 show_per_session:'',
                 text_animation_in_loop:false,
-
+                gsap_animation_preset: '',
+                gsap_custom_text: 'Loading...',
+                gsap_icon_color: '#FFFFFF',
+                gsap_text_color: '#FFFFFF',
             },
 
 
@@ -539,7 +571,10 @@ export default {
                     this.formData.text_animation_in_loop =  data.data.text_animation_in_loop;
                     this.formData.close_button_on =  data.data.close_button_on;
                     this.formData.show_per_session =  data.data.show_per_session;
-
+                    this.formData.gsap_animation_preset = data.data.gsap_animation_preset || '';
+                    this.formData.gsap_custom_text = data.data.gsap_custom_text || 'Loading...';
+                    this.formData.gsap_icon_color = data.data.gsap_icon_color || '#FFFFFF';
+                    this.formData.gsap_text_color = data.data.gsap_text_color || '#FFFFFF';
 
                 if(data.data.custom_img=='true'){
 
